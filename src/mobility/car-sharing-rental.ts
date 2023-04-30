@@ -3,7 +3,7 @@ import { getBaselineIntensity, getParameter } from '../data/database'
 
 /** カーシェアリングのレンタル時のGHG原単位を計算するための引数 */
 
-interface CarSharingRentalIntensityParam {
+export interface CarSharingRentalIntensityParam {
   /** 車の種類 */
   carType: CarType
 }

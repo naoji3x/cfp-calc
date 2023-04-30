@@ -1,7 +1,7 @@
 import { getBaselineAmount, getBaselineIntensity } from '../data/database'
 
 /** 自家用車の維持の活動量を計算するための引数 */
-interface PrivateCarMaintenanceAmountParam {
+export interface PrivateCarMaintenanceAmountParam {
   /** 自家用車の年間運転距離[km] */
   annualMileage: number
 }

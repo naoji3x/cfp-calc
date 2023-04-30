@@ -18,7 +18,7 @@ import { estimateHobbyGoodsAnnualAmount } from './hobby-goods'
 import { estimateServiceAnnualAmount } from './service'
 
 /** 廃棄の活動量を計算するための引数 */
-interface WasteAmountParam {
+export interface WasteAmountParam {
   /** 家電・家具の支出 */
   applianceFurnitureExpenses: ApplianceFurnitureExpenses
   /** 衣服・美容の支出 */

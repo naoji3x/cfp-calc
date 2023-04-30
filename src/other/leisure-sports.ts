@@ -6,7 +6,7 @@ import { getBaselineIntensity } from '../data/database'
 import { estimateAnnualAmount } from './amount-calculation'
 
 /** レジャー・スポーツの活動量を計算するための引数 */
-interface LeisureSportsAmountParam {
+export interface LeisureSportsAmountParam {
   /** レジャー・スポーツに関わる支出 */
   expenses: LeisureSportsExpenses
 }

@@ -7,7 +7,7 @@ import { getBaselineAmount, getBaselineIntensity } from '../data/database'
 import { estimateDishAnnualAmount } from './dish'
 
 /** 加工肉の活動量を計算するための引数 */
-interface ProcessedMeatAmountParam {
+export interface ProcessedMeatAmountParam {
   /** 食料の廃棄量 */
   foodDirectWasteFrequency: FoodDirectWasteFrequency
   /** 食料の食べ残し量 */

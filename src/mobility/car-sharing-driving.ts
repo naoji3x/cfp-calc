@@ -8,7 +8,7 @@ import { getBaselineIntensity, getParameter } from '../data/database'
 import { estimateCarDrivingIntensityFactor } from './factor-calculation'
 
 /** カーシェアリングの運転時のGHG原単位を計算するための引数 */
-interface CarSharingDrivingIntensityParam {
+export interface CarSharingDrivingIntensityParam {
   /** 車の種類 */
   carType: CarType
   /** 平均乗車人数 */

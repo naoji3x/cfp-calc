@@ -12,7 +12,7 @@ import {
 import { estimateFoodLossRate } from './rate-calculation'
 
 /** ソフトドリンク・スナックの活動量を計算するための引数 */
-interface SoftDrinkSnackAmountParam {
+export interface SoftDrinkSnackAmountParam {
   /** 食料の廃棄量 */
   foodDirectWasteFrequency: FoodDirectWasteFrequency
   /** 食料の食べ残し量 */

@@ -72,7 +72,7 @@ export interface EatOutIntensityParam {
 }
 
 /** 外食の活動量を計算するための引数 */
-interface EatOutAmountParam {
+export interface EatOutAmountParam {
   /** 外食の支出 */
   eatOutExpenses: EatOutExpenses
 }

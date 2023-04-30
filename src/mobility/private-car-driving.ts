@@ -8,7 +8,7 @@ import { getBaselineIntensity, getParameter } from '../data/database'
 import { estimateCarDrivingIntensityFactor } from './factor-calculation'
 
 /** 自家用車の運転時のGHG原単位を計算するための引数 */
-interface PrivateCarDrivingIntensityParam {
+export interface PrivateCarDrivingIntensityParam {
   /** 車の種類 */
   carType: CarType
   /** 平均乗車人数 */
@@ -20,7 +20,7 @@ interface PrivateCarDrivingIntensityParam {
 }
 
 /** 自家用車の運転時の活動量を計算するための引数 */
-interface PrivateCarDrivingAmountParam {
+export interface PrivateCarDrivingAmountParam {
   /** 自家用車の運転距離[km] */
   mileage: number
 }

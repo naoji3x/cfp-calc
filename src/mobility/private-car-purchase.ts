@@ -6,13 +6,13 @@ import {
 } from '../data/database'
 
 /** 自家用車の購入時のGHG原単位を計算するための引数 */
-interface PrivateCarPurchaseIntensityParam {
+export interface PrivateCarPurchaseIntensityParam {
   /** 車の種類 */
   carType: CarType
 }
 
 /** 自家用車の購入時の活動量を計算するための引数 */
-interface PrivateCarPurchaseAmountParam {
+export interface PrivateCarPurchaseAmountParam {
   /** 自家用車の年間運転距離[km] */
   annualMileage: number
 }

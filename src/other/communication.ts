@@ -6,7 +6,7 @@ import { getBaselineIntensity } from '../data/database'
 import { estimateAnnualAmountConsideringResidentCount } from './amount-calculation'
 
 /** 通信の活動量を計算するための引数 */
-interface CommunicationAmountParam {
+export interface CommunicationAmountParam {
   /** 通信に関わる支出 */
   expenses: CommunicationExpenses
   /** 居住者数 */

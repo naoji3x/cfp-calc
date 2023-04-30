@@ -3,7 +3,7 @@ import { getBaselineIntensity } from '../data/database'
 import { estimateAnnualAmount } from './amount-calculation'
 
 /** 旅行の活動量を計算するための引数 */
-interface TravelAmountParam {
+export interface TravelAmountParam {
   expenses: TravelExpenses
 }
 

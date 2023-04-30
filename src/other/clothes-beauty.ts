@@ -6,7 +6,7 @@ import { getBaselineIntensity } from '../data/database'
 import { estimateAnnualAmount } from './amount-calculation'
 
 /** 衣服・美容の活動量を計算するための引数 */
-interface ClothesBeautyAmountParam {
+export interface ClothesBeautyAmountParam {
   expenses: ClothesBeautyExpenses
 }
 

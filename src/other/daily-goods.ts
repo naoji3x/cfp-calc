@@ -3,7 +3,7 @@ import { getBaselineIntensity } from '../data/database'
 import { estimateAnnualAmountConsideringResidentCount } from './amount-calculation'
 
 /** 日常品の活動量を計算するための引数 */
-interface DailyGoodsAmountParam {
+export interface DailyGoodsAmountParam {
   /** 日常品に関わる支出 */
   expenses: DailyGoodsExpenses
   /** 居住者数 */

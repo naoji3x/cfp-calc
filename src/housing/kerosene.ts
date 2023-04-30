@@ -1,7 +1,7 @@
 import { getBaselineIntensity, getParameter } from '../data/database'
 
 /** 灯油の活動量を計算するための引数 */
-interface KeroseneAmountPram {
+export interface KeroseneAmountPram {
   /** 1ヶ月の灯油使用量[L] */
   monthlyConsumption: number
   /** 対象月数 */

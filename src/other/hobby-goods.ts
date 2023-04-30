@@ -3,7 +3,7 @@ import { getBaselineIntensity } from '../data/database'
 import { estimateAnnualAmount } from './amount-calculation'
 
 /** 趣味・娯楽の活動量を計算するための引数 */
-interface HobbyGoodsAmountParam {
+export interface HobbyGoodsAmountParam {
   /** 趣味・娯楽に関わる支出 */
   expenses: HobbyGoodsExpenses
 }

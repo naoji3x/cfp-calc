@@ -3,7 +3,7 @@ import { getBaselineIntensity } from '../data/database'
 import { estimateAnnualAmount } from './amount-calculation'
 
 /** サービスの活動量を計算するための引数 */
-interface ServiceAmountParam {
+export interface ServiceAmountParam {
   /** サービスに関わる支出 */
   expenses: ServiceExpenses
 }

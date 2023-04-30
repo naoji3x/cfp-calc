@@ -1,0 +1,14 @@
+{
+  "entryPoints": [
+    "./src/action/*.ts",
+    "./src/mobility/*.ts",
+    "./src/housing/*.ts",
+    "./src/food/*.ts",
+    "./src/other/*.ts",
+    "./src/common/*.ts",
+    "./src/data/*.ts"
+  ],
+  "out": "doc",
+  "excludeExternals": true,
+  "entryPointStrategy": "expand"
+}
