@@ -22,7 +22,7 @@ export const estimateServiceAnnualAmount = (
 /**
  * サービスのGHG原単位を計算
  * @param item サービスのカーボンフットプリントアイテム名
- * @returns GHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateServiceIntensity = (item: ServiceItem): number =>
   getBaselineIntensity('other', item).value

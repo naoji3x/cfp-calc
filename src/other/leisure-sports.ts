@@ -25,7 +25,7 @@ export const estimateLeisureSportsAnnualAmount = (
 /**
  * レジャー・スポーツのGHG原単位を計算
  * @param item レジャー・スポーツのカーボンフットプリントアイテム名
- * @returns GHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateLeisureSportsIntensity = (
   item: LeisureSportsItem

@@ -22,7 +22,7 @@ export const estimateHobbyGoodsAnnualAmount = (
 /**
  * 趣味・娯楽のGHG原単位を計算
  * @param item 趣味・娯楽のカーボンフットプリントアイテム名
- * @returns GHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateHobbyGoodsIntensity = (item: HobbyGoodsItem): number =>
   getBaselineIntensity('other', item).value

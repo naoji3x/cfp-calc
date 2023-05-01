@@ -34,8 +34,7 @@ export const estimateApplianceFurnitureAnnualAmount = (
 /**
  * 家電・家具のGHG原単位を計算
  * @param item 家電・家具のカーボンフットプリントアイテム名
- * @remarks ベースライン値を返す
- * @returns GHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateApplianceFurnitureIntensity = (
   item: ApplianceFurnitureItem

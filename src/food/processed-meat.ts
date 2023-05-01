@@ -67,7 +67,7 @@ export const estimateProcessedMeatAnnualAmount = ({
 
 /**
  * 加工肉のGHG原単位を計算する
- * @returns 加工肉のGHG原単位[kgCO2e/kg]
+ * @returns ベースライン値[kgCO2e/kg]
  */
 export const estimateProcessedMeatIntensity = (): number =>
   getBaselineIntensity('food', 'processed-meat').value

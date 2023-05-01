@@ -1,4 +1,5 @@
 import {
+  SOFT_DRINK_SNACK_ITEMS,
   type FoodDirectWasteFrequency,
   type FoodLeftoverFrequency,
   type SoftDrinkSnackExpenses,
@@ -42,12 +43,6 @@ export const estimateSoftDrinkSnackAnnualAmount = (
   )
 }
 
-const defaultItems: SoftDrinkSnackItem[] = [
-  'sweets-snack',
-  'coffee-tea',
-  'cold-drink'
-]
-
 /**
  * ソフトドリンク・スナックの活動量を計算する
  * @param param ソフトドリンク・スナックの活動量を計算するための引数
@@ -63,7 +58,7 @@ export const estimateSoftDrinkSnackAnnualAmounts = (
   items?: SoftDrinkSnackItem[]
 ): Record<string, number> => {
   if (items === undefined) {
-    items = defaultItems
+    items = SOFT_DRINK_SNACK_ITEMS.map((item) => item)
   }
 
   return items.reduce(
@@ -88,7 +83,7 @@ export const estimateSoftDrinkSnackIntensities = (
   items?: SoftDrinkSnackItem[]
 ): Record<string, number> => {
   if (items === undefined) {
-    items = defaultItems
+    items = SOFT_DRINK_SNACK_ITEMS.map((item) => item)
   }
 
   return items.reduce(
@@ -108,7 +103,7 @@ export const getSoftDrinkSnackAnnualBaselineAmounts = (): Record<
   string,
   number
 > =>
-  defaultItems.reduce(
+  SOFT_DRINK_SNACK_ITEMS.reduce(
     (acc, item): Record<string, number> => ({
       ...acc,
       [item]: getBaselineAmount('food', item).value
@@ -119,7 +114,7 @@ export const getSoftDrinkSnackAnnualBaselineAmounts = (): Record<
 /**
  * ソフトドリンク・スナックのGHG原単位を計算する
  * @param item ソフトドリンク・スナックの種類
- * @returns ソフトドリンク・スナックのGHG原単位[kgCO2e/kg]
+ * @returns ベースライン値[kgCO2e/kg]
  */
 export const estimateSoftDrinkSnackIntensity = (
   item: SoftDrinkSnackItem

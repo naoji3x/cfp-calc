@@ -178,7 +178,7 @@ export const estimateWasteAnnualAmount = ({
 
 /**
  * 廃棄のGHG原単位を計算する
- * @returns 廃棄のGHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateWasteIntensity = (): number =>
   getBaselineIntensity('other', 'waste').value

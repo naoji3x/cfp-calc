@@ -33,7 +33,7 @@ export const estimateCommunicationAnnualAmount = (
 /**
  * 通信のGHG原単位を計算
  * @param item 通信のカーボンフットプリントアイテム名
- * @returns GHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateCommunicationIntensity = (
   item: CommunicationItem

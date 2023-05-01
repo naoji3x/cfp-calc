@@ -37,7 +37,7 @@ export const estimateAlcoholAnnualAmount = ({
 
 /**
  * アルコールのGHG原単位を計算する
- * @returns アルコールのGHG原単位[kgCO2e/kg]
+ * @returns ベースライン値[kgCO2e/kg]
  */
 export const estimateAlcoholIntensity = (): number =>
   getBaselineIntensity('food', 'alcohol').value

@@ -21,7 +21,7 @@ export const estimateTravelAnnualAmount = (
 /**
  * 旅行のGHG原単位を計算
  * @param item 旅行のカーボンフットプリントアイテム名
- * @returns GHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateTravelIntensity = (item: TravelItem): number =>
   getBaselineIntensity('other', item).value

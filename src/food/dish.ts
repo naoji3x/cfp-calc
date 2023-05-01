@@ -1,4 +1,5 @@
 import {
+  DISH_ITEMS,
   type DishFrequency,
   type DishItem,
   type FoodDirectWasteFrequency,
@@ -46,7 +47,7 @@ export interface AllDishAmountParam {
   porkDishFrequency: DishFrequency
   /** 鶏肉料理の摂取頻度 */
   chickenDishFrequency: DishFrequency
-
+  /** 魚介類料理の摂取頻度 */
   seafoodDishFrequency: DishFrequency
 }
 
@@ -70,15 +71,6 @@ export const estimateDishAnnualAmount = (
     baseline * dishFactor * estimateFoodLossRate(foodDirectWaste, foodLeftover)
   )
 }
-
-const defaultItems: DishItem[] = [
-  'beef',
-  'pork',
-  'chicken',
-  'other-meat',
-  'fish',
-  'processed-fish'
-]
 
 const getDishItems = (
   items: DishItem[],
@@ -128,7 +120,7 @@ export const estimateDishAnnualAmounts = (
   items?: DishItem[]
 ): Record<string, number> => {
   if (items === undefined) {
-    items = defaultItems
+    items = DISH_ITEMS.map((item) => item)
   }
 
   const dishItems = getDishItems(
@@ -161,7 +153,7 @@ export const estimateDishIntensities = (
   items?: DishItem[]
 ): Record<string, number> => {
   if (items === undefined) {
-    items = defaultItems
+    items = DISH_ITEMS.map((item) => item)
   }
 
   return items.reduce(
@@ -178,7 +170,7 @@ export const estimateDishIntensities = (
  * @returns 料理の活動量のベースライン値のMap
  */
 export const getDishAnnualBaselineAmounts = (): Record<string, number> =>
-  defaultItems.reduce(
+  DISH_ITEMS.reduce(
     (acc, item): Record<string, number> => ({
       ...acc,
       [item]: getBaselineAmount('food', item).value
@@ -189,7 +181,7 @@ export const getDishAnnualBaselineAmounts = (): Record<string, number> =>
 /**
  * 料理のGHG原単位を計算する
  * @param item 料理の種類
- * @returns 料理のGHG原単位[kgCO2e/kg]
+ * @returns ベースライン値[kgCO2e/kg]
  */
 export const estimateDishIntensity = (item: DishItem): number =>
   getBaselineIntensity('food', item).value

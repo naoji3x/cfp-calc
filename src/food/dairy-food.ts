@@ -1,4 +1,5 @@
 import {
+  DAIRY_FOOD_ITEMS,
   type DairyFoodFrequency,
   type DairyFoodItem,
   type FoodDirectWasteFrequency,
@@ -42,8 +43,6 @@ export const estimateDairyFoodAnnualAmount = (
   )
 }
 
-const defaultItems: DairyFoodItem[] = ['milk', 'other-dairy', 'eggs']
-
 /**
  * 乳製品の活動量を計算する
  * @param param 乳製品の活動量を計算するための引数
@@ -59,7 +58,7 @@ export const estimateDairyFoodAnnualAmounts = (
   items?: DairyFoodItem[]
 ): Record<string, number> => {
   if (items === undefined) {
-    items = defaultItems
+    items = DAIRY_FOOD_ITEMS.map((item) => item)
   }
 
   return items.reduce(
@@ -84,7 +83,7 @@ export const estimateDairyFoodIntensities = (
   items?: DairyFoodItem[]
 ): Record<string, number> => {
   if (items === undefined) {
-    items = defaultItems
+    items = DAIRY_FOOD_ITEMS.map((item) => item)
   }
 
   return items.reduce(
@@ -101,7 +100,7 @@ export const estimateDairyFoodIntensities = (
  * @returns 乳製品のGHG原単位のMap
  */
 export const getDairyFoodAnnualBaselineAmounts = (): Record<string, number> =>
-  defaultItems.reduce(
+  DAIRY_FOOD_ITEMS.reduce(
     (acc, item): Record<string, number> => ({
       ...acc,
       [item]: getBaselineAmount('food', item).value
@@ -112,7 +111,7 @@ export const getDairyFoodAnnualBaselineAmounts = (): Record<string, number> =>
 /**
  * 乳製品のGHG原単位を計算する
  * @param item 乳製品の種類
- * @returns 乳製品のGHG原単位[kgCO2e/kg]
+ * @returns ベースライン値[kgCO2e/kg]
  */
 export const estimateDairyFoodIntensity = (item: DairyFoodItem): number =>
   getBaselineIntensity('food', item).value

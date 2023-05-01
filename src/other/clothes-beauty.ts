@@ -24,7 +24,7 @@ export const estimateClothesBeautyAnnualAmount = (
 /**
  * 衣服・美容のGHG原単位を計算
  * @param item 衣服・美容のカーボンフットプリントアイテム名
- * @returns GHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateClothesBeautyIntensity = (
   item: ClothesBeautyItem

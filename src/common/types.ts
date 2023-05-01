@@ -128,34 +128,46 @@ export type EatOutExpenses =
   | 'unknown'
 
 /** 料理の種類 */
-export type DishItem =
-  | 'beef'
-  | 'pork'
-  | 'chicken'
-  | 'other-meat'
-  | 'fish'
-  | 'processed-fish'
+export const DISH_ITEMS = [
+  'beef',
+  'pork',
+  'chicken',
+  'other-meat',
+  'fish',
+  'processed-fish'
+] as const
+export type DishItem = (typeof DISH_ITEMS)[number]
 
 /** 飲み物、お菓子の種類 */
-export type SoftDrinkSnackItem = 'sweets-snack' | 'coffee-tea' | 'cold-drink'
+export const SOFT_DRINK_SNACK_ITEMS = [
+  'sweets-snack',
+  'coffee-tea',
+  'cold-drink'
+] as const
+export type SoftDrinkSnackItem = (typeof SOFT_DRINK_SNACK_ITEMS)[number]
 
 /** 摂取カロリーの種類 */
-export type FoodIntakeItem =
-  | 'rice'
-  | 'bread-flour'
-  | 'noodle'
-  | 'potatoes'
-  | 'vegetables'
-  | 'processed-vegetables'
-  | 'beans'
-  | 'fruits'
-  | 'oil'
-  | 'seasoning'
+export const FOOD_INTAKE_ITEMS = [
+  'rice',
+  'bread-flour',
+  'noodle',
+  'potatoes',
+  'vegetables',
+  'processed-vegetables',
+  'beans',
+  'fruits',
+  'oil',
+  'seasoning'
+] as const
+export type FoodIntakeItem = (typeof FOOD_INTAKE_ITEMS)[number]
 
 /** 乳製品の種類 */
-export type DairyFoodItem = 'milk' | 'other-dairy' | 'eggs'
+export const DAIRY_FOOD_ITEMS = ['milk', 'other-dairy', 'eggs'] as const
+export type DairyFoodItem = (typeof DAIRY_FOOD_ITEMS)[number]
+
 /** 外食の種類 */
-export type EatOutItem = 'restaurant' | 'bar-cafe'
+export const EAT_OUT_ITEMS = ['restaurant', 'bar-cafe'] as const
+export type EatOutItem = (typeof EAT_OUT_ITEMS)[number]
 
 //
 // housing
@@ -205,63 +217,81 @@ export type LivingRegion = 'northeast' | 'middle' | 'southwest' | 'unknown'
 //
 
 /** 日常品の種類 */
-export type DailyGoodsItem = 'sanitation' | 'kitchen-goods' | 'paper-stationery'
+export const DAILY_GOODS_ITEMS = [
+  'sanitation',
+  'kitchen-goods',
+  'paper-stationery'
+] as const
+export type DailyGoodsItem = (typeof DAILY_GOODS_ITEMS)[number]
 
 /** 通信費、放送受信料の種類 */
-export type CommunicationItem = 'communication' | 'broadcasting'
+export const COMMUNICATION_ITEMS = ['communication', 'broadcasting'] as const
+export type CommunicationItem = (typeof COMMUNICATION_ITEMS)[number]
 
 /** 家電・家具の種類 */
-export type ApplianceFurnitureItem =
-  | 'electrical-appliances-repair-rental'
-  | 'furniture-daily-goods-repair-rental'
-  | 'cooking-appliances'
-  | 'heating-cooling-appliances'
-  | 'other-appliances'
-  | 'electronics'
-  | 'furniture'
-  | 'covering'
+export const APPLIANCE_FURNITURE_ITEMS = [
+  'electrical-appliances-repair-rental',
+  'furniture-daily-goods-repair-rental',
+  'cooking-appliances',
+  'heating-cooling-appliances',
+  'other-appliances',
+  'electronics',
+  'furniture',
+  'covering'
+] as const
+
+export type ApplianceFurnitureItem = (typeof APPLIANCE_FURNITURE_ITEMS)[number]
 
 /** サービスrの種類 */
-export type ServiceItem =
-  | 'medicine'
-  | 'housework'
-  | 'washing'
-  | 'medical-care'
-  | 'nursing'
-  | 'caring'
-  | 'formal-education'
-  | 'informal-education'
+export const SERVICE_ITEMS = [
+  'medicine',
+  'housework',
+  'washing',
+  'medical-care',
+  'nursing',
+  'caring',
+  'formal-education',
+  'informal-education'
+] as const
+export type ServiceItem = (typeof SERVICE_ITEMS)[number]
 
 /** 趣味の支出の種類 */
-export type HobbyGoodsItem =
-  | 'culture-goods'
-  | 'entertainment-goods'
-  | 'sports-goods'
-  | 'gardening-flower'
-  | 'pet'
-  | 'tobacco'
-  | 'books-magazines'
-  | 'sports-culture-repair-rental'
-  | 'sports-entertainment-repair-rental'
+export const HOBBY_GOODS_ITEMS = [
+  'culture-goods',
+  'entertainment-goods',
+  'sports-goods',
+  'gardening-flower',
+  'pet',
+  'tobacco',
+  'books-magazines',
+  'sports-culture-repair-rental',
+  'sports-entertainment-repair-rental'
+] as const
+export type HobbyGoodsItem = (typeof HOBBY_GOODS_ITEMS)[number]
 
 /** 衣類、かばん、宝飾品、美容関連などの支出の種類 */
-export type ClothesBeautyItem =
-  | 'haircare'
-  | 'cosmetics'
-  | 'clothes-goods'
-  | 'bags-jewelries-goods'
-  | 'clothes-repair-rental'
-  | 'bags-jewelries-repair-rental'
+export const CLOTHES_BEAUTY_ITEMS = [
+  'haircare',
+  'cosmetics',
+  'clothes-goods',
+  'bags-jewelries-goods',
+  'clothes-repair-rental',
+  'bags-jewelries-repair-rental'
+] as const
+export type ClothesBeautyItem = (typeof CLOTHES_BEAUTY_ITEMS)[number]
 
 /** レジャー、スポーツへの支出の種類 */
-export type LeisureSportsItem =
-  | 'culture-leisure'
-  | 'entertainment-leisure'
-  | 'sports-leisure'
-  | 'bath-spa'
+export const LEISURE_SPORTS_ITEMS = [
+  'culture-leisure',
+  'entertainment-leisure',
+  'sports-leisure',
+  'bath-spa'
+] as const
+export type LeisureSportsItem = (typeof LEISURE_SPORTS_ITEMS)[number]
 
 /** 旅行の種類 */
-export type TravelItem = 'hotel' | 'travel'
+export const TRAVEL_ITEMS = ['hotel', 'travel'] as const
+export type TravelItem = (typeof TRAVEL_ITEMS)[number]
 
 /** モノとサービスに関するアイテムの種類 */
 export type OtherItem =

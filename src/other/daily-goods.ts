@@ -30,7 +30,7 @@ export const estimateDailyGoodsAnnualAmount = (
 /**
  * 日常品のGHG原単位を計算
  * @param item 日常品のカーボンフットプリントアイテム名
- * @returns   GHG原単位[kgCO2e/000JPY]
+ * @returns   ベースライン値[kgCO2e/000JPY]
  */
 export const estimateDailyGoodsIntensity = (item: DailyGoodsItem): number =>
   getBaselineIntensity('other', item).value
