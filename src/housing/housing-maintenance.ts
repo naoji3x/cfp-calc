@@ -33,7 +33,7 @@ export const estimateHousingMaintenanceAnnualAmount = ({
 
 /**
  * 家の維持のGHG原単位を計算
- * @returns 家の維持のGHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateHousingMaintenanceIntensity = (): number =>
   getBaselineIntensity('housing', 'housing-maintenance').value

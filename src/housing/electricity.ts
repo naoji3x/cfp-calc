@@ -74,6 +74,6 @@ export const estimateElectricityAnnualAmount = ({
  * @returns GHG原単位[kgCO2e/kWh]
  */
 export const estimateElectricityIntensity = ({
-  electricityType: electricity
+  electricityType
 }: ElectricityIntensityParam): number =>
-  getParameter('electricity-intensity', electricity).value
+  getParameter('electricity-intensity', electricityType).value

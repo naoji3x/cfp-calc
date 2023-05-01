@@ -26,7 +26,7 @@ export const estimateKeroseneAnnualAmount = ({
 
 /**
  * 灯油のGHG原単位を計算
- * @returns GHG原単位[kgCO2e/kWh]
+ * @returns ベースライン値[kgCO2e/kWh]
  */
 export const estimateKeroseneIntensity = (): number =>
   getBaselineIntensity('housing', 'kerosene').value

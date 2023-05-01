@@ -32,7 +32,7 @@ export const estimateRentAnnualAmount = ({
 
 /**
  * 家賃のGHG原単位を計算
- * @returns 家賃のGHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateRentIntensity = (): number =>
   getBaselineIntensity('housing', 'rent').value

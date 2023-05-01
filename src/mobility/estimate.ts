@@ -1,6 +1,19 @@
-import { type Domain, type OtherCarItem, type Type } from 'common'
+import {
+  type CarCharging,
+  type CarPassengers,
+  type CarType,
+  type Domain,
+  type ElectricityType,
+  type OtherCarItem,
+  type Type
+} from 'common'
+import {
+  type AnnualTravelingTimeParam,
+  type ResidentialAreaSizeParam,
+  type TravelingTimeParam
+} from 'mobility'
+
 import { getBaselineAmount } from 'data'
-import { type MobilityAnswer } from 'entity/answer'
 import { type Item } from '../entity/item'
 import { estimateAirplaneAnnualAmount } from './airplane'
 import { estimateBicycleDrivingAnnualAmount } from './bicycle-driving'
@@ -25,6 +38,36 @@ import {
 import { estimateTaxiIntensity } from './taxi'
 import { estimateTrainAnnualAmount } from './train'
 import { estimateWalkingAnnualAmount } from './walking'
+
+/** 移動に関するカーボンフットプリントを計算するための質問への回答 */
+export interface MobilityAnswer {
+  /** 自家用車の運転距離[km] */
+  readonly privateCarAnnualMileage?: number
+  /** 車の種類 */
+  readonly carType?: CarType
+  /** 平均乗車人数 */
+  readonly carPassengers?: CarPassengers
+  /** 充電方法 */
+  readonly carCharging?: CarCharging
+  /** 電力の種類 */
+  readonly electricityType?: ElectricityType
+  /** 電車の活動量 */
+  readonly trainAmount: TravelingTimeParam | ResidentialAreaSizeParam
+  /** バスの活動量 */
+  readonly busAmount: TravelingTimeParam | ResidentialAreaSizeParam
+  /** バイクの活動量 */
+  readonly motorbikeDrivingAmount: TravelingTimeParam | ResidentialAreaSizeParam
+  /** その他の車の活動量 */
+  readonly otherCarAmount: TravelingTimeParam | ResidentialAreaSizeParam
+  /** 飛行機の活動量 */
+  readonly airplaneAmount: AnnualTravelingTimeParam | ResidentialAreaSizeParam
+  /** フェリーの活動量 */
+  readonly ferryAmount: AnnualTravelingTimeParam | ResidentialAreaSizeParam
+  /** 自転車の活動量 */
+  readonly bicycleDrivingAmount?: ResidentialAreaSizeParam
+  /** 徒歩の活動量 */
+  readonly walkingAmount?: ResidentialAreaSizeParam
+}
 
 export const estimateMobility = ({
   privateCarAnnualMileage = undefined,

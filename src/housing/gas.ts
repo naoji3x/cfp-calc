@@ -30,7 +30,7 @@ export const estimateGasAnnualAmount = (
 /**
  * 自宅のガスのGHG原単位を計算
  * @param item 自宅のガスの種類
- * @returns GHG原単位[kgCO2e/kWh]
+ * @returns ベースライン値[kgCO2e/kWh]
  */
 export const estimateGasIntensity = (item: GasItem): number =>
   getBaselineIntensity('housing', item).value
