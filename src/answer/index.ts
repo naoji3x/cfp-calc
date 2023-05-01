@@ -1,3 +1,4 @@
+export * from './action'
 export * from './food'
 export * from './housing'
 export * from './mobility'

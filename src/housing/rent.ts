@@ -3,10 +3,10 @@ import {
   getBaselineIntensity,
   getParameter
 } from '../data/database'
-import { type HousingParam } from './param'
+import { type ResidenceParam } from './param'
 
 /** 家賃の活動量を計算するための引数 */
-export type RentAmountParam = HousingParam
+export type RentAmountParam = ResidenceParam
 
 /**
  * 家賃の活動量を計算

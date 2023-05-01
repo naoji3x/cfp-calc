@@ -115,6 +115,7 @@ export const calculateActions = (
   const phase3Options = options.filter((o) => phase3Operations.has(o.operation))
   const phase4Options = options.filter((o) => phase4Operations.has(o.operation))
 
+  // Phase 1
   for (const option of phase1Options) {
     const base = search.findItem(option.domain, option.item, option.type)
     switch (option.operation) {
@@ -194,6 +195,7 @@ export const calculateActions = (
   }
   const searchImpl = new SearchImpl()
 
+  // Phase 2
   for (const option of phase2Options) {
     const base = search.findItem(option.domain, option.item, option.type)
     switch (option.operation) {
@@ -228,6 +230,7 @@ export const calculateActions = (
     }
   }
 
+  // Phase 3
   for (const option of phase3Options) {
     const base = search.findItem(option.domain, option.item, option.type)
     if (option.operation === 'proportional-to-other-items') {
@@ -245,6 +248,7 @@ export const calculateActions = (
     }
   }
 
+  // Phase 4
   for (const option of phase4Options) {
     const baseAmount = search.findItem(option.domain, option.item, 'amount')
     const baseIntensity = search.findItem(

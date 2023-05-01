@@ -1,10 +1,10 @@
 import { getBaselineAmount, getBaselineIntensity } from '../data/database'
 import { estimateImputedRentAnnualAmount } from './imputed-rent'
-import { type HousingParam } from './param'
+import { type ResidenceParam } from './param'
 import { estimateRentAnnualAmount } from './rent'
 
 /** 家の維持の活動量を計算するための引数 */
-export type HousingMaintenanceAmountParam = HousingParam
+export type HousingMaintenanceAmountParam = ResidenceParam
 
 /**
  * 家の維持の活動量を計算

@@ -2,10 +2,12 @@ import {
   type CarCharging,
   type CarPassengers,
   type CarType,
+  type Domain,
   type ElectricityType,
   type FoodDirectWasteFrequency,
   type FoodLeftoverFrequency,
-  type HousingInsulation
+  type HousingInsulation,
+  type Type
 } from '../common/types'
 import { getParameter } from '../data/database'
 import { estimateFoodLossRate } from '../food/rate-calculation'
@@ -17,18 +19,27 @@ import { estimateCarDrivingIntensityFactor } from '../mobility/factor-calculatio
 export interface Search {
   /**
    * 活動量、GHG原単位の推定値を取得する（推定値がない場合はベースライン値を返す）
-   * @param domainItemType 活動量、GHG原単位を取得する要素を指定。domain, item, typeを_で結合したキー
+   * @param domain 活動量、GHG原単位を計算する領域
+   * @param item 活動量、GHG原単位を取得する要素
+   * @param type amount or intensity
    * @returns 活動量もしくはGHG原単位（推定値、ベースライン値ともない場合はNaNを返す）
    */
-  findEstimation: (domainItemType: string) => number
+  findEstimation: (domain: Domain, item: string, type: Type) => number
 
   /**
    * 削減施策後の活動量、GHG原単位を取得する（削減後の値がない場合は、推定値、ベースライン値を返す）
-   * @param domainItemType 活動量、GHG原単位を取得する要素を指定。domain, item, typeを_で結合したキー
    * @param option 削減施策
+   * @param domain 活動量、GHG原単位を計算する領域
+   * @param item 活動量、GHG原単位を取得する要素
+   * @param type amount or intensity
    * @returns 活動量もしくはGHG原単位（削減後の値、推定値、ベースライン値がない場合はNaNを返す）
    */
-  findAction: (domainItemType: string, option: string) => number
+  findAction: (
+    option: string,
+    domain: Domain,
+    item: string,
+    type: Type
+  ) => number
 }
 
 //
@@ -268,11 +279,14 @@ export const shiftFromOtherItems = (
   substitutionRate: number,
   search: Search
 ): number => {
-  const sum = domainItemTypes.reduce(
-    (sum, key) =>
-      sum + search.findAction(key, option) - search.findEstimation(key),
-    0
-  )
+  const sum = domainItemTypes.reduce((sum, key) => {
+    const [domain, item, type] = key.split('_')
+    return (
+      sum +
+      search.findAction(option, domain as Domain, item, type as Type) -
+      search.findEstimation(domain as Domain, item, type as Type)
+    )
+  }, 0)
   return base - sum * substitutionRate
 }
 
@@ -297,11 +311,14 @@ export const shiftFromOtherItemsThenReductionRate = (
   reductionRate: number,
   search: Search
 ): number => {
-  const sum = domainItemTypes.reduce(
-    (sum, key) =>
-      sum + search.findAction(key, option) - search.findEstimation(key),
-    0
-  )
+  const sum = domainItemTypes.reduce((sum, key) => {
+    const [domain, item, type] = key.split('_')
+    return (
+      sum +
+      search.findAction(option, domain as Domain, item, type as Type) -
+      search.findEstimation(domain as Domain, item, type as Type)
+    )
+  }, 0)
   return (
     (base / conversionFactor - sum) * (1 + reductionRate) * conversionFactor
   )
@@ -331,15 +348,18 @@ export const proportionalToOtherItems = (
   rate: number,
   search: Search
 ): number => {
-  const sumBefore = domainItemTypes.reduce(
-    (sum, key) => sum + search.findEstimation(key),
-    0
-  )
-  const sumAfter = domainItemTypes.reduce(
-    (sum, key) =>
-      sum + (search.findAction(key, option) ?? search.findEstimation(key)),
-    0
-  )
+  const sumBefore = domainItemTypes.reduce((sum, key) => {
+    const [domain, item, type] = key.split('_')
+    return sum + search.findEstimation(domain as Domain, item, type as Type)
+  }, 0)
+  const sumAfter = domainItemTypes.reduce((sum, key) => {
+    const [domain, item, type] = key.split('_')
+    return (
+      sum +
+      (search.findAction(option, domain as Domain, item, type as Type) ??
+        search.findEstimation(domain as Domain, item, type as Type))
+    )
+  }, 0)
 
   return sumBefore !== 0
     ? base * (1 - rate) + base * rate * (sumAfter / sumBefore)
@@ -374,11 +394,12 @@ export const proportionalToOtherFootprints = (
   let sumAfter = 0
 
   for (const key of domainItems) {
-    const ab = search.findEstimation(key + '_amount') // amountBefore
-    const aa = search.findAction(key + '_amount', option) // amountAfter
+    const [domain, item] = key.split('_')
+    const ab = search.findEstimation(domain as Domain, item, 'amount') // amountBefore
+    const aa = search.findAction(option, domain as Domain, item, 'amount') // amountAfter
 
-    const ib = search.findEstimation(key + '_intensity') // intensityBefore
-    const ia = search.findAction(key + '_intensity', option) // intensityAfter
+    const ib = search.findEstimation(domain as Domain, item, 'intensity') // intensityBefore
+    const ia = search.findAction(option, domain as Domain, item, 'intensity') // intensityAfter
 
     sumBefore += ab * ib
     sumAfter += aa * ia
@@ -418,10 +439,11 @@ export const furtherReductionFromOtherFootprints = (
   let sumBefore = 0
   let sumAfter = 0
   for (const key of domainItems) {
-    const ab = search.findEstimation(key + '_amount') // amountBefore
-    const aa = search.findAction(key + '_amount', option) // amountAfter
-    const ib = search.findEstimation(key + '_intensity') // intensityBefore
-    const ia = search.findAction(key + '_intensity', option) // intensityAfter
+    const [domain, item] = key.split('_')
+    const ab = search.findEstimation(domain as Domain, item, 'amount') // amountBefore
+    const aa = search.findAction(option, domain as Domain, item, 'amount') // amountAfter
+    const ib = search.findEstimation(domain as Domain, item, 'intensity') // intensityBefore
+    const ia = search.findAction(option, domain as Domain, item, 'intensity') // intensityAfter
 
     sumBefore += ab * ib
     sumAfter += aa * ia
