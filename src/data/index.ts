@@ -1,6 +1,3 @@
-export * from '../entity/footprint'
-export * from '../entity/option'
-export * from '../entity/parameter'
 export * from './database'
 export * from './footprints'
 export * from './options'

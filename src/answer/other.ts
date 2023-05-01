@@ -20,38 +20,38 @@ import {
 } from 'common'
 import { getBaselineAmount, getParameter } from 'data'
 import { type Item } from 'entity/item'
-import { estimateApplianceFurnitureAnnualAmount } from './appliance-furniture'
-import { estimateClothesBeautyAnnualAmount } from './clothes-beauty'
-import { estimateCommunicationAnnualAmount } from './communication'
-import { estimateDailyGoodsAnnualAmount } from './daily-goods'
-import { estimateHobbyGoodsAnnualAmount } from './hobby-goods'
-import { estimateLeisureSportsAnnualAmount } from './leisure-sports'
-import { estimateServiceAnnualAmount } from './service'
-import { estimateTravelAnnualAmount } from './travel'
-import { estimateWasteAnnualAmount } from './waste'
+import { estimateApplianceFurnitureAnnualAmount } from '../other/appliance-furniture'
+import { estimateClothesBeautyAnnualAmount } from '../other/clothes-beauty'
+import { estimateCommunicationAnnualAmount } from '../other/communication'
+import { estimateDailyGoodsAnnualAmount } from '../other/daily-goods'
+import { estimateHobbyGoodsAnnualAmount } from '../other/hobby-goods'
+import { estimateLeisureSportsAnnualAmount } from '../other/leisure-sports'
+import { estimateServiceAnnualAmount } from '../other/service'
+import { estimateTravelAnnualAmount } from '../other/travel'
+import { estimateWasteAnnualAmount } from '../other/waste'
 
 /** その他に関するカーボンフットプリントを計算するための質問への回答 */
 
-export interface OtherAnswer {
+export interface OtherParam {
   /** 居住者数 */
-  residentCount?: number
+  readonly residentCount?: number
   /** 旅行の支出 */
-  travelExpenses?: TravelExpenses
+  readonly travelExpenses?: TravelExpenses
   /** 家電・家具の支出 */
-  applianceFurnitureExpenses?: ApplianceFurnitureExpenses
+  readonly applianceFurnitureExpenses?: ApplianceFurnitureExpenses
   /** 衣服・美容の支出 */
-  clothesBeautyExpenses?: ClothesBeautyExpenses
+  readonly clothesBeautyExpenses?: ClothesBeautyExpenses
   /** 趣味・日用品の支出 */
-  hobbyGoodsExpenses?: HobbyGoodsExpenses
+  readonly hobbyGoodsExpenses?: HobbyGoodsExpenses
   /** サービスの支出 */
-  serviceExpenses?: ServiceExpenses
+  readonly serviceExpenses?: ServiceExpenses
   /** 日用品の支出 */
-  dailyGoodsExpenses?: DailyGoodsExpenses
+  readonly dailyGoodsExpenses?: DailyGoodsExpenses
 
   /** レジャー・スポーツに関わる支出 */
-  leisureSportsExpenses?: LeisureSportsExpenses
+  readonly leisureSportsExpenses?: LeisureSportsExpenses
   /** 通信に関わる支出 */
-  communicationExpenses?: CommunicationExpenses
+  readonly communicationExpenses?: CommunicationExpenses
 }
 
 export const estimateOther = ({
@@ -64,7 +64,7 @@ export const estimateOther = ({
   dailyGoodsExpenses = undefined,
   leisureSportsExpenses = undefined,
   communicationExpenses = undefined
-}: OtherAnswer): Item[] => {
+}: OtherParam): Item[] => {
   const domain: Domain = 'other'
   const estimations: Item[] = []
   // helper functions

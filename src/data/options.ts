@@ -2,6 +2,9 @@ import { type Option } from '../entity/option'
 export const options: Record<string, Option> = {
   telework_mobility_train_amount: {
     option: 'telework',
+    domain: 'mobility',
+    item: 'train',
+    type: 'amount',
     values: [-0.468854791],
     args: [],
     operation: 'reduction-rate',
@@ -9,6 +12,9 @@ export const options: Record<string, Option> = {
   },
   telework_mobility_bus_amount: {
     option: 'telework',
+    domain: 'mobility',
+    item: 'bus',
+    type: 'amount',
     values: [-0.112666772],
     args: [],
     operation: 'reduction-rate',
@@ -16,6 +22,9 @@ export const options: Record<string, Option> = {
   },
   telework_mobility_taxi_amount: {
     option: 'telework',
+    domain: 'mobility',
+    item: 'taxi',
+    type: 'amount',
     values: [-0.060224246],
     args: [],
     operation: 'reduction-rate',
@@ -23,6 +32,9 @@ export const options: Record<string, Option> = {
   },
   'telework_mobility_private-car-driving_amount': {
     option: 'telework',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'amount',
     values: [-0.213660031],
     args: [],
     operation: 'reduction-rate',
@@ -30,6 +42,9 @@ export const options: Record<string, Option> = {
   },
   'telework_mobility_motorbike-driving_amount': {
     option: 'telework',
+    domain: 'mobility',
+    item: 'motorbike-driving',
+    type: 'amount',
     values: [-0.396275784],
     args: [],
     operation: 'reduction-rate',
@@ -37,6 +52,9 @@ export const options: Record<string, Option> = {
   },
   'telework_mobility_bicycle-driving_amount': {
     option: 'telework',
+    domain: 'mobility',
+    item: 'bicycle-driving',
+    type: 'amount',
     values: [-0.295237367],
     args: [],
     operation: 'reduction-rate',
@@ -44,6 +62,9 @@ export const options: Record<string, Option> = {
   },
   'telework_mobility_private-car-purchase_amount': {
     option: 'telework',
+    domain: 'mobility',
+    item: 'private-car-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -51,6 +72,9 @@ export const options: Record<string, Option> = {
   },
   'telework_mobility_motorbike-purchase_amount': {
     option: 'telework',
+    domain: 'mobility',
+    item: 'motorbike-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_motorbike-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -58,6 +82,9 @@ export const options: Record<string, Option> = {
   },
   'telework_mobility_private-car-maintenance_amount': {
     option: 'telework',
+    domain: 'mobility',
+    item: 'private-car-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -65,6 +92,9 @@ export const options: Record<string, Option> = {
   },
   'telework_mobility_motorbike-maintenance_amount': {
     option: 'telework',
+    domain: 'mobility',
+    item: 'motorbike-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_motorbike-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -72,6 +102,9 @@ export const options: Record<string, Option> = {
   },
   'telework_mobility_bicycle-maintenance_amount': {
     option: 'telework',
+    domain: 'mobility',
+    item: 'bicycle-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_bicycle-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -79,6 +112,9 @@ export const options: Record<string, Option> = {
   },
   closework_mobility_train_amount: {
     option: 'closework',
+    domain: 'mobility',
+    item: 'train',
+    type: 'amount',
     values: [-0.22922947],
     args: [],
     operation: 'reduction-rate',
@@ -86,6 +122,9 @@ export const options: Record<string, Option> = {
   },
   closework_mobility_bus_amount: {
     option: 'closework',
+    domain: 'mobility',
+    item: 'bus',
+    type: 'amount',
     values: [-0.060322384],
     args: [],
     operation: 'reduction-rate',
@@ -93,6 +132,9 @@ export const options: Record<string, Option> = {
   },
   closework_mobility_taxi_amount: {
     option: 'closework',
+    domain: 'mobility',
+    item: 'taxi',
+    type: 'amount',
     values: [-0.039534248],
     args: [],
     operation: 'reduction-rate',
@@ -100,6 +142,9 @@ export const options: Record<string, Option> = {
   },
   'closework_mobility_private-car-driving_amount': {
     option: 'closework',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'amount',
     values: [-0.085664689],
     args: [],
     operation: 'reduction-rate',
@@ -107,6 +152,9 @@ export const options: Record<string, Option> = {
   },
   'closework_mobility_motorbike-driving_amount': {
     option: 'closework',
+    domain: 'mobility',
+    item: 'motorbike-driving',
+    type: 'amount',
     values: [-0.165508879],
     args: [],
     operation: 'reduction-rate',
@@ -114,6 +162,9 @@ export const options: Record<string, Option> = {
   },
   'closework_mobility_bicycle-driving_amount': {
     option: 'closework',
+    domain: 'mobility',
+    item: 'bicycle-driving',
+    type: 'amount',
     values: [-0.200552878],
     args: [],
     operation: 'reduction-rate',
@@ -121,6 +172,9 @@ export const options: Record<string, Option> = {
   },
   'closework_mobility_private-car-purchase_amount': {
     option: 'closework',
+    domain: 'mobility',
+    item: 'private-car-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -128,6 +182,9 @@ export const options: Record<string, Option> = {
   },
   'closework_mobility_motorbike-purchase_amount': {
     option: 'closework',
+    domain: 'mobility',
+    item: 'motorbike-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_motorbike-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -135,6 +192,9 @@ export const options: Record<string, Option> = {
   },
   'closework_mobility_private-car-maintenance_amount': {
     option: 'closework',
+    domain: 'mobility',
+    item: 'private-car-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -142,6 +202,9 @@ export const options: Record<string, Option> = {
   },
   'closework_mobility_motorbike-maintenance_amount': {
     option: 'closework',
+    domain: 'mobility',
+    item: 'motorbike-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_motorbike-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -149,6 +212,9 @@ export const options: Record<string, Option> = {
   },
   'closework_mobility_bicycle-maintenance_amount': {
     option: 'closework',
+    domain: 'mobility',
+    item: 'bicycle-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_bicycle-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -156,6 +222,9 @@ export const options: Record<string, Option> = {
   },
   mictourism_mobility_airplane_amount: {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'airplane',
+    type: 'amount',
     values: [-0.516174479],
     args: [],
     operation: 'reduction-rate',
@@ -163,6 +232,9 @@ export const options: Record<string, Option> = {
   },
   mictourism_mobility_train_amount: {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'train',
+    type: 'amount',
     values: [-0.127200104],
     args: [],
     operation: 'reduction-rate',
@@ -170,6 +242,9 @@ export const options: Record<string, Option> = {
   },
   mictourism_mobility_bus_amount: {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'bus',
+    type: 'amount',
     values: [-0.249140296],
     args: [],
     operation: 'reduction-rate',
@@ -177,6 +252,9 @@ export const options: Record<string, Option> = {
   },
   mictourism_mobility_ferry_amount: {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'ferry',
+    type: 'amount',
     values: [-0.443690476],
     args: [],
     operation: 'reduction-rate',
@@ -184,6 +262,9 @@ export const options: Record<string, Option> = {
   },
   mictourism_mobility_taxi_amount: {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'taxi',
+    type: 'amount',
     values: [-0.213498498],
     args: [],
     operation: 'reduction-rate',
@@ -191,6 +272,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_private-car-driving_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'amount',
     values: [-0.216339849],
     args: [],
     operation: 'reduction-rate',
@@ -198,6 +282,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_car-sharing-driving_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'car-sharing-driving',
+    type: 'amount',
     values: [-0.426661831],
     args: [],
     operation: 'reduction-rate',
@@ -205,6 +292,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_motorbike-driving_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'motorbike-driving',
+    type: 'amount',
     values: [-0.167651939],
     args: [],
     operation: 'reduction-rate',
@@ -212,6 +302,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_bicycle-driving_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'bicycle-driving',
+    type: 'amount',
     values: [-0.060696993],
     args: [],
     operation: 'reduction-rate',
@@ -219,6 +312,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_private-car-purchase_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'private-car-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -226,6 +322,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_motorbike-purchase_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'motorbike-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_motorbike-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -233,6 +332,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_car-sharing-rental_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'car-sharing-rental',
+    type: 'amount',
     values: [1],
     args: ['mobility_car-sharing-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -240,6 +342,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_private-car-maintenance_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'private-car-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -247,6 +352,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_motorbike-maintenance_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'motorbike-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_motorbike-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -254,6 +362,9 @@ export const options: Record<string, Option> = {
   },
   'mictourism_mobility_bicycle-maintenance_amount': {
     option: 'mictourism',
+    domain: 'mobility',
+    item: 'bicycle-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_bicycle-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -261,6 +372,9 @@ export const options: Record<string, Option> = {
   },
   closeservice_mobility_train_amount: {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'train',
+    type: 'amount',
     values: [-0.051969196],
     args: [],
     operation: 'reduction-rate',
@@ -268,6 +382,9 @@ export const options: Record<string, Option> = {
   },
   closeservice_mobility_bus_amount: {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'bus',
+    type: 'amount',
     values: [-0.046870163],
     args: [],
     operation: 'reduction-rate',
@@ -275,6 +392,9 @@ export const options: Record<string, Option> = {
   },
   closeservice_mobility_taxi_amount: {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'taxi',
+    type: 'amount',
     values: [-0.20799268],
     args: [],
     operation: 'reduction-rate',
@@ -282,6 +402,9 @@ export const options: Record<string, Option> = {
   },
   'closeservice_mobility_private-car-driving_amount': {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'amount',
     values: [-0.11914264],
     args: [],
     operation: 'reduction-rate',
@@ -289,6 +412,9 @@ export const options: Record<string, Option> = {
   },
   'closeservice_mobility_motorbike-driving_amount': {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'motorbike-driving',
+    type: 'amount',
     values: [-0.069132146],
     args: [],
     operation: 'reduction-rate',
@@ -296,6 +422,9 @@ export const options: Record<string, Option> = {
   },
   'closeservice_mobility_bicycle-driving_amount': {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'bicycle-driving',
+    type: 'amount',
     values: [-0.131234853],
     args: [],
     operation: 'reduction-rate',
@@ -303,6 +432,9 @@ export const options: Record<string, Option> = {
   },
   'closeservice_mobility_private-car-purchase_amount': {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'private-car-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -310,6 +442,9 @@ export const options: Record<string, Option> = {
   },
   'closeservice_mobility_motorbike-purchase_amount': {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'motorbike-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_motorbike-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -317,6 +452,9 @@ export const options: Record<string, Option> = {
   },
   'closeservice_mobility_private-car-maintenance_amount': {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'private-car-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -324,6 +462,9 @@ export const options: Record<string, Option> = {
   },
   'closeservice_mobility_motorbike-maintenance_amount': {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'motorbike-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_motorbike-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -331,6 +472,9 @@ export const options: Record<string, Option> = {
   },
   'closeservice_mobility_bicycle-maintenance_amount': {
     option: 'closeservice',
+    domain: 'mobility',
+    item: 'bicycle-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_bicycle-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -338,6 +482,9 @@ export const options: Record<string, Option> = {
   },
   dailyshift_mobility_train_amount: {
     option: 'dailyshift',
+    domain: 'mobility',
+    item: 'train',
+    type: 'amount',
     values: [0.333333333],
     args: ['mobility_private-car-driving_amount', 'mobility_taxi_amount'],
     operation: 'shift-from-other-items',
@@ -345,6 +492,9 @@ export const options: Record<string, Option> = {
   },
   dailyshift_mobility_bus_amount: {
     option: 'dailyshift',
+    domain: 'mobility',
+    item: 'bus',
+    type: 'amount',
     values: [0.333333333],
     args: ['mobility_private-car-driving_amount', 'mobility_taxi_amount'],
     operation: 'shift-from-other-items',
@@ -352,6 +502,9 @@ export const options: Record<string, Option> = {
   },
   dailyshift_mobility_taxi_amount: {
     option: 'dailyshift',
+    domain: 'mobility',
+    item: 'taxi',
+    type: 'amount',
     values: [-1],
     args: [],
     operation: 'reduction-rate',
@@ -359,6 +512,9 @@ export const options: Record<string, Option> = {
   },
   'dailyshift_mobility_private-car-driving_amount': {
     option: 'dailyshift',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'amount',
     values: [-0.704901961],
     args: [],
     operation: 'reduction-rate',
@@ -366,6 +522,9 @@ export const options: Record<string, Option> = {
   },
   'dailyshift_mobility_bicycle-driving_amount': {
     option: 'dailyshift',
+    domain: 'mobility',
+    item: 'bicycle-driving',
+    type: 'amount',
     values: [0.333333333],
     args: ['mobility_private-car-driving_amount', 'mobility_taxi_amount'],
     operation: 'shift-from-other-items',
@@ -373,6 +532,9 @@ export const options: Record<string, Option> = {
   },
   'dailyshift_mobility_private-car-purchase_amount': {
     option: 'dailyshift',
+    domain: 'mobility',
+    item: 'private-car-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -380,6 +542,9 @@ export const options: Record<string, Option> = {
   },
   'dailyshift_mobility_car-sharing-rental_amount': {
     option: 'dailyshift',
+    domain: 'mobility',
+    item: 'car-sharing-rental',
+    type: 'amount',
     values: [1],
     args: ['mobility_car-sharing-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -387,6 +552,9 @@ export const options: Record<string, Option> = {
   },
   'dailyshift_mobility_private-car-maintenance_amount': {
     option: 'dailyshift',
+    domain: 'mobility',
+    item: 'private-car-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -394,6 +562,9 @@ export const options: Record<string, Option> = {
   },
   'dailyshift_mobility_bicycle-maintenance_amount': {
     option: 'dailyshift',
+    domain: 'mobility',
+    item: 'bicycle-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_bicycle-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -401,6 +572,9 @@ export const options: Record<string, Option> = {
   },
   longshift_mobility_airplane_amount: {
     option: 'longshift',
+    domain: 'mobility',
+    item: 'airplane',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -408,6 +582,9 @@ export const options: Record<string, Option> = {
   },
   longshift_mobility_train_amount: {
     option: 'longshift',
+    domain: 'mobility',
+    item: 'train',
+    type: 'amount',
     values: [0.5],
     args: [
       'mobility_airplane_amount',
@@ -420,6 +597,9 @@ export const options: Record<string, Option> = {
   },
   longshift_mobility_bus_amount: {
     option: 'longshift',
+    domain: 'mobility',
+    item: 'bus',
+    type: 'amount',
     values: [0.5],
     args: [
       'mobility_airplane_amount',
@@ -432,6 +612,9 @@ export const options: Record<string, Option> = {
   },
   longshift_mobility_ferry_amount: {
     option: 'longshift',
+    domain: 'mobility',
+    item: 'ferry',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -439,6 +622,9 @@ export const options: Record<string, Option> = {
   },
   'longshift_mobility_private-car-driving_amount': {
     option: 'longshift',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'amount',
     values: [-0.295098039],
     args: [],
     operation: 'reduction-rate',
@@ -446,6 +632,9 @@ export const options: Record<string, Option> = {
   },
   'longshift_mobility_car-sharing-driving_amount': {
     option: 'longshift',
+    domain: 'mobility',
+    item: 'car-sharing-driving',
+    type: 'amount',
     values: [-1],
     args: [],
     operation: 'reduction-rate',
@@ -453,6 +642,9 @@ export const options: Record<string, Option> = {
   },
   'longshift_mobility_private-car-purchase_amount': {
     option: 'longshift',
+    domain: 'mobility',
+    item: 'private-car-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -460,6 +652,9 @@ export const options: Record<string, Option> = {
   },
   'longshift_mobility_car-sharing-rental_amount': {
     option: 'longshift',
+    domain: 'mobility',
+    item: 'car-sharing-rental',
+    type: 'amount',
     values: [1],
     args: ['mobility_car-sharing-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -467,6 +662,9 @@ export const options: Record<string, Option> = {
   },
   'longshift_mobility_private-car-maintenance_amount': {
     option: 'longshift',
+    domain: 'mobility',
+    item: 'private-car-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -474,6 +672,9 @@ export const options: Record<string, Option> = {
   },
   rideshare_mobility_taxi_intensity: {
     option: 'rideshare',
+    domain: 'mobility',
+    item: 'taxi',
+    type: 'intensity',
     values: [4],
     args: ['mobility_taxi-car-passengers'],
     operation: 'question-answer-to-target-inverse',
@@ -481,6 +682,9 @@ export const options: Record<string, Option> = {
   },
   'rideshare_mobility_private-car-driving_intensity': {
     option: 'rideshare',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'intensity',
     values: [4],
     args: ['mobility_private-car-passengers'],
     operation: 'question-answer-to-target-inverse',
@@ -488,6 +692,9 @@ export const options: Record<string, Option> = {
   },
   'rideshare_mobility_car-sharing-driving_intensity': {
     option: 'rideshare',
+    domain: 'mobility',
+    item: 'car-sharing-driving',
+    type: 'intensity',
     values: [4],
     args: ['mobility_private-car-passengers'],
     operation: 'question-answer-to-target-inverse',
@@ -495,6 +702,9 @@ export const options: Record<string, Option> = {
   },
   'carshare_mobility_private-car-driving_amount': {
     option: 'carshare',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -502,6 +712,9 @@ export const options: Record<string, Option> = {
   },
   'carshare_mobility_car-sharing-driving_amount': {
     option: 'carshare',
+    domain: 'mobility',
+    item: 'car-sharing-driving',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'shift-from-other-items',
@@ -509,6 +722,9 @@ export const options: Record<string, Option> = {
   },
   'carshare_mobility_private-car-purchase_amount': {
     option: 'carshare',
+    domain: 'mobility',
+    item: 'private-car-purchase',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -516,6 +732,9 @@ export const options: Record<string, Option> = {
   },
   'carshare_mobility_car-sharing-rental_amount': {
     option: 'carshare',
+    domain: 'mobility',
+    item: 'car-sharing-rental',
+    type: 'amount',
     values: [1],
     args: ['mobility_car-sharing-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -523,6 +742,9 @@ export const options: Record<string, Option> = {
   },
   'carshare_mobility_private-car-maintenance_amount': {
     option: 'carshare',
+    domain: 'mobility',
+    item: 'private-car-maintenance',
+    type: 'amount',
     values: [1],
     args: ['mobility_private-car-driving_amount'],
     operation: 'proportional-to-other-items',
@@ -530,6 +752,9 @@ export const options: Record<string, Option> = {
   },
   'car-ev-phv_mobility_private-car-driving_intensity': {
     option: 'car-ev-phv',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'intensity',
     values: [0.083547694],
     args: ['mobility_driving-intensity'],
     operation: 'question-answer-to-target',
@@ -537,6 +762,9 @@ export const options: Record<string, Option> = {
   },
   'car-ev-phv_mobility_car-sharing-driving_intensity': {
     option: 'car-ev-phv',
+    domain: 'mobility',
+    item: 'car-sharing-driving',
+    type: 'intensity',
     values: [0.083547694],
     args: ['mobility_driving-intensity'],
     operation: 'question-answer-to-target',
@@ -544,6 +772,9 @@ export const options: Record<string, Option> = {
   },
   'car-ev-phv_mobility_private-car-purchase_intensity': {
     option: 'car-ev-phv',
+    domain: 'mobility',
+    item: 'private-car-purchase',
+    type: 'intensity',
     values: [8027.5],
     args: ['mobility_manufacturing-intensity'],
     operation: 'question-answer-to-target',
@@ -551,6 +782,9 @@ export const options: Record<string, Option> = {
   },
   'car-ev-phv_mobility_car-sharing-rental_intensity': {
     option: 'car-ev-phv',
+    domain: 'mobility',
+    item: 'car-sharing-rental',
+    type: 'intensity',
     values: [8027.5],
     args: ['mobility_manufacturing-intensity'],
     operation: 'question-answer-to-target',
@@ -558,6 +792,9 @@ export const options: Record<string, Option> = {
   },
   'car-ev-phv-re_mobility_private-car-driving_intensity': {
     option: 'car-ev-phv-re',
+    domain: 'mobility',
+    item: 'private-car-driving',
+    type: 'intensity',
     values: [0.025653594],
     args: ['mobility_driving-intensity'],
     operation: 'question-answer-to-target',
@@ -565,6 +802,9 @@ export const options: Record<string, Option> = {
   },
   'car-ev-phv-re_mobility_car-sharing-driving_intensity': {
     option: 'car-ev-phv-re',
+    domain: 'mobility',
+    item: 'car-sharing-driving',
+    type: 'intensity',
     values: [0.025653594],
     args: ['mobility_driving-intensity'],
     operation: 'question-answer-to-target',
@@ -572,6 +812,9 @@ export const options: Record<string, Option> = {
   },
   'car-ev-phv-re_mobility_private-car-purchase_intensity': {
     option: 'car-ev-phv-re',
+    domain: 'mobility',
+    item: 'private-car-purchase',
+    type: 'intensity',
     values: [8027.5],
     args: ['mobility_manufacturing-intensity'],
     operation: 'question-answer-to-target',
@@ -579,6 +822,9 @@ export const options: Record<string, Option> = {
   },
   'car-ev-phv-re_mobility_car-sharing-rental_intensity': {
     option: 'car-ev-phv-re',
+    domain: 'mobility',
+    item: 'car-sharing-rental',
+    type: 'intensity',
     values: [8027.5],
     args: ['mobility_manufacturing-intensity'],
     operation: 'question-answer-to-target',
@@ -586,6 +832,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_rice_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'rice',
+    type: 'amount',
     values: [-0.181818182],
     args: [],
     operation: 'reduction-rate',
@@ -593,6 +842,9 @@ export const options: Record<string, Option> = {
   },
   'vegan_food_bread-flour_amount': {
     option: 'vegan',
+    domain: 'food',
+    item: 'bread-flour',
+    type: 'amount',
     values: [-0.181818182],
     args: [],
     operation: 'reduction-rate',
@@ -600,6 +852,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_noodle_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'noodle',
+    type: 'amount',
     values: [-0.181818182],
     args: [],
     operation: 'reduction-rate',
@@ -607,6 +862,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_potatoes_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'potatoes',
+    type: 'amount',
     values: [0.363636364],
     args: [],
     operation: 'increase-rate',
@@ -614,6 +872,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_vegetables_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'vegetables',
+    type: 'amount',
     values: [0.363636364],
     args: [],
     operation: 'increase-rate',
@@ -621,6 +882,9 @@ export const options: Record<string, Option> = {
   },
   'vegan_food_processed-vegetables_amount': {
     option: 'vegan',
+    domain: 'food',
+    item: 'processed-vegetables',
+    type: 'amount',
     values: [0.363636364],
     args: [],
     operation: 'increase-rate',
@@ -628,6 +892,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_beans_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'beans',
+    type: 'amount',
     values: [1],
     args: [
       'food_milk_amount',
@@ -646,6 +913,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_milk_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'milk',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -653,6 +923,9 @@ export const options: Record<string, Option> = {
   },
   'vegan_food_other-dairy_amount': {
     option: 'vegan',
+    domain: 'food',
+    item: 'other-dairy',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -660,6 +933,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_eggs_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'eggs',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -667,6 +943,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_beef_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'beef',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -674,6 +953,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_pork_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'pork',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -681,6 +963,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_chicken_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'chicken',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -688,6 +973,9 @@ export const options: Record<string, Option> = {
   },
   'vegan_food_other-meat_amount': {
     option: 'vegan',
+    domain: 'food',
+    item: 'other-meat',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -695,6 +983,9 @@ export const options: Record<string, Option> = {
   },
   'vegan_food_processed-meat_amount': {
     option: 'vegan',
+    domain: 'food',
+    item: 'processed-meat',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -702,6 +993,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_fish_amount: {
     option: 'vegan',
+    domain: 'food',
+    item: 'fish',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -709,6 +1003,9 @@ export const options: Record<string, Option> = {
   },
   'vegan_food_processed-fish_amount': {
     option: 'vegan',
+    domain: 'food',
+    item: 'processed-fish',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -716,6 +1013,9 @@ export const options: Record<string, Option> = {
   },
   'vegan_food_ready-meal_intensity': {
     option: 'vegan',
+    domain: 'food',
+    item: 'ready-meal',
+    type: 'intensity',
     values: [1],
     args: [
       'food_rice',
@@ -744,6 +1044,9 @@ export const options: Record<string, Option> = {
   },
   vegan_food_restaurant_intensity: {
     option: 'vegan',
+    domain: 'food',
+    item: 'restaurant',
+    type: 'intensity',
     values: [0.7157],
     args: [
       'food_rice',
@@ -772,6 +1075,9 @@ export const options: Record<string, Option> = {
   },
   'vegan_food_bar-cafe_intensity': {
     option: 'vegan',
+    domain: 'food',
+    item: 'bar-cafe',
+    type: 'intensity',
     values: [0.7157],
     args: [
       'food_rice',
@@ -800,6 +1106,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_rice_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'rice',
+    type: 'amount',
     values: [-0.181818182],
     args: [],
     operation: 'reduction-rate',
@@ -807,6 +1116,9 @@ export const options: Record<string, Option> = {
   },
   'vegetarian_food_bread-flour_amount': {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'bread-flour',
+    type: 'amount',
     values: [-0.181818182],
     args: [],
     operation: 'reduction-rate',
@@ -814,6 +1126,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_noodle_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'noodle',
+    type: 'amount',
     values: [-0.181818182],
     args: [],
     operation: 'reduction-rate',
@@ -821,6 +1136,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_potatoes_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'potatoes',
+    type: 'amount',
     values: [0.363636364],
     args: [],
     operation: 'increase-rate',
@@ -828,6 +1146,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_vegetables_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'vegetables',
+    type: 'amount',
     values: [0.363636364],
     args: [],
     operation: 'increase-rate',
@@ -835,6 +1156,9 @@ export const options: Record<string, Option> = {
   },
   'vegetarian_food_processed-vegetables_amount': {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'processed-vegetables',
+    type: 'amount',
     values: [0.363636364],
     args: [],
     operation: 'increase-rate',
@@ -842,6 +1166,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_beans_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'beans',
+    type: 'amount',
     values: [0.357343288],
     args: [
       'food_beef_amount',
@@ -857,6 +1184,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_milk_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'milk',
+    type: 'amount',
     values: [1.142795285],
     args: [
       'food_beef_amount',
@@ -872,6 +1202,9 @@ export const options: Record<string, Option> = {
   },
   'vegetarian_food_other-dairy_amount': {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'other-dairy',
+    type: 'amount',
     values: [0.559975742],
     args: [
       'food_beef_amount',
@@ -887,6 +1220,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_eggs_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'eggs',
+    type: 'amount',
     values: [0.22031977],
     args: [
       'food_beef_amount',
@@ -902,6 +1238,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_beef_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'beef',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -909,6 +1248,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_pork_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'pork',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -916,6 +1258,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_chicken_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'chicken',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -923,6 +1268,9 @@ export const options: Record<string, Option> = {
   },
   'vegetarian_food_other-meat_amount': {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'other-meat',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -930,6 +1278,9 @@ export const options: Record<string, Option> = {
   },
   'vegetarian_food_processed-meat_amount': {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'processed-meat',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -937,6 +1288,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_fish_amount: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'fish',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -944,6 +1298,9 @@ export const options: Record<string, Option> = {
   },
   'vegetarian_food_processed-fish_amount': {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'processed-fish',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -951,6 +1308,9 @@ export const options: Record<string, Option> = {
   },
   'vegetarian_food_ready-meal_intensity': {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'ready-meal',
+    type: 'intensity',
     values: [1],
     args: [
       'food_rice',
@@ -979,6 +1339,9 @@ export const options: Record<string, Option> = {
   },
   vegetarian_food_restaurant_intensity: {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'restaurant',
+    type: 'intensity',
     values: [0.7157],
     args: [
       'food_rice',
@@ -1007,6 +1370,9 @@ export const options: Record<string, Option> = {
   },
   'vegetarian_food_bar-cafe_intensity': {
     option: 'vegetarian',
+    domain: 'food',
+    item: 'bar-cafe',
+    type: 'intensity',
     values: [0.7157],
     args: [
       'food_rice',
@@ -1035,6 +1401,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_beef_amount': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'beef',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1042,6 +1411,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_pork_amount': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'pork',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1049,6 +1421,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_chicken_amount': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'chicken',
+    type: 'amount',
     values: [0.5],
     args: [
       'food_beef_amount',
@@ -1061,6 +1436,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_other-meat_amount': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'other-meat',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1068,6 +1446,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_processed-meat_amount': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'processed-meat',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1075,6 +1456,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_fish_amount': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'fish',
+    type: 'amount',
     values: [0.25],
     args: [
       'food_beef_amount',
@@ -1087,6 +1471,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_processed-fish_amount': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'processed-fish',
+    type: 'amount',
     values: [0.25],
     args: [
       'food_beef_amount',
@@ -1099,6 +1486,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_ready-meal_intensity': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'ready-meal',
+    type: 'intensity',
     values: [1],
     args: [
       'food_rice',
@@ -1127,6 +1517,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_restaurant_intensity': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'restaurant',
+    type: 'intensity',
     values: [0.7157],
     args: [
       'food_rice',
@@ -1155,6 +1548,9 @@ export const options: Record<string, Option> = {
   },
   'white-meat-fish_food_bar-cafe_intensity': {
     option: 'white-meat-fish',
+    domain: 'food',
+    item: 'bar-cafe',
+    type: 'intensity',
     values: [0.7157],
     args: [
       'food_rice',
@@ -1183,6 +1579,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_rice_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'rice',
+    type: 'amount',
     values: [-0.293670587],
     args: [],
     operation: 'reduction-rate',
@@ -1190,6 +1589,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_bread-flour_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'bread-flour',
+    type: 'amount',
     values: [-0.293670587],
     args: [],
     operation: 'reduction-rate',
@@ -1197,6 +1599,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_noodle_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'noodle',
+    type: 'amount',
     values: [-0.293670587],
     args: [],
     operation: 'reduction-rate',
@@ -1204,6 +1609,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_potatoes_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'potatoes',
+    type: 'amount',
     values: [0.903789971],
     args: [],
     operation: 'increase-rate',
@@ -1211,6 +1619,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_vegetables_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'vegetables',
+    type: 'amount',
     values: [0.112482714],
     args: [],
     operation: 'increase-rate',
@@ -1218,6 +1629,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_processed-vegetables_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'processed-vegetables',
+    type: 'amount',
     values: [0.112482714],
     args: [],
     operation: 'increase-rate',
@@ -1225,6 +1639,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_beans_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'beans',
+    type: 'amount',
     values: [0.273319143],
     args: [],
     operation: 'increase-rate',
@@ -1232,6 +1649,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_milk_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'milk',
+    type: 'amount',
     values: [0.992166427],
     args: [],
     operation: 'increase-rate',
@@ -1239,6 +1659,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_other-dairy_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'other-dairy',
+    type: 'amount',
     values: [0.992166427],
     args: [],
     operation: 'increase-rate',
@@ -1246,6 +1669,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_eggs_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'eggs',
+    type: 'amount',
     values: [0.383733338],
     args: [],
     operation: 'increase-rate',
@@ -1253,6 +1679,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_beef_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'beef',
+    type: 'amount',
     values: [-0.275049188],
     args: [],
     operation: 'reduction-rate',
@@ -1260,6 +1689,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_pork_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'pork',
+    type: 'amount',
     values: [-0.275049188],
     args: [],
     operation: 'reduction-rate',
@@ -1267,6 +1699,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_chicken_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'chicken',
+    type: 'amount',
     values: [-0.275049188],
     args: [],
     operation: 'reduction-rate',
@@ -1274,6 +1709,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_other-meat_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'other-meat',
+    type: 'amount',
     values: [-0.275049188],
     args: [],
     operation: 'reduction-rate',
@@ -1281,6 +1719,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_processed-meat_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'processed-meat',
+    type: 'amount',
     values: [-0.275049188],
     args: [],
     operation: 'reduction-rate',
@@ -1288,6 +1729,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_fish_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'fish',
+    type: 'amount',
     values: [-0.275049188],
     args: [],
     operation: 'reduction-rate',
@@ -1295,6 +1739,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_processed-fish_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'processed-fish',
+    type: 'amount',
     values: [-0.275049188],
     args: [],
     operation: 'reduction-rate',
@@ -1302,6 +1749,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_fruits_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'fruits',
+    type: 'amount',
     values: [0.824468431],
     args: [],
     operation: 'increase-rate',
@@ -1309,6 +1759,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_oil_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'oil',
+    type: 'amount',
     values: [-0.778043146],
     args: [],
     operation: 'reduction-rate',
@@ -1316,6 +1769,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_seasoning_amount': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'seasoning',
+    type: 'amount',
     values: [-0.778043146],
     args: [],
     operation: 'reduction-rate',
@@ -1323,6 +1779,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_ready-meal_intensity': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'ready-meal',
+    type: 'intensity',
     values: [1],
     args: [
       'food_rice',
@@ -1351,6 +1810,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_restaurant_intensity': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'restaurant',
+    type: 'intensity',
     values: [0.7157],
     args: [
       'food_rice',
@@ -1379,6 +1841,9 @@ export const options: Record<string, Option> = {
   },
   'guide-meal_food_bar-cafe_intensity': {
     option: 'guide-meal',
+    domain: 'food',
+    item: 'bar-cafe',
+    type: 'intensity',
     values: [0.7157],
     args: [
       'food_rice',
@@ -1407,6 +1872,9 @@ export const options: Record<string, Option> = {
   },
   'guide-snack-drink_food_sweets-snack_amount': {
     option: 'guide-snack-drink',
+    domain: 'food',
+    item: 'sweets-snack',
+    type: 'amount',
     values: [-0.778043146],
     args: [],
     operation: 'reduction-rate',
@@ -1414,6 +1882,9 @@ export const options: Record<string, Option> = {
   },
   'guide-snack-drink_food_alcohol_amount': {
     option: 'guide-snack-drink',
+    domain: 'food',
+    item: 'alcohol',
+    type: 'amount',
     values: [-0.778043146],
     args: [],
     operation: 'reduction-rate',
@@ -1421,6 +1892,9 @@ export const options: Record<string, Option> = {
   },
   'guide-snack-drink_food_cold-drink_amount': {
     option: 'guide-snack-drink',
+    domain: 'food',
+    item: 'cold-drink',
+    type: 'amount',
     values: [-0.110780984],
     args: [],
     operation: 'reduction-rate',
@@ -1428,6 +1902,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_rice_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'rice',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1435,6 +1912,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_bread-flour_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'bread-flour',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1442,6 +1922,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_noodle_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'noodle',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1449,6 +1932,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_potatoes_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'potatoes',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1456,6 +1942,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_vegetables_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'vegetables',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1463,6 +1952,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_processed-vegetables_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'processed-vegetables',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1470,6 +1962,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_beans_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'beans',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1477,6 +1972,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_milk_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'milk',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1484,6 +1982,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_other-dairy_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'other-dairy',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1491,6 +1992,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_eggs_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'eggs',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1498,6 +2002,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_beef_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'beef',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1505,6 +2012,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_pork_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'pork',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1512,6 +2022,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_chicken_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'chicken',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1519,6 +2032,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_other-meat_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'other-meat',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1526,6 +2042,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_processed-meat_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'processed-meat',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1533,6 +2052,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_fish_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'fish',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1540,6 +2062,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_processed-fish_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'processed-fish',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1547,6 +2072,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_fruits_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'fruits',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1554,6 +2082,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_oil_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'oil',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1561,6 +2092,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_seasoning_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'seasoning',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1568,6 +2102,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_sweets-snack_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'sweets-snack',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1575,6 +2112,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_ready-meal_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'ready-meal',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1582,6 +2122,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_alcohol_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'alcohol',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1589,6 +2132,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_coffee-tea_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'coffee-tea',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1596,6 +2142,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_cold-drink_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'cold-drink',
+    type: 'amount',
     values: [0.964320154],
     args: ['food_food-amount-to-average'],
     operation: 'question-answer-to-target',
@@ -1603,6 +2152,9 @@ export const options: Record<string, Option> = {
   },
   loss_food_restaurant_amount: {
     option: 'loss',
+    domain: 'food',
+    item: 'restaurant',
+    type: 'amount',
     values: [-0.0229024],
     args: ['food_food-amount-to-average'],
     operation: 'reduction-rate',
@@ -1610,6 +2162,9 @@ export const options: Record<string, Option> = {
   },
   'loss_food_bar-cafe_amount': {
     option: 'loss',
+    domain: 'food',
+    item: 'bar-cafe',
+    type: 'amount',
     values: [-0.086631906],
     args: ['food_food-amount-to-average'],
     operation: 'reduction-rate',
@@ -1617,6 +2172,9 @@ export const options: Record<string, Option> = {
   },
   seasonal_food_vegetables_intensity: {
     option: 'seasonal',
+    domain: 'food',
+    item: 'vegetables',
+    type: 'intensity',
     values: [0.956544981],
     args: [],
     operation: 'absolute-target',
@@ -1624,6 +2182,9 @@ export const options: Record<string, Option> = {
   },
   seasonal_food_fruits_intensity: {
     option: 'seasonal',
+    domain: 'food',
+    item: 'fruits',
+    type: 'intensity',
     values: [1.065918232],
     args: [],
     operation: 'absolute-target',
@@ -1631,6 +2192,9 @@ export const options: Record<string, Option> = {
   },
   local_food_potatoes_intensity: {
     option: 'local',
+    domain: 'food',
+    item: 'potatoes',
+    type: 'intensity',
     values: [1.457994],
     args: [],
     operation: 'absolute-target',
@@ -1638,6 +2202,9 @@ export const options: Record<string, Option> = {
   },
   local_food_vegetables_intensity: {
     option: 'local',
+    domain: 'food',
+    item: 'vegetables',
+    type: 'intensity',
     values: [1.201479752],
     args: [],
     operation: 'absolute-target',
@@ -1645,6 +2212,9 @@ export const options: Record<string, Option> = {
   },
   'clothes-accessory_other_clothes-goods_amount': {
     option: 'clothes-accessory',
+    domain: 'other',
+    item: 'clothes-goods',
+    type: 'amount',
     values: [22.66259076],
     args: [],
     operation: 'absolute-target',
@@ -1652,6 +2222,9 @@ export const options: Record<string, Option> = {
   },
   'clothes-accessory_other_bags-jewelries-goods_amount': {
     option: 'clothes-accessory',
+    domain: 'other',
+    item: 'bags-jewelries-goods',
+    type: 'amount',
     values: [3.899884319],
     args: [],
     operation: 'absolute-target',
@@ -1659,6 +2232,9 @@ export const options: Record<string, Option> = {
   },
   'electronics-furniture_other_electronics_amount': {
     option: 'electronics-furniture',
+    domain: 'other',
+    item: 'electronics',
+    type: 'amount',
     values: [6.412981837],
     args: [],
     operation: 'absolute-target',
@@ -1666,6 +2242,9 @@ export const options: Record<string, Option> = {
   },
   'electronics-furniture_other_furniture_amount': {
     option: 'electronics-furniture',
+    domain: 'other',
+    item: 'furniture',
+    type: 'amount',
     values: [1.359545846],
     args: [],
     operation: 'absolute-target',
@@ -1673,6 +2252,9 @@ export const options: Record<string, Option> = {
   },
   'electronics-furniture_other_covering_amount': {
     option: 'electronics-furniture',
+    domain: 'other',
+    item: 'covering',
+    type: 'amount',
     values: [1.856600611],
     args: [],
     operation: 'absolute-target',
@@ -1680,6 +2262,9 @@ export const options: Record<string, Option> = {
   },
   'hobby_other_culture-goods_amount': {
     option: 'hobby',
+    domain: 'other',
+    item: 'culture-goods',
+    type: 'amount',
     values: [2.773967183],
     args: [],
     operation: 'absolute-target',
@@ -1687,6 +2272,9 @@ export const options: Record<string, Option> = {
   },
   'hobby_other_entertainment-goods_amount': {
     option: 'hobby',
+    domain: 'other',
+    item: 'entertainment-goods',
+    type: 'amount',
     values: [0.375954424],
     args: [],
     operation: 'absolute-target',
@@ -1694,6 +2282,9 @@ export const options: Record<string, Option> = {
   },
   'hobby_other_sports-goods_amount': {
     option: 'hobby',
+    domain: 'other',
+    item: 'sports-goods',
+    type: 'amount',
     values: [2.348030397],
     args: [],
     operation: 'absolute-target',
@@ -1701,6 +2292,9 @@ export const options: Record<string, Option> = {
   },
   'hobby_other_gardening-flower_amount': {
     option: 'hobby',
+    domain: 'other',
+    item: 'gardening-flower',
+    type: 'amount',
     values: [3.044506981],
     args: [],
     operation: 'absolute-target',
@@ -1708,6 +2302,9 @@ export const options: Record<string, Option> = {
   },
   hobby_other_pet_amount: {
     option: 'hobby',
+    domain: 'other',
+    item: 'pet',
+    type: 'amount',
     values: [2.990918299],
     args: [],
     operation: 'absolute-target',
@@ -1715,6 +2312,9 @@ export const options: Record<string, Option> = {
   },
   hobby_other_tobacco_amount: {
     option: 'hobby',
+    domain: 'other',
+    item: 'tobacco',
+    type: 'amount',
     values: [2.834608006],
     args: [],
     operation: 'absolute-target',
@@ -1722,6 +2322,9 @@ export const options: Record<string, Option> = {
   },
   consumables_other_cosmetics_amount: {
     option: 'consumables',
+    domain: 'other',
+    item: 'cosmetics',
+    type: 'amount',
     values: [6.50546099],
     args: [],
     operation: 'absolute-target',
@@ -1729,6 +2332,9 @@ export const options: Record<string, Option> = {
   },
   consumables_other_sanitation_amount: {
     option: 'consumables',
+    domain: 'other',
+    item: 'sanitation',
+    type: 'amount',
     values: [14.75682353],
     args: [],
     operation: 'absolute-target',
@@ -1736,6 +2342,9 @@ export const options: Record<string, Option> = {
   },
   'consumables_other_kitchen-goods_amount': {
     option: 'consumables',
+    domain: 'other',
+    item: 'kitchen-goods',
+    type: 'amount',
     values: [3.998600749],
     args: [],
     operation: 'absolute-target',
@@ -1743,6 +2352,9 @@ export const options: Record<string, Option> = {
   },
   'consumables_other_paper-stationery_amount': {
     option: 'consumables',
+    domain: 'other',
+    item: 'paper-stationery',
+    type: 'amount',
     values: [1.213503091],
     args: [],
     operation: 'absolute-target',
@@ -1750,6 +2362,9 @@ export const options: Record<string, Option> = {
   },
   'books_other_books-magazines_intensity': {
     option: 'books',
+    domain: 'other',
+    item: 'books-magazines',
+    type: 'intensity',
     values: [1.49788786],
     args: [],
     operation: 'absolute-target',
@@ -1757,6 +2372,9 @@ export const options: Record<string, Option> = {
   },
   'eco-tourism_other_hotel_amount': {
     option: 'eco-tourism',
+    domain: 'other',
+    item: 'hotel',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1764,6 +2382,9 @@ export const options: Record<string, Option> = {
   },
   'eco-tourism_other_travel_amount': {
     option: 'eco-tourism',
+    domain: 'other',
+    item: 'travel',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1771,6 +2392,9 @@ export const options: Record<string, Option> = {
   },
   'eco-tourism_other_culture-leisure_amount': {
     option: 'eco-tourism',
+    domain: 'other',
+    item: 'culture-leisure',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1778,6 +2402,9 @@ export const options: Record<string, Option> = {
   },
   'eco-tourism_other_entertainment-leisure_amount': {
     option: 'eco-tourism',
+    domain: 'other',
+    item: 'entertainment-leisure',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1785,6 +2412,9 @@ export const options: Record<string, Option> = {
   },
   'eco-tourism_other_sports-leisure_amount': {
     option: 'eco-tourism',
+    domain: 'other',
+    item: 'sports-leisure',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1792,6 +2422,9 @@ export const options: Record<string, Option> = {
   },
   'eco-tourism_other_bath-spa_amount': {
     option: 'eco-tourism',
+    domain: 'other',
+    item: 'bath-spa',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1799,6 +2432,9 @@ export const options: Record<string, Option> = {
   },
   'zeh_housing_housing-maintenance_amount': {
     option: 'zeh',
+    domain: 'housing',
+    item: 'housing-maintenance',
+    type: 'amount',
     values: [0.744995626],
     args: [],
     operation: 'increase-rate',
@@ -1806,6 +2442,9 @@ export const options: Record<string, Option> = {
   },
   zeh_housing_electricity_amount: {
     option: 'zeh',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'amount',
     values: [0.369, -0.2],
     args: [
       'housing_urban-gas_amount',
@@ -1818,6 +2457,9 @@ export const options: Record<string, Option> = {
   },
   'zeh_housing_urban-gas_amount': {
     option: 'zeh',
+    domain: 'housing',
+    item: 'urban-gas',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1825,6 +2467,9 @@ export const options: Record<string, Option> = {
   },
   zeh_housing_lpg_amount: {
     option: 'zeh',
+    domain: 'housing',
+    item: 'lpg',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1832,6 +2477,9 @@ export const options: Record<string, Option> = {
   },
   zeh_housing_kerosene_amount: {
     option: 'zeh',
+    domain: 'housing',
+    item: 'kerosene',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1839,6 +2487,9 @@ export const options: Record<string, Option> = {
   },
   'zeh_housing_other-energy_amount': {
     option: 'zeh',
+    domain: 'housing',
+    item: 'other-energy',
+    type: 'amount',
     values: [0],
     args: [],
     operation: 'absolute-target',
@@ -1846,6 +2497,9 @@ export const options: Record<string, Option> = {
   },
   zeh_housing_electricity_intensity: {
     option: 'zeh',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'intensity',
     values: [0.042861845],
     args: [],
     operation: 'absolute-target',
@@ -1853,6 +2507,9 @@ export const options: Record<string, Option> = {
   },
   'self-re_housing_electricity_intensity': {
     option: 'self-re',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'intensity',
     values: [0.042861845],
     args: [],
     operation: 'absolute-target',
@@ -1860,6 +2517,9 @@ export const options: Record<string, Option> = {
   },
   'grid-re_housing_electricity_intensity': {
     option: 'grid-re',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'intensity',
     values: [0.062972926],
     args: [],
     operation: 'absolute-target',
@@ -1867,6 +2527,9 @@ export const options: Record<string, Option> = {
   },
   'com-house_housing_imputed-rent_amount': {
     option: 'com-house',
+    domain: 'housing',
+    item: 'imputed-rent',
+    type: 'amount',
     values: [21.3087466],
     args: [],
     operation: 'absolute-target',
@@ -1874,6 +2537,9 @@ export const options: Record<string, Option> = {
   },
   'com-house_housing_rent_amount': {
     option: 'com-house',
+    domain: 'housing',
+    item: 'rent',
+    type: 'amount',
     values: [4.608658415],
     args: [],
     operation: 'absolute-target',
@@ -1881,6 +2547,9 @@ export const options: Record<string, Option> = {
   },
   'com-house_housing_land-rent_amount': {
     option: 'com-house',
+    domain: 'housing',
+    item: 'land-rent',
+    type: 'amount',
     values: [1],
     args: ['housing_imputed-rent_amount', 'housing_rent_amount'],
     operation: 'proportional-to-other-items',
@@ -1888,6 +2557,9 @@ export const options: Record<string, Option> = {
   },
   'com-house_housing_housing-maintenance_amount': {
     option: 'com-house',
+    domain: 'housing',
+    item: 'housing-maintenance',
+    type: 'amount',
     values: [1],
     args: ['housing_imputed-rent_amount', 'housing_rent_amount'],
     operation: 'proportional-to-other-items',
@@ -1895,6 +2567,9 @@ export const options: Record<string, Option> = {
   },
   'com-house_housing_electricity_amount': {
     option: 'com-house',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'amount',
     values: [0.270333566],
     args: ['housing_imputed-rent_amount', 'housing_rent_amount'],
     operation: 'proportional-to-other-items',
@@ -1902,6 +2577,9 @@ export const options: Record<string, Option> = {
   },
   'com-house_housing_urban-gas_amount': {
     option: 'com-house',
+    domain: 'housing',
+    item: 'urban-gas',
+    type: 'amount',
     values: [0.234432234],
     args: ['housing_imputed-rent_amount', 'housing_rent_amount'],
     operation: 'proportional-to-other-items',
@@ -1909,6 +2587,9 @@ export const options: Record<string, Option> = {
   },
   'com-house_housing_lpg_amount': {
     option: 'com-house',
+    domain: 'housing',
+    item: 'lpg',
+    type: 'amount',
     values: [0.082599119],
     args: ['housing_imputed-rent_amount', 'housing_rent_amount'],
     operation: 'proportional-to-other-items',
@@ -1916,6 +2597,9 @@ export const options: Record<string, Option> = {
   },
   'com-house_housing_kerosene_amount': {
     option: 'com-house',
+    domain: 'housing',
+    item: 'kerosene',
+    type: 'amount',
     values: [0.771779141],
     args: ['housing_imputed-rent_amount', 'housing_rent_amount'],
     operation: 'proportional-to-other-items',
@@ -1923,6 +2607,9 @@ export const options: Record<string, Option> = {
   },
   'insrenov_housing_housing-maintenance_amount': {
     option: 'insrenov',
+    domain: 'housing',
+    item: 'housing-maintenance',
+    type: 'amount',
     values: [-0.241929499],
     args: [
       'housing_electricity',
@@ -1935,6 +2622,9 @@ export const options: Record<string, Option> = {
   },
   insrenov_housing_electricity_amount: {
     option: 'insrenov',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'amount',
     values: [0.127762934],
     args: ['housing_housing-insulation-renovation'],
     operation: 'question-reduction-rate',
@@ -1942,6 +2632,9 @@ export const options: Record<string, Option> = {
   },
   'insrenov_housing_urban-gas_amount': {
     option: 'insrenov',
+    domain: 'housing',
+    item: 'urban-gas',
+    type: 'amount',
     values: [0.234432234],
     args: ['housing_housing-insulation-renovation'],
     operation: 'question-reduction-rate',
@@ -1949,6 +2642,9 @@ export const options: Record<string, Option> = {
   },
   insrenov_housing_lpg_amount: {
     option: 'insrenov',
+    domain: 'housing',
+    item: 'lpg',
+    type: 'amount',
     values: [0.082599119],
     args: ['housing_housing-insulation-renovation'],
     operation: 'question-reduction-rate',
@@ -1956,6 +2652,9 @@ export const options: Record<string, Option> = {
   },
   insrenov_housing_kerosene_amount: {
     option: 'insrenov',
+    domain: 'housing',
+    item: 'kerosene',
+    type: 'amount',
     values: [0.771779141],
     args: ['housing_housing-insulation-renovation'],
     operation: 'question-reduction-rate',
@@ -1963,6 +2662,9 @@ export const options: Record<string, Option> = {
   },
   'clothes-home_housing_electricity_amount': {
     option: 'clothes-home',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'amount',
     values: [0.127762934],
     args: ['housing_housing-insulation-clothing'],
     operation: 'question-reduction-rate',
@@ -1970,6 +2672,9 @@ export const options: Record<string, Option> = {
   },
   'clothes-home_housing_urban-gas_amount': {
     option: 'clothes-home',
+    domain: 'housing',
+    item: 'urban-gas',
+    type: 'amount',
     values: [0.234432234],
     args: ['housing_housing-insulation-clothing'],
     operation: 'question-reduction-rate',
@@ -1977,6 +2682,9 @@ export const options: Record<string, Option> = {
   },
   'clothes-home_housing_lpg_amount': {
     option: 'clothes-home',
+    domain: 'housing',
+    item: 'lpg',
+    type: 'amount',
     values: [0.082599119],
     args: ['housing_housing-insulation-clothing'],
     operation: 'question-reduction-rate',
@@ -1984,6 +2692,9 @@ export const options: Record<string, Option> = {
   },
   'clothes-home_housing_kerosene_amount': {
     option: 'clothes-home',
+    domain: 'housing',
+    item: 'kerosene',
+    type: 'amount',
     values: [0.771779141],
     args: ['housing_housing-insulation-clothing'],
     operation: 'question-reduction-rate',
@@ -1991,6 +2702,9 @@ export const options: Record<string, Option> = {
   },
   'ec_housing_housing-maintenance_amount': {
     option: 'ec',
+    domain: 'housing',
+    item: 'housing-maintenance',
+    type: 'amount',
     values: [-0.077669903],
     args: [
       'housing_electricity',
@@ -2004,6 +2718,9 @@ export const options: Record<string, Option> = {
   },
   ec_housing_electricity_amount: {
     option: 'ec',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'amount',
     values: [0.271666667],
     args: [
       'housing_urban-gas_amount',
@@ -2016,6 +2733,9 @@ export const options: Record<string, Option> = {
   },
   'ec_housing_urban-gas_amount': {
     option: 'ec',
+    domain: 'housing',
+    item: 'urban-gas',
+    type: 'amount',
     values: [-0.603785104],
     args: [],
     operation: 'reduction-rate',
@@ -2023,6 +2743,9 @@ export const options: Record<string, Option> = {
   },
   ec_housing_lpg_amount: {
     option: 'ec',
+    domain: 'housing',
+    item: 'lpg',
+    type: 'amount',
     values: [-0.633259912],
     args: [],
     operation: 'reduction-rate',
@@ -2030,6 +2753,9 @@ export const options: Record<string, Option> = {
   },
   ec_housing_kerosene_amount: {
     option: 'ec',
+    domain: 'housing',
+    item: 'kerosene',
+    type: 'amount',
     values: [-0.228220859],
     args: [],
     operation: 'reduction-rate',
@@ -2037,6 +2763,9 @@ export const options: Record<string, Option> = {
   },
   'ec_housing_other-energy_amount': {
     option: 'ec',
+    domain: 'housing',
+    item: 'other-energy',
+    type: 'amount',
     values: [-0.939197668],
     args: [],
     operation: 'reduction-rate',
@@ -2044,6 +2773,9 @@ export const options: Record<string, Option> = {
   },
   'ac_housing_housing-maintenance_amount': {
     option: 'ac',
+    domain: 'housing',
+    item: 'housing-maintenance',
+    type: 'amount',
     values: [-0.015345044],
     args: [
       'housing_electricity',
@@ -2056,6 +2788,9 @@ export const options: Record<string, Option> = {
   },
   ac_housing_electricity_amount: {
     option: 'ac',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'amount',
     values: [0.2125],
     args: [
       'housing_urban-gas_amount',
@@ -2067,6 +2802,9 @@ export const options: Record<string, Option> = {
   },
   'ac_housing_urban-gas_amount': {
     option: 'ac',
+    domain: 'housing',
+    item: 'urban-gas',
+    type: 'amount',
     values: [-0.234432234],
     args: [],
     operation: 'reduction-rate',
@@ -2074,6 +2812,9 @@ export const options: Record<string, Option> = {
   },
   ac_housing_lpg_amount: {
     option: 'ac',
+    domain: 'housing',
+    item: 'lpg',
+    type: 'amount',
     values: [-0.082599119],
     args: [],
     operation: 'reduction-rate',
@@ -2081,6 +2822,9 @@ export const options: Record<string, Option> = {
   },
   ac_housing_kerosene_amount: {
     option: 'ac',
+    domain: 'housing',
+    item: 'kerosene',
+    type: 'amount',
     values: [-0.771779141],
     args: [],
     operation: 'reduction-rate',
@@ -2088,6 +2832,9 @@ export const options: Record<string, Option> = {
   },
   led_housing_electricity_amount: {
     option: 'led',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'amount',
     values: [-0.0660406],
     args: [],
     operation: 'reduction-rate',
@@ -2095,6 +2842,9 @@ export const options: Record<string, Option> = {
   },
   'led_housing_housing-maintenance_amount': {
     option: 'led',
+    domain: 'housing',
+    item: 'housing-maintenance',
+    type: 'amount',
     values: [0.020622194],
     args: ['housing_electricity'],
     operation: 'further-reduction-from-other-footprints',
@@ -2102,6 +2852,9 @@ export const options: Record<string, Option> = {
   },
   enenudge_housing_electricity_amount: {
     option: 'enenudge',
+    domain: 'housing',
+    item: 'electricity',
+    type: 'amount',
     values: [-0.03],
     args: [],
     operation: 'reduction-rate',

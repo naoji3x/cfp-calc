@@ -1,10 +1,7 @@
 import { type Domain, type Type } from '../common'
 import { type Footprint } from '../data'
+import { type Action } from './action'
 import { type Item } from './item'
-
-export interface Action extends Item {
-  readonly option: string
-}
 
 export class Diagnosis {
   private readonly baselines: Record<string, Item> = {}

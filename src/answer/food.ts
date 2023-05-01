@@ -17,41 +17,44 @@ import {
 } from 'common'
 import { getBaselineAmount } from 'data'
 import { type Item } from 'entity/item'
-import { estimateAlcoholAnnualAmount } from './alcohol'
-import { estimateDairyFoodAnnualAmount } from './dairy-food'
-import { estimateDishAnnualAmount } from './dish'
-import { estimateEatOutAnnualAmount, estimateEatOutIntensity } from './eat-out'
-import { estimateFoodIntakeAnnualAmount } from './food-intake'
-import { estimateProcessedMeatAnnualAmount } from './processed-meat'
+import { estimateAlcoholAnnualAmount } from '../food/alcohol'
+import { estimateDairyFoodAnnualAmount } from '../food/dairy-food'
+import { estimateDishAnnualAmount } from '../food/dish'
+import {
+  estimateEatOutAnnualAmount,
+  estimateEatOutIntensity
+} from '../food/eat-out'
+import { estimateFoodIntakeAnnualAmount } from '../food/food-intake'
+import { estimateProcessedMeatAnnualAmount } from '../food/processed-meat'
 import {
   estimateReadyMealAnnualAmount,
   estimateReadyMealIntensity
-} from './ready-meal'
-import { estimateSoftDrinkSnackAnnualAmount } from './soft-drink-snack'
+} from '../food/ready-meal'
+import { estimateSoftDrinkSnackAnnualAmount } from '../food/soft-drink-snack'
 
-export interface FoodAnswer {
+export interface FoodParam {
   /** 食料の廃棄量 */
-  foodDirectWasteFrequency: FoodDirectWasteFrequency
+  readonly foodDirectWasteFrequency: FoodDirectWasteFrequency
   /** 食料の食べ残し量 */
-  foodLeftoverFrequency: FoodLeftoverFrequency
+  readonly foodLeftoverFrequency: FoodLeftoverFrequency
   /** 食料摂取量 */
-  foodIntake?: FoodIntake
+  readonly foodIntake?: FoodIntake
   /** アルコールの摂取頻度 */
-  alcoholFrequency?: AlcoholFrequency
+  readonly alcoholFrequency?: AlcoholFrequency
   /** 乳製品の摂取頻度 */
-  dairyFoodFrequency?: DairyFoodFrequency
+  readonly dairyFoodFrequency?: DairyFoodFrequency
   /** 牛肉料理の頻度 */
-  beefDishFrequency?: DishFrequency
+  readonly beefDishFrequency?: DishFrequency
   /** 豚肉料理の頻度 */
-  porkDishFrequency?: DishFrequency
+  readonly porkDishFrequency?: DishFrequency
   /** 鶏肉料理の頻度 */
-  chickenDishFrequency?: DishFrequency
+  readonly chickenDishFrequency?: DishFrequency
   /** 魚介料理の頻度 */
-  seafoodDishFrequency?: DishFrequency
+  readonly seafoodDishFrequency?: DishFrequency
   /** ソフトドリンクとスナックの支出 */
-  softDrinkSnackExpenses?: SoftDrinkSnackExpenses
+  readonly softDrinkSnackExpenses?: SoftDrinkSnackExpenses
   /** 外食の支出 */
-  eatOutExpenses?: EatOutExpenses
+  readonly eatOutExpenses?: EatOutExpenses
 }
 
 export const estimateFood = ({
@@ -66,7 +69,7 @@ export const estimateFood = ({
   seafoodDishFrequency = undefined,
   softDrinkSnackExpenses = undefined,
   eatOutExpenses = undefined
-}: FoodAnswer): Item[] => {
+}: FoodParam): Item[] => {
   const domain: Domain = 'food'
   const estimations: Item[] = []
 

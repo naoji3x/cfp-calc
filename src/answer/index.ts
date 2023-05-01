@@ -1,7 +1,3 @@
-export * from './action'
-export * from './answer'
-export * from './common'
-export * from './data'
 export * from './food'
 export * from './housing'
 export * from './mobility'

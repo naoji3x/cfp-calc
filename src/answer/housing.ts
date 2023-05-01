@@ -13,15 +13,15 @@ import { type Item } from 'entity/item'
 import {
   estimateElectricityAnnualAmount,
   estimateElectricityIntensity
-} from './electricity'
-import { estimateGasAnnualAmount } from './gas'
-import { estimateHousingMaintenanceAnnualAmount } from './housing-maintenance'
-import { estimateImputedRentAnnualAmount } from './imputed-rent'
-import { estimateKeroseneAnnualAmount } from './kerosene'
-import { estimateRentAnnualAmount } from './rent'
+} from '../housing/electricity'
+import { estimateGasAnnualAmount } from '../housing/gas'
+import { estimateHousingMaintenanceAnnualAmount } from '../housing/housing-maintenance'
+import { estimateImputedRentAnnualAmount } from '../housing/imputed-rent'
+import { estimateKeroseneAnnualAmount } from '../housing/kerosene'
+import { estimateRentAnnualAmount } from '../housing/rent'
 
 /** 居住に関するカーボンフットプリントを計算するための質問への回答 */
-export interface HousingAnswer {
+export interface HousingParam {
   /** 住居の広さ */
   readonly housingSize: HousingSize
   /** 住居者数 */
@@ -30,34 +30,34 @@ export interface HousingAnswer {
     /** 電力の種類 */
     readonly electricityType: ElectricityType
     /** 1ヶ月の電力使用量[kWh] */
-    monthlyConsumption: number
+    readonly monthlyConsumption: number
     /** 対象月 */
-    month: Month
+    readonly month: Month
     /** 自家用車の情報。EV, PHVの場合の補正に使用 */
-    privateCar?: {
+    readonly privateCar?: {
       /** 車の種類 */
-      carType: CarType
+      readonly carType: CarType
       /** 年間走行距離[km/年] */
-      annualMileage: number
+      readonly annualMileage: number
       /** 自宅充電の頻度 */
-      carCharging: CarCharging
+      readonly carCharging: CarCharging
     }
   }
   /** ガスの使用量 */
-  gas?: {
+  readonly gas?: {
     /** ガスの種類 */
-    item: GasItem
+    readonly item: GasItem
     /** 1ヶ月のガス使用量[m3] */
-    monthlyConsumption: number
+    readonly monthlyConsumption: number
     /** 対象月 */
-    month: Month
+    readonly month: Month
   }
   /** 灯油の使用量 */
-  kerosene?: {
+  readonly kerosene?: {
     /** 1ヶ月の灯油使用量[L] */
-    monthlyConsumption: number
+    readonly monthlyConsumption: number
     /** 対象月数 */
-    monthCount: number
+    readonly monthCount: number
   }
 }
 
@@ -67,7 +67,7 @@ export const estimateHousing = ({
   electricity = undefined,
   gas = undefined,
   kerosene = undefined
-}: HousingAnswer): Item[] => {
+}: HousingParam): Item[] => {
   const domain: Domain = 'housing'
   const estimations: Item[] = []
 

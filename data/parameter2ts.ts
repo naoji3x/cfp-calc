@@ -3,6 +3,8 @@ import * as fs from 'fs'
 import { type Parameter } from '../src/entity/parameter'
 
 const toParameter = (record: any): Parameter => ({
+  category: record.category,
+  key: record.key,
   value: Number(record.value),
   unit: record.unit,
   citation: record.citation

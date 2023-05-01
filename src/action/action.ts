@@ -97,12 +97,12 @@ export const drivingIntensityToTaxiRideshare = (
  * 例）ライドシェアリングにより自家用車の乗車人数が質問票で把握した人数から4人に増加した場合、
  * @remarks Phase1: 推定値があれば計算可能な削減施策（他の削減施策に依存しないので最初に計算可能）
  * option: rideshare, operation: question-answer-to-target-inverse,
- * args: private-car-driving に特化した実装
+ * args: mobility_private-car-passengers に特化した実装
  * 原単位の変化としてはこれらの比率の逆数として計算される
  * @privateRemarks JibungotoPlanet-Backendの初期バージョンではquestionAnswerToTargetInverse
  * @param base 削減前の値
- * @param baseCarPassengers 削減前平均乗車人数
  * @param passengersAfterAction 削減後の乗車人数
+ * @param baseCarPassengers 削減前平均乗車人数
  * @returns 削減後の活動量もしくはGHG原単位
  */
 export const drivingIntensityToPrivateCarRideshare = (
@@ -454,7 +454,7 @@ export const reboundFromOtherFootprints = (
   baseIntensity: number,
   type: 'amount' | 'intensity',
   option: string,
-  domainItems: string[],
+  domainItems: readonly string[],
   reboundRate: number,
   search: Search
 ): number =>

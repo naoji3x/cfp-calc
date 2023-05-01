@@ -1,5 +1,5 @@
 import { type Domain, type Type } from '../common'
-import { type Footprint, type FootprintKey } from '../entity/footprint'
+import { type Footprint } from '../entity/footprint'
 import { type Option } from '../entity/option'
 import { type Parameter } from '../entity/parameter'
 import { footprints } from './footprints'
@@ -18,6 +18,7 @@ export const getBaselineAmount = (domain: Domain, item: string): Footprint => ({
   ...footprints['baseline_' + domain + '_' + item + '_amount']
 })
 
+/*
 export const enumerateFootprintKeys = (domain: Domain): FootprintKey[] =>
   Object.keys(footprints)
     .filter((key) => key.startsWith(domain + '_'))
@@ -26,9 +27,10 @@ export const enumerateFootprintKeys = (domain: Domain): FootprintKey[] =>
       return {
         domain,
         item: values[1],
-        type: values[2] === 'amount' ? 'amount' : 'intensity'
+        type: values[2] as Type
       }
     })
+    */
 
 export const getBaselineIntensity = (
   domain: Domain,
@@ -49,3 +51,5 @@ export const getOption = (
 ): Option => ({
   ...options[option + '_' + domain + '_' + item + '_' + type]
 })
+
+export const enumerateOptions = (): readonly Option[] => Object.values(options)

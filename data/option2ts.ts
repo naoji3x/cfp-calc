@@ -1,8 +1,15 @@
 import { parse } from 'csv-parse/sync'
 import * as fs from 'fs'
+import { type Domain, type Type } from '../src/common'
 import { type Option } from '../src/entity/option'
 
-const toOption = (record: any): Option => {
+const toOption = (
+  option: string,
+  domain: Domain,
+  item: string,
+  type: Type,
+  record: any
+): Option => {
   const values = [Number(record.value)]
   const args = record.args === '' ? [] : String(record.args).split(' ')
 
@@ -11,10 +18,11 @@ const toOption = (record: any): Option => {
     args.shift()
   }
 
-  const option = String(record.option)
-
   return {
     option,
+    domain,
+    item,
+    type,
     values,
     args,
     operation: record.operation,
@@ -30,7 +38,14 @@ const options: Record<string, Option> = {}
 for (const record of records) {
   const option = String(record.option)
   const domainItemType = String(record.domain_item_type)
-  options[option + '_' + domainItemType] = toOption(record)
+  const [domain, item, type] = domainItemType.split('_')
+  options[option + '_' + domainItemType] = toOption(
+    option,
+    domain as Domain,
+    item,
+    type as Type,
+    record
+  )
 }
 
 const header = `import { type Option } from '../entity/option'
