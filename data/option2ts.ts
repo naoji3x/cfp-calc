@@ -1,6 +1,6 @@
 import { parse } from 'csv-parse/sync'
 import * as fs from 'fs'
-import { type Option } from '../src/data/option'
+import { type Option } from '../src/entity/option'
 
 const toOption = (record: any): Option => {
   const values = [Number(record.value)]
@@ -33,7 +33,7 @@ for (const record of records) {
   options[option + '_' + domainItemType] = toOption(record)
 }
 
-const header = `import { type Option } from './option'
+const header = `import { type Option } from '../entity/option'
 export const options: Record<string, Option> = `
 const ts = header + JSON.stringify(options, null, 2)
 

@@ -1,4 +1,4 @@
-import { type Parameter } from './parameter'
+import { type Parameter } from '../entity/parameter'
 export const parameters: Record<string, Parameter> = {
   'family-size_unknown': {
     value: 2.33,

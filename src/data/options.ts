@@ -1,4 +1,4 @@
-import { type Option } from './option'
+import { type Option } from '../entity/option'
 export const options: Record<string, Option> = {
   telework_mobility_train_amount: {
     option: 'telework',

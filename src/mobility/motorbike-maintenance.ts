@@ -45,7 +45,7 @@ export const estimateMotorbikeMaintenanceAnnualAmount = (
 
 /**
  * バイクの維持のGHG原単位を計算
- * @returns 電車での移動時のGHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値[kgCO2e/000JPY]
  */
 export const estimateMotorbikeMaintenanceIntensity = (): number =>
   getBaselineIntensity('mobility', 'motorbike-maintenance').value

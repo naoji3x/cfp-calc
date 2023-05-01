@@ -1,4 +1,4 @@
-import { type Footprint } from './footprint'
+import { type Footprint } from '../entity/footprint'
 export const footprints: Record<string, Footprint> = {
   'baseline_housing_imputed-rent_amount': {
     subdomain: 'construction-maintenance',

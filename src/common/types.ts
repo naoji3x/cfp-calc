@@ -1,3 +1,6 @@
+export type Domain = 'food' | 'housing' | 'mobility' | 'other'
+export type Type = 'amount' | 'intensity'
+
 //
 // mobility
 //

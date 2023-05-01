@@ -29,7 +29,7 @@ export const estimateMotorbikeDrivingAnnualAmount = (
 
 /**
  * バイクでの移動時のGHG原単位を計算
- * @returns 電車での移動時のGHG原単位[kgCO2e/km-passenger]
+ * @returns ベースライン値[kgCO2e/km-passenger]
  */
 export const estimateMotorbikeDrivingIntensity = (): number =>
   getBaselineIntensity('mobility', 'motorbike-driving').value

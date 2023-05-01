@@ -14,7 +14,7 @@ export interface PrivateCarMaintenanceAmountParam {
 export const estimatePrivateCarMaintenanceAmount = ({
   annualMileage
 }: PrivateCarMaintenanceAmountParam): number => {
-  const MaintenanceBaseline = getBaselineAmount(
+  const maintenanceBaseline = getBaselineAmount(
     'mobility',
     'private-car-maintenance'
   ).value
@@ -22,12 +22,12 @@ export const estimatePrivateCarMaintenanceAmount = ({
     'mobility',
     'private-car-driving'
   ).value
-  return (MaintenanceBaseline * annualMileage) / drivingBaseline
+  return (maintenanceBaseline * annualMileage) / drivingBaseline
 }
 
 /**
  * 自家用車の維持のGHG原単位を計算
- * @returns 自家用車の維持のGHG原単位[kgCO2e/000JPY]
+ * @returns ベースライン値を返す[kgCO2e/000JPY]
  */
 export const estimatePrivateCarMaintenanceIntensity = (): number =>
   getBaselineIntensity('mobility', 'private-car-maintenance').value

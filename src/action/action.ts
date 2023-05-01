@@ -14,7 +14,7 @@ import { estimateCarDrivingIntensityFactor } from '../mobility/factor-calculatio
 /**
  * カーボンフットプリント・改善アクションの分析結果を検索するためのインターフェース
  */
-export interface Diagnoses {
+export interface Search {
   /**
    * 活動量、GHG原単位の推定値を取得する（推定値がない場合はベースライン値を返す）
    * @param domainItemType 活動量、GHG原単位を取得する要素を指定。domain, item, typeを_で結合したキー
@@ -258,7 +258,7 @@ export const housingInsulationClothing = (
  * @param option 他の削減施策
  * @param domainItemTypes 転換する他の項目
  * @param substitutionRate 代替率
- * @param diagnoses カーボンフットプリント・改善アクションの分析結果
+ * @param search カーボンフットプリント・改善アクションの分析結果
  * @returns 削減後の活動量もしくはGHG原単位
  */
 export const shiftFromOtherItems = (
@@ -266,11 +266,11 @@ export const shiftFromOtherItems = (
   option: string,
   domainItemTypes: readonly string[],
   substitutionRate: number,
-  diagnoses: Diagnoses
+  search: Search
 ): number => {
   const sum = domainItemTypes.reduce(
     (sum, key) =>
-      sum + diagnoses.findAction(key, option) - diagnoses.findEstimation(key),
+      sum + search.findAction(key, option) - search.findEstimation(key),
     0
   )
   return base - sum * substitutionRate
@@ -286,7 +286,7 @@ export const shiftFromOtherItems = (
  * @param domainItemTypes 転換する他の項目
  * @param conversionFactor 電力の一次エネルギー換算係数
  * @param reductionRate 省エネ化後の一次エネルギー消費量の削減率（２割減=-0.2）
- * @param diagnoses カーボンフットプリント・改善アクションの分析結果
+ * @param search カーボンフットプリント・改善アクションの分析結果
  * @returns 削減後の活動量もしくはGHG原単位
  */
 export const shiftFromOtherItemsThenReductionRate = (
@@ -295,11 +295,11 @@ export const shiftFromOtherItemsThenReductionRate = (
   domainItemTypes: readonly string[],
   conversionFactor: number,
   reductionRate: number,
-  diagnoses: Diagnoses
+  search: Search
 ): number => {
   const sum = domainItemTypes.reduce(
     (sum, key) =>
-      sum + diagnoses.findAction(key, option) - diagnoses.findEstimation(key),
+      sum + search.findAction(key, option) - search.findEstimation(key),
     0
   )
   return (
@@ -321,7 +321,7 @@ export const shiftFromOtherItemsThenReductionRate = (
  * @param option 転換する削減施策
  * @param domainItemTypes 転換する他の項目
  * @param rate 影響割合
- * @param diagnoses カーボンフットプリント・改善アクションの分析結果
+ * @param search カーボンフットプリント・改善アクションの分析結果
  * @returns 削減後の活動量もしくはGHG原単位
  */
 export const proportionalToOtherItems = (
@@ -329,16 +329,15 @@ export const proportionalToOtherItems = (
   option: string,
   domainItemTypes: readonly string[],
   rate: number,
-  diagnoses: Diagnoses
+  search: Search
 ): number => {
   const sumBefore = domainItemTypes.reduce(
-    (sum, key) => sum + diagnoses.findEstimation(key),
+    (sum, key) => sum + search.findEstimation(key),
     0
   )
   const sumAfter = domainItemTypes.reduce(
     (sum, key) =>
-      sum +
-      (diagnoses.findAction(key, option) ?? diagnoses.findEstimation(key)),
+      sum + (search.findAction(key, option) ?? search.findEstimation(key)),
     0
   )
 
@@ -361,7 +360,7 @@ export const proportionalToOtherItems = (
  * @param option 他の削減施策
  * @param domainItems 他のフットプリント項目
  * @param rate 削減割合
- * @param diagnoses カーボンフットプリント・改善アクションの分析結果
+ * @param search カーボンフットプリント・改善アクションの分析結果
  * @returns 削減後の活動量もしくはGHG原単位
  */
 export const proportionalToOtherFootprints = (
@@ -369,17 +368,17 @@ export const proportionalToOtherFootprints = (
   option: string,
   domainItems: readonly string[],
   rate: number,
-  diagnoses: Diagnoses
+  search: Search
 ): number => {
   let sumBefore = 0
   let sumAfter = 0
 
   for (const key of domainItems) {
-    const ab = diagnoses.findEstimation(key + '_amount') // amountBefore
-    const aa = diagnoses.findAction(key + '_amount', option) // amountAfter
+    const ab = search.findEstimation(key + '_amount') // amountBefore
+    const aa = search.findAction(key + '_amount', option) // amountAfter
 
-    const ib = diagnoses.findEstimation(key + '_intensity') // intensityBefore
-    const ia = diagnoses.findAction(key + '_intensity', option) // intensityAfter
+    const ib = search.findEstimation(key + '_intensity') // intensityBefore
+    const ia = search.findAction(key + '_intensity', option) // intensityAfter
 
     sumBefore += ab * ib
     sumAfter += aa * ia
@@ -402,7 +401,7 @@ export const proportionalToOtherFootprints = (
  * @param option 他の削減施策
  * @param domainItems 他のフットプリント項目
  * @param reboundRate リバウンド割合
- * @param diagnoses カーボンフットプリント・改善アクションの分析結果
+ * @param search カーボンフットプリント・改善アクションの分析結果
  * @param sign -1 排出削減、1:リバウンド
  * @returns 削減後の活動量もしくはGHG原単位
  */
@@ -413,16 +412,16 @@ export const furtherReductionFromOtherFootprints = (
   option: string,
   domainItems: readonly string[],
   reboundRate: number,
-  diagnoses: Diagnoses,
+  search: Search,
   sign: -1 | 1 = -1
 ): number => {
   let sumBefore = 0
   let sumAfter = 0
   for (const key of domainItems) {
-    const ab = diagnoses.findEstimation(key + '_amount') // amountBefore
-    const aa = diagnoses.findAction(key + '_amount', option) // amountAfter
-    const ib = diagnoses.findEstimation(key + '_intensity') // intensityBefore
-    const ia = diagnoses.findAction(key + '_intensity', option) // intensityAfter
+    const ab = search.findEstimation(key + '_amount') // amountBefore
+    const aa = search.findAction(key + '_amount', option) // amountAfter
+    const ib = search.findEstimation(key + '_intensity') // intensityBefore
+    const ia = search.findAction(key + '_intensity', option) // intensityAfter
 
     sumBefore += ab * ib
     sumAfter += aa * ia
@@ -447,7 +446,7 @@ export const furtherReductionFromOtherFootprints = (
  * @param option 他の削減施策
  * @param domainItems 他のフットプリント項目
  * @param reboundRate リバウンド割合
- * @param diagnoses カーボンフットプリント・改善アクションの分析結果
+ * @param search カーボンフットプリント・改善アクションの分析結果
  * @returns 削減後の活動量もしくはGHG原単位
  */
 export const reboundFromOtherFootprints = (
@@ -457,7 +456,7 @@ export const reboundFromOtherFootprints = (
   option: string,
   domainItems: string[],
   reboundRate: number,
-  diagnoses: Diagnoses
+  search: Search
 ): number =>
   furtherReductionFromOtherFootprints(
     baseAmount,
@@ -466,6 +465,6 @@ export const reboundFromOtherFootprints = (
     option,
     domainItems,
     reboundRate,
-    diagnoses,
+    search,
     1
   )

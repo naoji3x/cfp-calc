@@ -45,7 +45,7 @@ export const estimateMotorbikePurchaseAnnualAmount = (
 
 /**
  * バイクでの購入時のGHG原単位を計算
- * @returns バイクの購入のGHG原単位[kgCO2e/vehicle]
+ * @returns ベースライン値[kgCO2e/vehicle]
  */
 export const estimateMotorbikePurchaseIntensity = (): number =>
   getBaselineIntensity('mobility', 'motorbike-purchase').value

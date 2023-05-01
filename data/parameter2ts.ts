@@ -1,6 +1,6 @@
 import { parse } from 'csv-parse/sync'
 import * as fs from 'fs'
-import { type Parameter } from '../src/data/parameter'
+import { type Parameter } from '../src/entity/parameter'
 
 const toParameter = (record: any): Parameter => ({
   value: Number(record.value),
@@ -19,7 +19,7 @@ for (const record of records) {
   parameters[category + '_' + key] = toParameter(record)
 }
 
-const header = `import { type Parameter } from './parameter'
+const header = `import { type Parameter } from '../entity/parameter'
 export const parameters: Record<string, Parameter> = `
 const ts = header + JSON.stringify(parameters, null, 2)
 

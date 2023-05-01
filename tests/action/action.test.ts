@@ -15,7 +15,7 @@ import {
   reboundFromOtherFootprints,
   shiftFromOtherItems,
   shiftFromOtherItemsThenReductionRate,
-  type Diagnoses
+  type Search
 } from '../../src/action/action'
 import {
   type AlcoholFrequency,
@@ -87,7 +87,7 @@ import {
 import { estimateTaxiIntensity } from '../../src/mobility/taxi'
 import { estimateTrainAnnualAmount } from '../../src/mobility/train'
 
-class DiagnosesImpl implements Diagnoses {
+class SearchImpl implements Search {
   private readonly items: Record<string, number> = {}
   private readonly actions: Record<string, number> = {}
 
@@ -318,7 +318,7 @@ describe('dailyshift01', () => {
   const trainAnnualTravelingTime = 20
   const busAnnualTravelingTime = 20
 
-  const diagnoses = new DiagnosesImpl()
+  const diagnoses = new SearchImpl()
   diagnoses.addItem(
     'mobility_train_amount',
     estimateTrainAnnualAmount({
@@ -507,7 +507,7 @@ describe('zeh01', () => {
   const keroseneMonthlyConsumption = 200
   const keroseneMonthCount = 2
 
-  const diagnoses = new DiagnosesImpl()
+  const diagnoses = new SearchImpl()
   diagnoses.addItem(
     'housing_housing-maintenance_amount',
     estimateHousingMaintenanceAnnualAmount({ residentCount, housingSize })
@@ -623,7 +623,7 @@ describe('led01', () => {
   const electricityMonthlyConsumption = 750
   const electricityMonth: Month = 'january'
 
-  const diagnoses = new DiagnosesImpl()
+  const diagnoses = new SearchImpl()
   diagnoses.addItem(
     'housing_electricity_amount',
     estimateElectricityAnnualAmount({
@@ -684,7 +684,7 @@ describe('vegan01', () => {
   const alcoholFrequency: AlcoholFrequency = '2-3-less-per-month'
   const softDrinkSnackExpenses: SoftDrinkSnackExpenses = '15k-more'
 
-  const diagnoses = new DiagnosesImpl()
+  const diagnoses = new SearchImpl()
 
   const foodIntakeItems: FoodIntakeItem[] = [
     'rice',
@@ -955,7 +955,7 @@ describe('ac01', () => {
   const keroseneMonthlyConsumption = 200
   const keroseneMonthCount = 2
 
-  const diagnoses = new DiagnosesImpl()
+  const diagnoses = new SearchImpl()
 
   diagnoses.addItem(
     'housing_housing-maintenance_amount',

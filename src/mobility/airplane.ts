@@ -27,7 +27,7 @@ export const estimateAirplaneAnnualAmount = (
 
 /**
  * 飛行機での移動時のGHG原単位を計算
- * @returns 移動時のGHG原単位[kgCO2e/km-passenger]
+ * @returns ベースライン値[kgCO2e/km-passenger]
  */
 export const estimateAirplaneIntensity = (): number =>
   getBaselineIntensity('mobility', 'airplane').value

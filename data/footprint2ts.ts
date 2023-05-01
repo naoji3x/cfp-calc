@@ -1,6 +1,6 @@
 import { parse } from 'csv-parse/sync'
 import * as fs from 'fs'
-import { type Footprint } from '../src/data/footprint'
+import { type Footprint } from '../src/entity/footprint'
 
 const toFootprint = (record: any): Footprint => ({
   subdomain: record.subdomain,
@@ -20,7 +20,7 @@ for (const record of records) {
   footprints[dirDomain + '_' + itemType] = toFootprint(record)
 }
 
-const header = `import { type Footprint } from './footprint'
+const header = `import { type Footprint } from '../entity/footprint'
 export const footprints: Record<string, Footprint> = `
 const ts = header + JSON.stringify(footprints, null, 2)
 
