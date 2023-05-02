@@ -1,43 +1,9 @@
 import xlsx from 'xlsx'
-import { type OtherAnswer } from '../../src/answer/answer'
 import { Diagnosis } from '../../src/answer/diagnosis'
-import {
-  type ApplianceFurnitureExpenses,
-  type ClothesBeautyExpenses,
-  type CommunicationExpenses,
-  type DailyGoodsExpenses,
-  type HobbyGoodsExpenses,
-  type LeisureSportsExpenses,
-  type ServiceExpenses,
-  type TravelExpenses
-} from '../../src/common'
 import { enumerateBaselines } from '../../src/data'
+import { toOtherAnswer } from './answer-converter'
 import { testEstimation } from './estimation-common'
-import { createTestCases, type Answer } from './util'
-
-/** excelのanswerをfoodAnswerに変換 */
-const toOtherAnswer = (answers: readonly Answer[]): OtherAnswer => {
-  const answer: Record<string, string | number | boolean> = {}
-  for (const a of answers) {
-    answer[a.name] = a.value
-  }
-
-  return {
-    residentCount: answer.residentCount as number,
-    travelExpenses: answer.travelFactorKey as TravelExpenses,
-    applianceFurnitureExpenses:
-      answer.applianceFurnitureAmountKey as ApplianceFurnitureExpenses,
-    clothesBeautyExpenses:
-      answer.clothesBeautyFactorKey as ClothesBeautyExpenses,
-    hobbyGoodsExpenses: answer.hobbyGoodsFactorKey as HobbyGoodsExpenses,
-    serviceExpenses: answer.serviceFactorKey as ServiceExpenses,
-    dailyGoodsExpenses: answer.dailyGoodsAmountKey as DailyGoodsExpenses,
-    leisureSportsExpenses:
-      answer.leisureSportsFactorKey as LeisureSportsExpenses,
-    communicationExpenses:
-      answer.communicationAmountKey as CommunicationExpenses
-  }
-}
+import { createTestCases } from './util'
 
 /** テスト */
 const domain = 'other'
