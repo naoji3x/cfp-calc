@@ -31,21 +31,7 @@ import {
 import { enumerateOptions } from 'data'
 import { type Action, type Item, type Option } from 'entity'
 
-/**
- * カーボンフットプリント・改善アクションの分析結果を検索するためのインターフェース
- */
-export interface ItemSearch {
-  /**
-   * 活動量、GHG原単位の推定値を取得する（推定値がない場合はベースライン値を返す）
-   * @param domain 活動量、GHG原単位を計算する領域
-   * @param item 活動量、GHG原単位を取得する要素
-   * @param type amount or intensity
-   * @returns 推定もしくはベースライン
-   */
-  findItem: (domain: Domain, item: string, type: Type) => Item
-}
-
-export interface ActionParam {
+export interface ActionAnswer {
   readonly housingInsulation?: HousingInsulation
   readonly foodDirectWaste?: FoodDirectWasteFrequency
   readonly foodLeftover?: FoodLeftoverFrequency
@@ -87,12 +73,19 @@ export const calculateActions = (
     carCharging = undefined,
     electricityType = undefined,
     carPassengers = undefined
-  }: ActionParam,
-  search: ItemSearch
+  }: ActionAnswer,
+  /**
+   * 活動量、GHG原単位の推定値を取得する（推定値がない場合はベースライン値を返す）
+   * @param domain 活動量、GHG原単位を計算する領域
+   * @param item 活動量、GHG原単位を取得する要素
+   * @param type amount or intensity
+   * @returns 推定値もしくはベースライン
+   */
+  findEstimation: (domain: Domain, item: string, type: Type) => Item
 ): Action[] => {
   const actions: Action[] = []
   const options = enumerateOptions().filter(
-    (o) => search.findItem(o.domain, o.item, o.type) !== undefined
+    (o) => findEstimation(o.domain, o.item, o.type) !== undefined
   )
 
   const addAction = (base: Item, option: Option, value: number): void => {
@@ -173,8 +166,12 @@ export const calculateActions = (
     }
   }
   class SearchImpl implements Search {
-    findAction = (domainItemType: string, option: string): number => {
-      const [domain, item, type] = domainItemType.split('_')
+    findAction = (
+      option: string,
+      domain: Domain,
+      item: string,
+      type: Type
+    ): number => {
       const action = actions.find(
         (a) =>
           a.domain === domain &&
@@ -185,19 +182,18 @@ export const calculateActions = (
       if (action !== undefined) {
         return action.value
       }
-      return this.findEstimation(domainItemType)
+      return findEstimation(domain, item, type).value
     }
 
-    findEstimation = (domainItemType: string): number => {
-      const [domain, item, type] = domainItemType.split('_')
-      return search.findItem(domain as Domain, item, type as Type).value
+    findEstimation = (domain: Domain, item: string, type: Type): number => {
+      return findEstimation(domain, item, type).value
     }
   }
   const searchImpl = new SearchImpl()
 
   // Phase 2
   for (const option of phase2Options) {
-    const base = search.findItem(option.domain, option.item, option.type)
+    const base = findEstimation(option.domain, option.item, option.type)
     switch (option.operation) {
       case 'shift-from-other-items':
         addAction(
@@ -232,7 +228,7 @@ export const calculateActions = (
 
   // Phase 3
   for (const option of phase3Options) {
-    const base = search.findItem(option.domain, option.item, option.type)
+    const base = findEstimation(option.domain, option.item, option.type)
     if (option.operation === 'proportional-to-other-items') {
       addAction(
         base,
@@ -250,8 +246,8 @@ export const calculateActions = (
 
   // Phase 4
   for (const option of phase4Options) {
-    const baseAmount = search.findItem(option.domain, option.item, 'amount')
-    const baseIntensity = search.findItem(
+    const baseAmount = findEstimation(option.domain, option.item, 'amount')
+    const baseIntensity = findEstimation(
       option.domain,
       option.item,
       'intensity'

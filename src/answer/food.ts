@@ -3,16 +3,9 @@ import {
   EAT_OUT_ITEMS,
   FOOD_INTAKE_ITEMS,
   SOFT_DRINK_SNACK_ITEMS,
-  type AlcoholFrequency,
-  type DairyFoodFrequency,
   type DishFrequency,
   type DishItem,
   type Domain,
-  type EatOutExpenses,
-  type FoodDirectWasteFrequency,
-  type FoodIntake,
-  type FoodLeftoverFrequency,
-  type SoftDrinkSnackExpenses,
   type Type
 } from 'common'
 import { getBaselineAmount } from 'data'
@@ -31,35 +24,11 @@ import {
   estimateReadyMealIntensity
 } from '../food/ready-meal'
 import { estimateSoftDrinkSnackAnnualAmount } from '../food/soft-drink-snack'
-
-export interface FoodParam {
-  /** 食料の廃棄量 */
-  readonly foodDirectWasteFrequency: FoodDirectWasteFrequency
-  /** 食料の食べ残し量 */
-  readonly foodLeftoverFrequency: FoodLeftoverFrequency
-  /** 食料摂取量 */
-  readonly foodIntake?: FoodIntake
-  /** アルコールの摂取頻度 */
-  readonly alcoholFrequency?: AlcoholFrequency
-  /** 乳製品の摂取頻度 */
-  readonly dairyFoodFrequency?: DairyFoodFrequency
-  /** 牛肉料理の頻度 */
-  readonly beefDishFrequency?: DishFrequency
-  /** 豚肉料理の頻度 */
-  readonly porkDishFrequency?: DishFrequency
-  /** 鶏肉料理の頻度 */
-  readonly chickenDishFrequency?: DishFrequency
-  /** 魚介料理の頻度 */
-  readonly seafoodDishFrequency?: DishFrequency
-  /** ソフトドリンクとスナックの支出 */
-  readonly softDrinkSnackExpenses?: SoftDrinkSnackExpenses
-  /** 外食の支出 */
-  readonly eatOutExpenses?: EatOutExpenses
-}
+import { type FoodAnswer } from './answer'
 
 export const estimateFood = ({
-  foodDirectWasteFrequency,
-  foodLeftoverFrequency,
+  foodDirectWasteFrequency = undefined,
+  foodLeftoverFrequency = undefined,
   foodIntake = undefined,
   alcoholFrequency = undefined,
   dairyFoodFrequency = undefined,
@@ -69,9 +38,16 @@ export const estimateFood = ({
   seafoodDishFrequency = undefined,
   softDrinkSnackExpenses = undefined,
   eatOutExpenses = undefined
-}: FoodParam): Item[] => {
+}: FoodAnswer): Item[] => {
   const domain: Domain = 'food'
   const estimations: Item[] = []
+
+  if (
+    foodDirectWasteFrequency === undefined ||
+    foodLeftoverFrequency === undefined
+  ) {
+    return estimations
+  }
 
   // helper functions
   const addEstimation = (item: string, value: number, type: Type): void => {

@@ -11,7 +11,7 @@ describe('PrivateCarMaintenance', () => {
   test('amount case 01', () => {
     expect(
       estimatePrivateCarMaintenanceAmount({
-        annualMileage: 5000
+        mileage: 5000
       })
     ).toBeCloseTo(64.17671714)
   })

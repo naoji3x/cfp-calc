@@ -5,9 +5,9 @@ import {
 
 describe('private car Purchase', () => {
   test('amount', () => {
-    expect(
-      estimatePrivateCarPurchaseAmount({ annualMileage: 5000 })
-    ).toBeCloseTo(0.050106851)
+    expect(estimatePrivateCarPurchaseAmount({ mileage: 5000 })).toBeCloseTo(
+      0.050106851
+    )
   })
 
   test('intensity case 01', () => {

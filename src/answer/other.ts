@@ -7,15 +7,7 @@ import {
   LEISURE_SPORTS_ITEMS,
   SERVICE_ITEMS,
   TRAVEL_ITEMS,
-  type ApplianceFurnitureExpenses,
-  type ClothesBeautyExpenses,
-  type CommunicationExpenses,
-  type DailyGoodsExpenses,
   type Domain,
-  type HobbyGoodsExpenses,
-  type LeisureSportsExpenses,
-  type ServiceExpenses,
-  type TravelExpenses,
   type Type
 } from 'common'
 import { getBaselineAmount, getParameter } from 'data'
@@ -29,30 +21,7 @@ import { estimateLeisureSportsAnnualAmount } from '../other/leisure-sports'
 import { estimateServiceAnnualAmount } from '../other/service'
 import { estimateTravelAnnualAmount } from '../other/travel'
 import { estimateWasteAnnualAmount } from '../other/waste'
-
-/** その他に関するカーボンフットプリントを計算するための質問への回答 */
-
-export interface OtherParam {
-  /** 居住者数 */
-  readonly residentCount?: number
-  /** 旅行の支出 */
-  readonly travelExpenses?: TravelExpenses
-  /** 家電・家具の支出 */
-  readonly applianceFurnitureExpenses?: ApplianceFurnitureExpenses
-  /** 衣服・美容の支出 */
-  readonly clothesBeautyExpenses?: ClothesBeautyExpenses
-  /** 趣味・日用品の支出 */
-  readonly hobbyGoodsExpenses?: HobbyGoodsExpenses
-  /** サービスの支出 */
-  readonly serviceExpenses?: ServiceExpenses
-  /** 日用品の支出 */
-  readonly dailyGoodsExpenses?: DailyGoodsExpenses
-
-  /** レジャー・スポーツに関わる支出 */
-  readonly leisureSportsExpenses?: LeisureSportsExpenses
-  /** 通信に関わる支出 */
-  readonly communicationExpenses?: CommunicationExpenses
-}
+import { type OtherAnswer } from './answer'
 
 export const estimateOther = ({
   residentCount = undefined,
@@ -64,7 +33,7 @@ export const estimateOther = ({
   dailyGoodsExpenses = undefined,
   leisureSportsExpenses = undefined,
   communicationExpenses = undefined
-}: OtherParam): Item[] => {
+}: OtherAnswer): Item[] => {
   const domain: Domain = 'other'
   const estimations: Item[] = []
   // helper functions

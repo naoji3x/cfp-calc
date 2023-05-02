@@ -1,6 +1,6 @@
 import { type Domain, type Type } from '../common'
-import { type Footprint } from '../data'
 import { type Action } from './action'
+import { type Footprint } from './footprint'
 import { type Item } from './item'
 
 export class Diagnosis {

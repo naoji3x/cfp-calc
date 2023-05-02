@@ -13,17 +13,17 @@ export interface PrivateCarPurchaseIntensityParam {
 
 /** 自家用車の購入時の活動量を計算するための引数 */
 export interface PrivateCarPurchaseAmountParam {
-  /** 自家用車の年間運転距離[km] */
-  annualMileage: number
+  /** 自家用車の運転距離[km] */
+  mileage: number
 }
 
 /**
  * 自家用車の購入時の活動量を計算
  * @param 自家用車の購入時の活動量を計算するための引数
- * @returns 自家用車の購入時の活動量[000JPY]
+ * @returns 自家用車の購入時の活動量[台]
  */
 export const estimatePrivateCarPurchaseAmount = ({
-  annualMileage
+  mileage
 }: PrivateCarPurchaseAmountParam): number => {
   const purchaseBaseline = getBaselineAmount(
     'mobility',
@@ -33,7 +33,7 @@ export const estimatePrivateCarPurchaseAmount = ({
     'mobility',
     'private-car-driving'
   ).value
-  return (purchaseBaseline * annualMileage) / drivingBaseline
+  return (purchaseBaseline * mileage) / drivingBaseline
 }
 
 /**

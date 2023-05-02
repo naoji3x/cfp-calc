@@ -2,8 +2,8 @@ import { getBaselineAmount, getBaselineIntensity } from '../data/database'
 
 /** 自家用車の維持の活動量を計算するための引数 */
 export interface PrivateCarMaintenanceAmountParam {
-  /** 自家用車の年間運転距離[km] */
-  annualMileage: number
+  /** 自家用車の運転距離[km] */
+  mileage: number
 }
 
 /**
@@ -12,7 +12,7 @@ export interface PrivateCarMaintenanceAmountParam {
  * @returns 自家用車の維持の活動量[000JPY]
  */
 export const estimatePrivateCarMaintenanceAmount = ({
-  annualMileage
+  mileage
 }: PrivateCarMaintenanceAmountParam): number => {
   const maintenanceBaseline = getBaselineAmount(
     'mobility',
@@ -22,7 +22,7 @@ export const estimatePrivateCarMaintenanceAmount = ({
     'mobility',
     'private-car-driving'
   ).value
-  return (maintenanceBaseline * annualMileage) / drivingBaseline
+  return (maintenanceBaseline * mileage) / drivingBaseline
 }
 
 /**

@@ -27,7 +27,7 @@ export interface ElectricityAmountParam {
     /** 年間走行距離[km/年] */
     annualMileage: number
     /** 自宅充電の頻度 */
-    carCharging: CarCharging
+    carCharging?: CarCharging
   }
 }
 
@@ -50,7 +50,10 @@ export const estimateElectricityAnnualAmount = ({
   // PHV, EVの場合は活動量がダブルカウントにならないように補正
   let mobilityElectricityAmount = 0
   if (privateCar !== undefined) {
-    if (privateCar.carType === 'phv' || privateCar.carType === 'ev') {
+    if (
+      (privateCar.carType === 'phv' || privateCar.carType === 'ev') &&
+      privateCar.carCharging !== undefined
+    ) {
       const mobilityElectricity = getParameter(
         'car-intensity-factor',
         privateCar.carType + '_electricity-intensity'

@@ -10,16 +10,3 @@ export interface Footprint {
   readonly unit: string
   readonly citation: string
 }
-
-export interface FootprintKey {
-  readonly domain: Domain
-  readonly item: string
-  readonly type: Type
-}
-
-export interface OptionKey {
-  option: string
-  domain: Domain
-  item: string
-  type: Type
-}

@@ -371,7 +371,7 @@ describe('dailyshift01', () => {
     'private-car-purchase',
     'amount',
     estimatePrivateCarPurchaseAmount({
-      annualMileage: privateCarAnnualMileage
+      mileage: privateCarAnnualMileage
     })
   )
   search.addItem(
@@ -397,7 +397,7 @@ describe('dailyshift01', () => {
     'private-car-maintenance',
     'amount',
     estimatePrivateCarMaintenanceAmount({
-      annualMileage: privateCarAnnualMileage
+      mileage: privateCarAnnualMileage
     })
   )
   search.addItem(

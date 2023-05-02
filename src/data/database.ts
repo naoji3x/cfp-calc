@@ -13,24 +13,12 @@ export const getBaseline = (
 ): Footprint => ({
   ...footprints['baseline_' + domain + '_' + item + '_' + type]
 })
+export const enumerateBaselines = (): readonly Footprint[] =>
+  Object.values(footprints)
 
 export const getBaselineAmount = (domain: Domain, item: string): Footprint => ({
   ...footprints['baseline_' + domain + '_' + item + '_amount']
 })
-
-/*
-export const enumerateFootprintKeys = (domain: Domain): FootprintKey[] =>
-  Object.keys(footprints)
-    .filter((key) => key.startsWith(domain + '_'))
-    .map((key) => {
-      const values = key.split('_')
-      return {
-        domain,
-        item: values[1],
-        type: values[2] as Type
-      }
-    })
-    */
 
 export const getBaselineIntensity = (
   domain: Domain,

@@ -1,13 +1,4 @@
-import {
-  type CarCharging,
-  type CarPassengers,
-  type CarType,
-  type Domain,
-  type ElectricityType,
-  type OtherCarItem,
-  type ResidentialAreaSize,
-  type Type
-} from 'common'
+import { type Domain, type OtherCarItem, type Type } from 'common'
 
 import { getBaselineAmount } from 'data'
 import { type Item } from '../entity/item'
@@ -34,49 +25,7 @@ import {
 import { estimateTaxiIntensity } from '../mobility/taxi'
 import { estimateTrainAnnualAmount } from '../mobility/train'
 import { estimateWalkingAnnualAmount } from '../mobility/walking'
-
-/** 移動に関するカーボンフットプリントを計算するための質問への回答 */
-export interface MobilityParam {
-  /** 自家用車の運転距離[km] */
-  readonly privateCarAnnualMileage?: number
-  /** 車の種類 */
-  readonly carType?: CarType
-  /** 平均乗車人数 */
-  readonly carPassengers?: CarPassengers
-  /** 充電方法 */
-  readonly carCharging?: CarCharging
-  /** 電力の種類 */
-  readonly electricityType?: ElectricityType
-
-  /** 移動時間の指定もしくは住んでいる地域の規模 */
-  readonly travelingTimeOrResidentialAreaSize:
-    | {
-        /** 電車の活動量 */
-        readonly trainWeeklyTravelingTime: number
-        readonly trainAnnualTravelingTime: number
-
-        /** バスの活動量 */
-        readonly busWeeklyTravelingTime: number
-        readonly busAnnualTravelingTime: number
-
-        /** バイクの活動量 */
-        readonly motorbikeWeeklyTravelingTime: number
-        readonly motorbikeAnnualTravelingTime: number
-
-        /** その他の車の活動量 */
-        readonly otherCarWeeklyTravelingTime: number
-        readonly otherCarAnnualTravelingTime: number
-
-        /** 飛行機の活動量 */
-        readonly airplaneAnnualTravelingTime: number
-        /** フェリーの活動量 */
-        readonly ferryAnnualTravelingTime: number
-      }
-    | {
-        /** 住んでいる地域の規模 */
-        readonly residentialAreaSize: ResidentialAreaSize
-      }
-}
+import { type MobilityAnswer } from './answer'
 
 export const estimateMobility = ({
   privateCarAnnualMileage = undefined,
@@ -85,7 +34,7 @@ export const estimateMobility = ({
   carCharging = undefined,
   electricityType = undefined,
   travelingTimeOrResidentialAreaSize
-}: MobilityParam): Item[] => {
+}: MobilityAnswer): Item[] => {
   const domain: Domain = 'mobility'
   const estimations: Item[] = []
 
@@ -117,13 +66,13 @@ export const estimateMobility = ({
   addAmount(
     'private-car-purchase',
     estimatePrivateCarPurchaseAmount({
-      annualMileage: mileage
+      mileage
     })
   )
   addAmount(
     'private-car-maintenance',
     estimatePrivateCarMaintenanceAmount({
-      annualMileage: mileage
+      mileage
     })
   )
 
@@ -148,98 +97,103 @@ export const estimateMobility = ({
   }
 
   // amountを住んでいる地域の規模で回答 (intensity はベースライン値)
-  if ('residentialAreaSize' in travelingTimeOrResidentialAreaSize) {
-    const area = travelingTimeOrResidentialAreaSize
-    addAmount('train', estimateTrainAnnualAmount(area))
-    addAmount('bus', estimateBusAnnualAmount(area))
-    addAmount('motorbike-driving', estimateMotorbikeDrivingAnnualAmount(area))
-    addAmount('motorbike-purchase', estimateMotorbikePurchaseAnnualAmount(area))
-    addAmount(
-      'motorbike-maintenance',
-      estimateMotorbikeMaintenanceAnnualAmount(area)
-    )
-    addAmount('airplane', estimateAirplaneAnnualAmount(area))
-    addAmount('ferry', estimateFerryAnnualAmount(area))
-
-    // other car amount
-    const otherCarItems: OtherCarItem[] = [
-      'taxi',
-      'car-sharing-driving',
-      'car-sharing-rental'
-    ]
-    for (const item of otherCarItems) {
-      addAmount(item, estimateOtherCarAnnualAmount(item, area))
-    }
-
-    // bicycle と walking は住んでいる地域が設定されている時のみ回答その他はべースライン値
-    addAmount('bicycle-driving', estimateBicycleDrivingAnnualAmount(area))
-    addAmount(
-      'bicycle-maintenance',
-      estimateBicycleMaintenanceAnnualAmount(area)
-    )
-    addAmount('walking', estimateWalkingAnnualAmount(area))
-  }
-  // amountを数値で回答 (intensity はベースライン値)
-  else {
-    const travel = travelingTimeOrResidentialAreaSize
-    // amount (intensity はベースライン値)
-    addAmount(
-      'train',
-      estimateTrainAnnualAmount({
-        weeklyTravelingTime: travel.trainWeeklyTravelingTime,
-        annualTravelingTime: travel.trainAnnualTravelingTime
-      })
-    )
-    addAmount(
-      'bus',
-      estimateBusAnnualAmount({
-        weeklyTravelingTime: travel.busWeeklyTravelingTime,
-        annualTravelingTime: travel.busAnnualTravelingTime
-      })
-    )
-    const motorbikeTravelingTime = {
-      weeklyTravelingTime: travel.motorbikeWeeklyTravelingTime,
-      annualTravelingTime: travel.motorbikeAnnualTravelingTime
-    }
-    addAmount(
-      'motorbike-driving',
-      estimateMotorbikeDrivingAnnualAmount(motorbikeTravelingTime)
-    )
-    addAmount(
-      'motorbike-purchase',
-      estimateMotorbikePurchaseAnnualAmount(motorbikeTravelingTime)
-    )
-    addAmount(
-      'motorbike-maintenance',
-      estimateMotorbikeMaintenanceAnnualAmount(motorbikeTravelingTime)
-    )
-    addAmount(
-      'airplane',
-      estimateAirplaneAnnualAmount({
-        annualTravelingTime: travel.airplaneAnnualTravelingTime
-      })
-    )
-    addAmount(
-      'ferry',
-      estimateFerryAnnualAmount({
-        annualTravelingTime: travel.ferryAnnualTravelingTime
-      })
-    )
-
-    // other car amount
-    const otherCarItems: OtherCarItem[] = [
-      'taxi',
-      'car-sharing-driving',
-      'car-sharing-rental'
-    ]
-    for (const item of otherCarItems) {
+  if (travelingTimeOrResidentialAreaSize !== undefined) {
+    if ('residentialAreaSize' in travelingTimeOrResidentialAreaSize) {
+      const area = travelingTimeOrResidentialAreaSize
+      addAmount('train', estimateTrainAnnualAmount(area))
+      addAmount('bus', estimateBusAnnualAmount(area))
+      addAmount('motorbike-driving', estimateMotorbikeDrivingAnnualAmount(area))
       addAmount(
-        item,
-        estimateOtherCarAnnualAmount(item, {
-          weeklyTravelingTime: travel.otherCarWeeklyTravelingTime,
-          annualTravelingTime: travel.otherCarAnnualTravelingTime
+        'motorbike-purchase',
+        estimateMotorbikePurchaseAnnualAmount(area)
+      )
+      addAmount(
+        'motorbike-maintenance',
+        estimateMotorbikeMaintenanceAnnualAmount(area)
+      )
+      addAmount('airplane', estimateAirplaneAnnualAmount(area))
+      addAmount('ferry', estimateFerryAnnualAmount(area))
+
+      // other car amount
+      const otherCarItems: OtherCarItem[] = [
+        'taxi',
+        'car-sharing-driving',
+        'car-sharing-rental'
+      ]
+      for (const item of otherCarItems) {
+        addAmount(item, estimateOtherCarAnnualAmount(item, area))
+      }
+
+      // bicycle と walking は住んでいる地域が設定されている時のみ回答その他はべースライン値
+      addAmount('bicycle-driving', estimateBicycleDrivingAnnualAmount(area))
+      addAmount(
+        'bicycle-maintenance',
+        estimateBicycleMaintenanceAnnualAmount(area)
+      )
+      addAmount('walking', estimateWalkingAnnualAmount(area))
+    }
+    // amountを数値で回答 (intensity はベースライン値)
+    else {
+      const travel = travelingTimeOrResidentialAreaSize
+      // amount (intensity はベースライン値)
+      addAmount(
+        'train',
+        estimateTrainAnnualAmount({
+          weeklyTravelingTime: travel.trainWeeklyTravelingTime,
+          annualTravelingTime: travel.trainAnnualTravelingTime
         })
       )
+      addAmount(
+        'bus',
+        estimateBusAnnualAmount({
+          weeklyTravelingTime: travel.busWeeklyTravelingTime,
+          annualTravelingTime: travel.busAnnualTravelingTime
+        })
+      )
+      const motorbikeTravelingTime = {
+        weeklyTravelingTime: travel.motorbikeWeeklyTravelingTime,
+        annualTravelingTime: travel.motorbikeAnnualTravelingTime
+      }
+      addAmount(
+        'motorbike-driving',
+        estimateMotorbikeDrivingAnnualAmount(motorbikeTravelingTime)
+      )
+      addAmount(
+        'motorbike-purchase',
+        estimateMotorbikePurchaseAnnualAmount(motorbikeTravelingTime)
+      )
+      addAmount(
+        'motorbike-maintenance',
+        estimateMotorbikeMaintenanceAnnualAmount(motorbikeTravelingTime)
+      )
+      addAmount(
+        'airplane',
+        estimateAirplaneAnnualAmount({
+          annualTravelingTime: travel.airplaneAnnualTravelingTime
+        })
+      )
+      addAmount(
+        'ferry',
+        estimateFerryAnnualAmount({
+          annualTravelingTime: travel.ferryAnnualTravelingTime
+        })
+      )
+
+      // other car amount
+      const otherCarItems: OtherCarItem[] = [
+        'taxi',
+        'car-sharing-driving',
+        'car-sharing-rental'
+      ]
+      for (const item of otherCarItems) {
+        addAmount(
+          item,
+          estimateOtherCarAnnualAmount(item, {
+            weeklyTravelingTime: travel.otherCarWeeklyTravelingTime,
+            annualTravelingTime: travel.otherCarAnnualTravelingTime
+          })
+        )
+      }
     }
   }
 

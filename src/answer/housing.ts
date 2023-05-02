@@ -1,13 +1,4 @@
-import {
-  type CarCharging,
-  type CarType,
-  type Domain,
-  type ElectricityType,
-  type GasItem,
-  type HousingSize,
-  type Month,
-  type Type
-} from 'common'
+import { type Domain, type Type } from 'common'
 import { getBaselineAmount } from 'data'
 import { type Item } from 'entity/item'
 import {
@@ -19,57 +10,21 @@ import { estimateHousingMaintenanceAnnualAmount } from '../housing/housing-maint
 import { estimateImputedRentAnnualAmount } from '../housing/imputed-rent'
 import { estimateKeroseneAnnualAmount } from '../housing/kerosene'
 import { estimateRentAnnualAmount } from '../housing/rent'
-
-/** 居住に関するカーボンフットプリントを計算するための質問への回答 */
-export interface HousingParam {
-  /** 住居の広さ */
-  readonly housingSize: HousingSize
-  /** 住居者数 */
-  readonly residentCount: number
-  electricity?: {
-    /** 電力の種類 */
-    readonly electricityType: ElectricityType
-    /** 1ヶ月の電力使用量[kWh] */
-    readonly monthlyConsumption: number
-    /** 対象月 */
-    readonly month: Month
-    /** 自家用車の情報。EV, PHVの場合の補正に使用 */
-    readonly privateCar?: {
-      /** 車の種類 */
-      readonly carType: CarType
-      /** 年間走行距離[km/年] */
-      readonly annualMileage: number
-      /** 自宅充電の頻度 */
-      readonly carCharging: CarCharging
-    }
-  }
-  /** ガスの使用量 */
-  readonly gas?: {
-    /** ガスの種類 */
-    readonly item: GasItem
-    /** 1ヶ月のガス使用量[m3] */
-    readonly monthlyConsumption: number
-    /** 対象月 */
-    readonly month: Month
-  }
-  /** 灯油の使用量 */
-  readonly kerosene?: {
-    /** 1ヶ月の灯油使用量[L] */
-    readonly monthlyConsumption: number
-    /** 対象月数 */
-    readonly monthCount: number
-  }
-}
+import { type HousingAnswer } from './answer'
 
 export const estimateHousing = ({
-  housingSize,
-  residentCount,
+  housingSize = undefined,
+  residentCount = undefined,
   electricity = undefined,
   gas = undefined,
   kerosene = undefined
-}: HousingParam): Item[] => {
+}: HousingAnswer): Item[] => {
   const domain: Domain = 'housing'
   const estimations: Item[] = []
+
+  if (housingSize === undefined || residentCount === undefined) {
+    return estimations
+  }
 
   // helper functions
   const addEstimation = (item: string, value: number, type: Type): void => {
