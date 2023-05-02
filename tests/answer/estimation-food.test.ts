@@ -21,17 +21,6 @@ const toFoodAnswer = (answers: readonly Answer[]): FoodAnswer => {
   for (const a of answers) {
     answer[a.name] = a.value
   }
-  /*
-  foodIntakeFactorKey
-  foodDirectWasteFactorKey
-  foodLeftoverFactorKey
-  dishBeefFactorKey
-  dishPorkFactorKey
-  dishChickenFactorKey
-  dishSeafoodFactorKey
-  dairyFoodFactorKey
-  alcoholFactorKey
-  */
 
   return {
     foodDirectWasteFrequency:

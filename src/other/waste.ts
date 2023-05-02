@@ -20,17 +20,17 @@ import { estimateServiceAnnualAmount } from './service'
 /** 廃棄の活動量を計算するための引数 */
 export interface WasteAmountParam {
   /** 家電・家具の支出 */
-  applianceFurnitureExpenses: ApplianceFurnitureExpenses
+  applianceFurnitureExpenses?: ApplianceFurnitureExpenses
   /** 衣服・美容の支出 */
-  clothesBeautyExpenses: ClothesBeautyExpenses
+  clothesBeautyExpenses?: ClothesBeautyExpenses
   /** 趣味・日用品の支出 */
-  hobbyGoodsExpenses: HobbyGoodsExpenses
+  hobbyGoodsExpenses?: HobbyGoodsExpenses
   /** サービスの支出 */
-  serviceExpenses: ServiceExpenses
+  serviceExpenses?: ServiceExpenses
   /** 日用品の支出 */
-  dailyGoodsExpenses: DailyGoodsExpenses
+  dailyGoodsExpenses?: DailyGoodsExpenses
   /** 居住者数 */
-  residentCount: number
+  residentCount?: number
 }
 
 /**
@@ -105,74 +105,74 @@ export const estimateWasteAnnualAmount = ({
     'paper-stationery'
   ]
 
-  const allItems = [
-    ...applianceFurnitureItems,
-    ...clothesBeautyItems,
-    ...hobbyGoodsItems,
-    ...serviceItems,
-    ...dailyGoodsItems
-  ]
+  let numerator = 0
+  let denominator = 0
 
-  // 分子の計算
-  const applianceFurnitureSum = applianceFurnitureItems.reduce(
-    (sum, item) =>
-      sum +
-      estimateApplianceFurnitureAnnualAmount(item, {
+  for (const item of applianceFurnitureItems) {
+    const baseline = getBaselineAmount('other', item).value
+    if (
+      applianceFurnitureExpenses !== undefined &&
+      residentCount !== undefined
+    ) {
+      numerator += estimateApplianceFurnitureAnnualAmount(item, {
         expenses: applianceFurnitureExpenses,
         residentCount
-      }),
-    0
-  )
+      })
+    } else {
+      numerator += baseline
+    }
+    denominator += baseline
+  }
 
-  const clothesBeautySum = clothesBeautyItems.reduce(
-    (sum, item) =>
-      sum +
-      estimateClothesBeautyAnnualAmount(item, {
+  for (const item of clothesBeautyItems) {
+    const baseline = getBaselineAmount('other', item).value
+    if (clothesBeautyExpenses !== undefined) {
+      numerator += estimateClothesBeautyAnnualAmount(item, {
         expenses: clothesBeautyExpenses
-      }),
-    0
-  )
+      })
+    } else {
+      numerator += baseline
+    }
+    denominator += baseline
+  }
 
-  const hobbyGoodsSum = hobbyGoodsItems.reduce(
-    (sum, item) =>
-      sum +
-      estimateHobbyGoodsAnnualAmount(item, {
+  for (const item of hobbyGoodsItems) {
+    const baseline = getBaselineAmount('other', item).value
+    if (hobbyGoodsExpenses !== undefined) {
+      numerator += estimateHobbyGoodsAnnualAmount(item, {
         expenses: hobbyGoodsExpenses
-      }),
-    0
-  )
+      })
+    } else {
+      numerator += baseline
+    }
+    denominator += baseline
+  }
 
-  const serviceSum = serviceItems.reduce(
-    (sum, item) =>
-      sum +
-      estimateServiceAnnualAmount(item, {
+  for (const item of serviceItems) {
+    const baseline = getBaselineAmount('other', item).value
+    if (serviceExpenses !== undefined) {
+      numerator += estimateServiceAnnualAmount(item, {
         expenses: serviceExpenses
-      }),
-    0
-  )
+      })
+    } else {
+      numerator += baseline
+    }
+    denominator += baseline
+  }
 
-  const dailyGoodsSum = dailyGoodsItems.reduce(
-    (sum, item) =>
-      sum +
-      estimateDailyGoodsAnnualAmount(item, {
+  for (const item of dailyGoodsItems) {
+    const baseline = getBaselineAmount('other', item).value
+    if (dailyGoodsExpenses !== undefined && residentCount !== undefined) {
+      numerator += estimateDailyGoodsAnnualAmount(item, {
         expenses: dailyGoodsExpenses,
         residentCount
-      }),
-    0
-  )
+      })
+    } else {
+      numerator += baseline
+    }
+    denominator += baseline
+  }
 
-  const numerator =
-    applianceFurnitureSum +
-    clothesBeautySum +
-    hobbyGoodsSum +
-    serviceSum +
-    dailyGoodsSum
-
-  // 分母の計算
-  const denominator = allItems.reduce(
-    (sum, item) => sum + getBaselineAmount('other', item).value,
-    0
-  )
   return (getBaselineAmount('other', 'waste').value * numerator) / denominator
 }
 

@@ -158,25 +158,17 @@ export const estimateOther = ({
   }
 
   // waste amount (intensity はベースライン値)
-  if (
-    applianceFurnitureExpenses !== undefined &&
-    clothesBeautyExpenses !== undefined &&
-    hobbyGoodsExpenses !== undefined &&
-    serviceExpenses !== undefined &&
-    dailyGoodsExpenses !== undefined
-  ) {
-    addEstimatedAmount(
-      'waste',
-      estimateWasteAnnualAmount({
-        applianceFurnitureExpenses,
-        clothesBeautyExpenses,
-        hobbyGoodsExpenses,
-        serviceExpenses,
-        dailyGoodsExpenses,
-        residentCount
-      })
-    )
-  }
+  addEstimatedAmount(
+    'waste',
+    estimateWasteAnnualAmount({
+      applianceFurnitureExpenses,
+      clothesBeautyExpenses,
+      hobbyGoodsExpenses,
+      serviceExpenses,
+      dailyGoodsExpenses,
+      residentCount
+    })
+  )
 
   return estimations
 }
