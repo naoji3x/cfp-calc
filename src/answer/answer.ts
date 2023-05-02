@@ -19,6 +19,7 @@ import {
   type HousingInsulation,
   type HousingSize,
   type LeisureSportsExpenses,
+  type LivingRegion,
   type Month,
   type ResidentialAreaSize,
   type ServiceExpenses,
@@ -80,11 +81,19 @@ export interface HousingAnswer {
   readonly electricity?: {
     /** 電力の種類 */
     readonly electricityType: ElectricityType
-    /** 1ヶ月の電力使用量[kWh] */
-    readonly monthlyConsumption: number
-    /** 対象月 */
-    readonly month: Month
-    /** 自家用車の情報。EV, PHVの場合の補正に使用 */
+    /** 電気の消費量もしくは居住地域 */
+    consumptionOrLivingRegion:
+      | {
+          /** 1ヶ月の電力使用量[kWh] */
+          readonly monthlyConsumption: number
+          /** 対象月 */
+          readonly month: Month
+          /** 自家用車の情報。EV, PHVの場合の補正に使用 */
+        }
+      | {
+          /** お住まいの地域（地方） */
+          readonly livingRegion: LivingRegion
+        }
     readonly privateCar?: {
       /** 車の種類 */
       readonly carType: CarType
@@ -94,22 +103,37 @@ export interface HousingAnswer {
       readonly carCharging?: CarCharging
     }
   }
+
   /** ガスの使用量 */
   readonly gas?: {
     /** ガスの種類 */
     readonly item: GasItem
-    /** 1ヶ月のガス使用量[m3] */
-    readonly monthlyConsumption: number
-    /** 対象月 */
-    readonly month: Month
+    /** ガスの消費量もしくは居住地域 */
+    consumptionOrLivingRegion:
+      | {
+          /** 1ヶ月のガス使用量[m3] */
+          readonly monthlyConsumption: number
+          /** 対象月 */
+          readonly month: Month
+        }
+      | {
+          /** お住まいの地域（地方） */
+          readonly livingRegion: LivingRegion
+        }
   }
+
   /** 灯油の使用量 */
-  readonly kerosene?: {
-    /** 1ヶ月の灯油使用量[L] */
-    readonly monthlyConsumption: number
-    /** 対象月数 */
-    readonly monthCount: number
-  }
+  readonly kerosene?:
+    | {
+        /** 1ヶ月の灯油使用量[L] */
+        readonly monthlyConsumption: number
+        /** 対象月数 */
+        readonly monthCount: number
+      }
+    | {
+        /** お住まいの地域（地方） */
+        readonly livingRegion: LivingRegion
+      }
 }
 
 /** 食に関するカーボンフットプリントを計算するための質問への回答 */

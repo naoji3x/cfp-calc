@@ -1,4 +1,4 @@
-import { type Domain, type Type } from '../common'
+import { GAS_ITEMS, type Domain, type Type } from '../common'
 import { getBaselineAmount } from '../data'
 import { type Item } from '../entity/item'
 import {
@@ -66,26 +66,31 @@ export const estimateHousing = ({
 
   // gas amount (intensity はベースライン値)
   if (gas !== undefined) {
-    addEstimatedAmount(
-      'gas',
-      estimateGasAnnualAmount(gas.item, {
-        monthlyConsumption: gas.monthlyConsumption,
-        month: gas.month,
-        residentCount
-      })
-    )
+    GAS_ITEMS.forEach((item) => {
+      addEstimatedAmount(
+        item,
+        gas.item === item
+          ? estimateGasAnnualAmount(gas.item, {
+              ...gas.consumptionOrLivingRegion,
+              residentCount
+            })
+          : 0
+      )
+    })
+  } else {
+    GAS_ITEMS.forEach((item) => {
+      addEstimatedAmount(item, 0)
+    })
   }
 
   // kerosene amount (intensity はベースライン値)
   if (kerosene !== undefined) {
     addEstimatedAmount(
       'kerosene',
-      estimateKeroseneAnnualAmount({
-        monthlyConsumption: kerosene.monthlyConsumption,
-        monthCount: kerosene.monthCount,
-        residentCount
-      })
+      estimateKeroseneAnnualAmount({ ...kerosene, residentCount })
     )
+  } else {
+    addEstimatedAmount('kerosene', 0)
   }
 
   // electricity
@@ -93,10 +98,9 @@ export const estimateHousing = ({
     addEstimatedAmount(
       'electricity',
       estimateElectricityAnnualAmount({
-        monthlyConsumption: electricity.monthlyConsumption,
-        month: electricity.month,
-        residentCount,
-        privateCar: electricity.privateCar
+        ...electricity.consumptionOrLivingRegion,
+        privateCar: electricity.privateCar,
+        residentCount
       })
     )
     addEstimatedIntensity(
@@ -105,6 +109,8 @@ export const estimateHousing = ({
         electricityType: electricity.electricityType
       })
     )
+  } else {
+    addEstimatedAmount('electricity', 0)
   }
 
   // land-rent amount + intensity はベースライン値

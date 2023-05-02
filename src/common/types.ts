@@ -207,7 +207,8 @@ export type Month =
   | 'december'
 
 /** 使用しているガスの種類 */
-export type GasItem = 'urban-gas' | 'lpg'
+export const GAS_ITEMS = ['urban-gas', 'lpg'] as const
+export type GasItem = (typeof GAS_ITEMS)[number]
 
 /** お住まいの地域（地方） */
 export type LivingRegion = 'northeast' | 'middle' | 'southwest' | 'unknown'
