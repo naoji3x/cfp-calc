@@ -42,13 +42,13 @@ export interface AllDishAmountParam {
   /** 食料の食べ残し量 */
   foodLeftover: FoodLeftoverFrequency
   /** 牛肉料理の摂取頻度 */
-  beefDishFrequency: DishFrequency
+  beefDishFrequency?: DishFrequency
   /** 豚肉料理の摂取頻度 */
-  porkDishFrequency: DishFrequency
+  porkDishFrequency?: DishFrequency
   /** 鶏肉料理の摂取頻度 */
-  chickenDishFrequency: DishFrequency
+  chickenDishFrequency?: DishFrequency
   /** 魚介類料理の摂取頻度 */
-  seafoodDishFrequency: DishFrequency
+  seafoodDishFrequency?: DishFrequency
 }
 
 /**
@@ -74,29 +74,47 @@ export const estimateDishAnnualAmount = (
 
 const getDishItems = (
   items: DishItem[],
-  beefDishFrequency: DishFrequency,
-  porkDishFrequency: DishFrequency,
-  chickenDishFrequency: DishFrequency,
-  seafoodDishFrequency: DishFrequency
+  beefDishFrequency?: DishFrequency,
+  porkDishFrequency?: DishFrequency,
+  chickenDishFrequency?: DishFrequency,
+  seafoodDishFrequency?: DishFrequency
 ): Array<{ item: DishItem; frequency: DishFrequency }> => {
   const dishItems: Array<{ item: DishItem; frequency: DishFrequency }> = []
 
-  if (items.find((item) => item === 'beef') !== undefined) {
+  if (
+    items.find((item) => item === 'beef') !== undefined &&
+    beefDishFrequency !== undefined
+  ) {
     dishItems.push({ item: 'beef', frequency: beefDishFrequency })
   }
-  if (items.find((item) => item === 'pork') !== undefined) {
+  if (
+    items.find((item) => item === 'pork') !== undefined &&
+    porkDishFrequency !== undefined
+  ) {
     dishItems.push({ item: 'pork', frequency: porkDishFrequency })
   }
-  if (items.find((item) => item === 'chicken') !== undefined) {
+  if (
+    items.find((item) => item === 'chicken') !== undefined &&
+    chickenDishFrequency !== undefined
+  ) {
     dishItems.push({ item: 'chicken', frequency: chickenDishFrequency })
   }
-  if (items.find((item) => item === 'other-meat') !== undefined) {
+  if (
+    items.find((item) => item === 'other-meat') !== undefined &&
+    porkDishFrequency !== undefined
+  ) {
     dishItems.push({ item: 'other-meat', frequency: porkDishFrequency })
   }
-  if (items.find((item) => item === 'fish') !== undefined) {
+  if (
+    items.find((item) => item === 'fish') !== undefined &&
+    seafoodDishFrequency !== undefined
+  ) {
     dishItems.push({ item: 'fish', frequency: seafoodDishFrequency })
   }
-  if (items.find((item) => item === 'processed-fish') !== undefined) {
+  if (
+    items.find((item) => item === 'processed-fish') !== undefined &&
+    seafoodDishFrequency !== undefined
+  ) {
     dishItems.push({ item: 'processed-fish', frequency: seafoodDishFrequency })
   }
   return dishItems
@@ -117,12 +135,8 @@ export const estimateDishAnnualAmounts = (
     chickenDishFrequency,
     seafoodDishFrequency
   }: AllDishAmountParam,
-  items?: DishItem[]
+  items: DishItem[] = DISH_ITEMS.map((item) => item)
 ): Record<string, number> => {
-  if (items === undefined) {
-    items = DISH_ITEMS.map((item) => item)
-  }
-
   const dishItems = getDishItems(
     items,
     beefDishFrequency,

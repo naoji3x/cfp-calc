@@ -31,15 +31,17 @@ export interface DairyFoodAmountParam {
 export const estimateDairyFoodAnnualAmount = (
   item: DairyFoodItem,
   {
-    foodDirectWasteFrequency: foodDirectWaste,
-    foodLeftoverFrequency: foodLeftover,
-    dairyFoodFrequency: frequency
+    foodDirectWasteFrequency,
+    foodLeftoverFrequency,
+    dairyFoodFrequency
   }: DairyFoodAmountParam
 ): number => {
   const baseline = getBaselineAmount('food', item).value
-  const foodIntake = getParameter('dairy-food-factor', frequency).value
+  const foodIntake = getParameter('dairy-food-factor', dairyFoodFrequency).value
   return (
-    baseline * foodIntake * estimateFoodLossRate(foodDirectWaste, foodLeftover)
+    baseline *
+    foodIntake *
+    estimateFoodLossRate(foodDirectWasteFrequency, foodLeftoverFrequency)
   )
 }
 
@@ -51,23 +53,19 @@ export const estimateDairyFoodAnnualAmount = (
  */
 export const estimateDairyFoodAnnualAmounts = (
   {
-    foodDirectWasteFrequency: foodDirectWaste,
-    foodLeftoverFrequency: foodLeftover,
-    dairyFoodFrequency: frequency
+    foodDirectWasteFrequency,
+    foodLeftoverFrequency,
+    dairyFoodFrequency
   }: DairyFoodAmountParam,
-  items?: DairyFoodItem[]
+  items: DairyFoodItem[] = DAIRY_FOOD_ITEMS.map((item) => item)
 ): Record<string, number> => {
-  if (items === undefined) {
-    items = DAIRY_FOOD_ITEMS.map((item) => item)
-  }
-
   return items.reduce(
     (acc, item): Record<string, number> => ({
       ...acc,
       [item]: estimateDairyFoodAnnualAmount(item, {
-        foodDirectWasteFrequency: foodDirectWaste,
-        foodLeftoverFrequency: foodLeftover,
-        dairyFoodFrequency: frequency
+        foodDirectWasteFrequency,
+        foodLeftoverFrequency,
+        dairyFoodFrequency
       })
     }),
     {}

@@ -13,11 +13,11 @@ export interface ProcessedMeatAmountParam {
   /** 食料の食べ残し量 */
   foodLeftoverFrequency: FoodLeftoverFrequency
   /** 牛肉料理の摂取頻度 */
-  beefDishFrequency: DishFrequency
+  beefDishFrequency?: DishFrequency
   /** 豚肉料理の摂取頻度 */
-  porkDishFrequency: DishFrequency
+  porkDishFrequency?: DishFrequency
   /** 鶏肉料理の摂取頻度 */
-  chickenDishFrequency: DishFrequency
+  chickenDishFrequency?: DishFrequency
 }
 
 /**
@@ -26,8 +26,8 @@ export interface ProcessedMeatAmountParam {
  * @returns 加工肉の活動量[kg]
  */
 export const estimateProcessedMeatAnnualAmount = ({
-  foodDirectWasteFrequency: foodDirectWaste,
-  foodLeftoverFrequency: foodLeftover,
+  foodDirectWasteFrequency,
+  foodLeftoverFrequency,
   beefDishFrequency,
   porkDishFrequency,
   chickenDishFrequency
@@ -37,26 +37,38 @@ export const estimateProcessedMeatAnnualAmount = ({
   const chickenBaseline = getBaselineAmount('food', 'chicken').value
   const otherMeatBaseline = getBaselineAmount('food', 'other-meat').value
 
-  const beef = estimateDishAnnualAmount('beef', {
-    foodDirectWasteFrequency: foodDirectWaste,
-    foodLeftoverFrequency: foodLeftover,
-    dishFrequency: beefDishFrequency
-  })
-  const pork = estimateDishAnnualAmount('pork', {
-    foodDirectWasteFrequency: foodDirectWaste,
-    foodLeftoverFrequency: foodLeftover,
-    dishFrequency: porkDishFrequency
-  })
-  const chicken = estimateDishAnnualAmount('chicken', {
-    foodDirectWasteFrequency: foodDirectWaste,
-    foodLeftoverFrequency: foodLeftover,
-    dishFrequency: chickenDishFrequency
-  })
-  const otherMeat = estimateDishAnnualAmount('other-meat', {
-    foodDirectWasteFrequency: foodDirectWaste,
-    foodLeftoverFrequency: foodLeftover,
-    dishFrequency: porkDishFrequency
-  })
+  const beef =
+    beefDishFrequency === undefined
+      ? beefBaseline
+      : estimateDishAnnualAmount('beef', {
+          foodDirectWasteFrequency,
+          foodLeftoverFrequency,
+          dishFrequency: beefDishFrequency
+        })
+  const pork =
+    porkDishFrequency === undefined
+      ? porkBaseline
+      : estimateDishAnnualAmount('pork', {
+          foodDirectWasteFrequency,
+          foodLeftoverFrequency,
+          dishFrequency: porkDishFrequency
+        })
+  const chicken =
+    chickenDishFrequency === undefined
+      ? chickenBaseline
+      : estimateDishAnnualAmount('chicken', {
+          foodDirectWasteFrequency,
+          foodLeftoverFrequency,
+          dishFrequency: chickenDishFrequency
+        })
+  const otherMeat =
+    porkDishFrequency === undefined
+      ? otherMeatBaseline
+      : estimateDishAnnualAmount('other-meat', {
+          foodDirectWasteFrequency,
+          foodLeftoverFrequency,
+          dishFrequency: porkDishFrequency
+        })
 
   return (
     (getBaselineAmount('food', 'processed-meat').value *

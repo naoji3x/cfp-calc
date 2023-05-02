@@ -49,17 +49,17 @@ export interface ReadyMealAmountParam {
 /** 加工食品のGHG原単位を計算するための引数 */
 export interface ReadyMealIntensityParam extends ReadyMealAmountParam {
   /** 牛肉料理の頻度 */
-  beefDishFrequency: DishFrequency
+  beefDishFrequency?: DishFrequency
   /** 豚肉料理の頻度 */
-  porkDishFrequency: DishFrequency
+  porkDishFrequency?: DishFrequency
   /** 鶏肉料理の頻度 */
-  chickenDishFrequency: DishFrequency
+  chickenDishFrequency?: DishFrequency
   /** 魚介料理の頻度 */
-  seafoodDishFrequency: DishFrequency
+  seafoodDishFrequency?: DishFrequency
   /** 乳製品料理の頻度 */
-  dairyFoodFrequency: DairyFoodFrequency
+  dairyFoodFrequency?: DairyFoodFrequency
   /** ソフトドリンク・スナックの支出 */
-  softDrinkSnackExpenses: SoftDrinkSnackExpenses
+  softDrinkSnackExpenses?: SoftDrinkSnackExpenses
 }
 
 /**
@@ -93,8 +93,18 @@ export const estimateReadyMealIntensity = ({
   dairyFoodFrequency,
   softDrinkSnackExpenses
 }: ReadyMealIntensityParam): number => {
+  // 活動量ベースライン値
+  const baselineAmounts: Record<string, number> = {
+    ...getFoodIntakeAnnualBaselineAmounts(),
+    ...getDishAnnualBaselineAmounts(),
+    ...getDairyFoodAnnualBaselineAmounts(),
+    'sweets-snack': getBaselineAmount('food', 'sweets-snack').value,
+    'processed-meat': getBaselineAmount('food', 'processed-meat').value
+  }
+
   // 活動量推定値
   const estimatedAmounts: Record<string, number> = {
+    ...baselineAmounts,
     ...estimateFoodIntakeAnnualAmounts({
       foodDirectWasteFrequency: foodDirectWaste,
       foodLeftoverFrequency: foodLeftover,
@@ -108,16 +118,6 @@ export const estimateReadyMealIntensity = ({
       chickenDishFrequency,
       seafoodDishFrequency
     }),
-    ...estimateDairyFoodAnnualAmounts({
-      foodDirectWasteFrequency: foodDirectWaste,
-      foodLeftoverFrequency: foodLeftover,
-      dairyFoodFrequency
-    }),
-    'sweets-snack': estimateSoftDrinkSnackAnnualAmount('sweets-snack', {
-      foodDirectWasteFrequency: foodDirectWaste,
-      foodLeftoverFrequency: foodLeftover,
-      softDrinkSnackExpenses
-    }),
     'processed-meat': estimateProcessedMeatAnnualAmount({
       foodDirectWasteFrequency: foodDirectWaste,
       foodLeftoverFrequency: foodLeftover,
@@ -125,6 +125,25 @@ export const estimateReadyMealIntensity = ({
       porkDishFrequency,
       chickenDishFrequency
     })
+  }
+  if (dairyFoodFrequency !== undefined) {
+    Object.entries(
+      estimateDairyFoodAnnualAmounts({
+        foodDirectWasteFrequency: foodDirectWaste,
+        foodLeftoverFrequency: foodLeftover,
+        dairyFoodFrequency
+      })
+    ).forEach(([key, value]) => (estimatedAmounts[key] = value))
+  }
+  if (softDrinkSnackExpenses !== undefined) {
+    estimatedAmounts['sweets-snack'] = estimateSoftDrinkSnackAnnualAmount(
+      'sweets-snack',
+      {
+        foodDirectWasteFrequency: foodDirectWaste,
+        foodLeftoverFrequency: foodLeftover,
+        softDrinkSnackExpenses
+      }
+    )
   }
 
   // GHG原単位推定値
@@ -134,15 +153,6 @@ export const estimateReadyMealIntensity = ({
     ...estimateDairyFoodIntensities(),
     'sweets-snack': estimateSoftDrinkSnackIntensity('sweets-snack'),
     'processed-meat': estimateProcessedMeatIntensity()
-  }
-
-  // 活動量ベースライン値
-  const baselineAmounts: Record<string, number> = {
-    ...getFoodIntakeAnnualBaselineAmounts(),
-    ...getDishAnnualBaselineAmounts(),
-    ...getDairyFoodAnnualBaselineAmounts(),
-    'sweets-snack': getBaselineAmount('food', 'sweets-snack').value,
-    'processed-meat': getBaselineAmount('food', 'processed-meat').value
   }
 
   const totalEstimatedAmount = Object.values(estimatedAmounts).reduce(

@@ -56,19 +56,19 @@ export interface EatOutIntensityParam {
   /** 食事の摂取量 */
   foodIntake: FoodIntake
   /** 牛肉料理の頻度 */
-  beefDishFrequency: DishFrequency
+  beefDishFrequency?: DishFrequency
   /** 豚肉料理の頻度 */
-  porkDishFrequency: DishFrequency
+  porkDishFrequency?: DishFrequency
   /** 鶏肉料理の頻度 */
-  chickenDishFrequency: DishFrequency
+  chickenDishFrequency?: DishFrequency
   /** 魚介料理の頻度 */
-  seafoodDishFrequency: DishFrequency
+  seafoodDishFrequency?: DishFrequency
   /** 乳製品料理の頻度 */
-  dairyFoodFrequency: DairyFoodFrequency
+  dairyFoodFrequency?: DairyFoodFrequency
   /** アルコールの頻度 */
-  alcoholFrequency: AlcoholFrequency
+  alcoholFrequency?: AlcoholFrequency
   /** ソフトドリンクとスナックの支出 */
-  softDrinkSnackExpenses: SoftDrinkSnackExpenses
+  softDrinkSnackExpenses?: SoftDrinkSnackExpenses
 }
 
 /** 外食の活動量を計算するための引数 */
@@ -113,17 +113,24 @@ export const estimateEatOutIntensity = (
     softDrinkSnackExpenses
   }: EatOutIntensityParam
 ): number => {
+  // 活動量ベースライン値
+  const baselineAmounts: Record<string, number> = {
+    ...getFoodIntakeAnnualBaselineAmounts(),
+    ...getSoftDrinkSnackAnnualBaselineAmounts(),
+    ...getDishAnnualBaselineAmounts(),
+    ...getDairyFoodAnnualBaselineAmounts(),
+    alcohol: getBaselineAmount('food', 'alcohol').value,
+    'processed-meat': getBaselineAmount('food', 'processed-meat').value,
+    'ready-meal': getBaselineAmount('food', 'ready-meal').value
+  }
+
   // 活動量推定値
   const estimatedAmounts: Record<string, number> = {
+    ...baselineAmounts,
     ...estimateFoodIntakeAnnualAmounts({
       foodDirectWasteFrequency: foodDirectWaste,
       foodLeftoverFrequency: foodLeftover,
       foodIntake
-    }),
-    ...estimateSoftDrinkSnackAnnualAmounts({
-      foodDirectWasteFrequency: foodDirectWaste,
-      foodLeftoverFrequency: foodLeftover,
-      softDrinkSnackExpenses
     }),
     ...estimateDishAnnualAmounts({
       foodDirectWaste,
@@ -133,15 +140,10 @@ export const estimateEatOutIntensity = (
       chickenDishFrequency,
       seafoodDishFrequency
     }),
-    ...estimateDairyFoodAnnualAmounts({
+    'ready-meal': estimateReadyMealAnnualAmount({
       foodDirectWasteFrequency: foodDirectWaste,
       foodLeftoverFrequency: foodLeftover,
-      dairyFoodFrequency
-    }),
-    alcohol: estimateAlcoholAnnualAmount({
-      foodDirectWasteFrequency: foodDirectWaste,
-      foodLeftoverFrequency: foodLeftover,
-      alcoholFrequency
+      foodIntake
     }),
     'processed-meat': estimateProcessedMeatAnnualAmount({
       foodDirectWasteFrequency: foodDirectWaste,
@@ -149,11 +151,35 @@ export const estimateEatOutIntensity = (
       beefDishFrequency,
       porkDishFrequency,
       chickenDishFrequency
-    }),
-    'ready-meal': estimateReadyMealAnnualAmount({
+    })
+  }
+  if (dairyFoodFrequency !== undefined) {
+    Object.entries(
+      estimateDairyFoodAnnualAmounts({
+        foodDirectWasteFrequency: foodDirectWaste,
+        foodLeftoverFrequency: foodLeftover,
+        dairyFoodFrequency
+      })
+    ).forEach(([key, value]) => {
+      estimatedAmounts[key] = value
+    })
+  }
+  if (softDrinkSnackExpenses !== undefined) {
+    Object.entries(
+      estimateSoftDrinkSnackAnnualAmounts({
+        foodDirectWasteFrequency: foodDirectWaste,
+        foodLeftoverFrequency: foodLeftover,
+        softDrinkSnackExpenses
+      })
+    ).forEach(([key, value]) => {
+      estimatedAmounts[key] = value
+    })
+  }
+  if (alcoholFrequency !== undefined) {
+    estimatedAmounts.alcohol = estimateAlcoholAnnualAmount({
       foodDirectWasteFrequency: foodDirectWaste,
       foodLeftoverFrequency: foodLeftover,
-      foodIntake
+      alcoholFrequency
     })
   }
 
@@ -176,17 +202,6 @@ export const estimateEatOutIntensity = (
       dairyFoodFrequency,
       softDrinkSnackExpenses
     })
-  }
-
-  // 活動量ベースライン値
-  const baselineAmounts: Record<string, number> = {
-    ...getFoodIntakeAnnualBaselineAmounts(),
-    ...getSoftDrinkSnackAnnualBaselineAmounts(),
-    ...getDishAnnualBaselineAmounts(),
-    ...getDairyFoodAnnualBaselineAmounts(),
-    alcohol: getBaselineAmount('food', 'alcohol').value,
-    'processed-meat': getBaselineAmount('food', 'processed-meat').value,
-    'ready-meal': getBaselineAmount('food', 'ready-meal').value
   }
 
   const totalEstimatedAmount = Object.values(estimatedAmounts).reduce(

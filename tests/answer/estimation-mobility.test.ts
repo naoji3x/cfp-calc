@@ -71,7 +71,7 @@ describe(`Test ${domain} estimations`, () => {
   const diagnosis = new Diagnosis()
   const originalBaselines = enumerateBaselines()
 
-  // 生成したProfileに対してテストケースを順番に適用
+  // 生成したDiagnosisに対してテストケースを順番に適用
   for (const testCase of testCases) {
     test(`Estimation: ${testCase.case}`, () => {
       const mobilityAnswer = toMobilityAnswer(testCase.answers)

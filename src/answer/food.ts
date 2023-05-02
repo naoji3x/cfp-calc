@@ -27,16 +27,16 @@ import { estimateSoftDrinkSnackAnnualAmount } from '../food/soft-drink-snack'
 import { type FoodAnswer } from './answer'
 
 export const estimateFood = ({
-  foodDirectWasteFrequency = undefined,
-  foodLeftoverFrequency = undefined,
-  foodIntake = undefined,
-  alcoholFrequency = undefined,
-  dairyFoodFrequency = undefined,
-  beefDishFrequency = undefined,
-  porkDishFrequency = undefined,
-  chickenDishFrequency = undefined,
-  seafoodDishFrequency = undefined,
-  softDrinkSnackExpenses = undefined,
+  foodDirectWasteFrequency,
+  foodLeftoverFrequency,
+  foodIntake,
+  alcoholFrequency,
+  dairyFoodFrequency,
+  beefDishFrequency,
+  porkDishFrequency,
+  chickenDishFrequency,
+  seafoodDishFrequency,
+  softDrinkSnackExpenses,
   eatOutExpenses = undefined
 }: FoodAnswer): Item[] => {
   const domain: Domain = 'food'
@@ -118,7 +118,7 @@ export const estimateFood = ({
   for (const dish of dishes) {
     addEstimatedAmount(
       dish.item,
-      estimateDishAnnualAmount('beef', {
+      estimateDishAnnualAmount(dish.item, {
         foodDirectWasteFrequency,
         foodLeftoverFrequency,
         dishFrequency: dish.frequency
@@ -162,34 +162,34 @@ export const estimateFood = ({
         })
       )
     }
-  }
-  // eat-out intensity
-  if (
-    foodIntake !== undefined &&
-    beefDishFrequency !== undefined &&
-    porkDishFrequency !== undefined &&
-    chickenDishFrequency !== undefined &&
-    seafoodDishFrequency !== undefined &&
-    dairyFoodFrequency !== undefined &&
-    alcoholFrequency !== undefined &&
-    softDrinkSnackExpenses !== undefined
-  ) {
-    for (const item of EAT_OUT_ITEMS) {
-      addEstimatedIntensity(
-        item,
-        estimateEatOutIntensity(item, {
-          foodDirectWasteFrequency,
-          foodLeftoverFrequency,
-          foodIntake,
-          beefDishFrequency,
-          porkDishFrequency,
-          chickenDishFrequency,
-          seafoodDishFrequency,
-          dairyFoodFrequency,
-          alcoholFrequency,
-          softDrinkSnackExpenses
-        })
-      )
+    // eat-out intensity
+    if (
+      foodIntake !== undefined &&
+      beefDishFrequency !== undefined &&
+      porkDishFrequency !== undefined &&
+      chickenDishFrequency !== undefined &&
+      seafoodDishFrequency !== undefined &&
+      dairyFoodFrequency !== undefined &&
+      alcoholFrequency !== undefined &&
+      softDrinkSnackExpenses !== undefined
+    ) {
+      for (const item of EAT_OUT_ITEMS) {
+        addEstimatedIntensity(
+          item,
+          estimateEatOutIntensity(item, {
+            foodDirectWasteFrequency,
+            foodLeftoverFrequency,
+            foodIntake,
+            beefDishFrequency,
+            porkDishFrequency,
+            chickenDishFrequency,
+            seafoodDishFrequency,
+            dairyFoodFrequency,
+            alcoholFrequency,
+            softDrinkSnackExpenses
+          })
+        )
+      }
     }
   }
 
@@ -211,7 +211,7 @@ export const estimateFood = ({
     )
   }
 
-  // ready-meal amount
+  // ready-meal amount and intensity
   if (foodIntake !== undefined) {
     addEstimatedAmount(
       'ready-meal',
@@ -221,18 +221,6 @@ export const estimateFood = ({
         foodIntake
       })
     )
-  }
-
-  // ready-meal intensity
-  if (
-    foodIntake !== undefined &&
-    beefDishFrequency !== undefined &&
-    porkDishFrequency !== undefined &&
-    chickenDishFrequency !== undefined &&
-    seafoodDishFrequency !== undefined &&
-    dairyFoodFrequency !== undefined &&
-    softDrinkSnackExpenses !== undefined
-  ) {
     addEstimatedIntensity(
       'ready-meal',
       estimateReadyMealIntensity({
