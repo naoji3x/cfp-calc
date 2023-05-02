@@ -1,6 +1,6 @@
-import { type Domain, type Type } from 'common'
-import { getBaselineAmount } from 'data'
-import { type Item } from 'entity/item'
+import { type Domain, type Type } from '../common'
+import { getBaselineAmount } from '../data'
+import { type Item } from '../entity/item'
 import {
   estimateElectricityAnnualAmount,
   estimateElectricityIntensity

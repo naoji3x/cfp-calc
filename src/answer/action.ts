@@ -16,7 +16,7 @@ import {
   shiftFromOtherItems,
   shiftFromOtherItemsThenReductionRate,
   type Search
-} from 'action'
+} from '../action'
 import {
   type CarCharging,
   type CarPassengers,
@@ -27,9 +27,9 @@ import {
   type FoodLeftoverFrequency,
   type HousingInsulation,
   type Type
-} from 'common'
-import { enumerateOptions } from 'data'
-import { type Action, type Item, type Option } from 'entity'
+} from '../common'
+import { enumerateOptions } from '../data'
+import { type Action, type Item, type Option } from '../entity'
 
 export interface ActionAnswer {
   readonly housingInsulation?: HousingInsulation
@@ -110,7 +110,7 @@ export const calculateActions = (
 
   // Phase 1
   for (const option of phase1Options) {
-    const base = search.findItem(option.domain, option.item, option.type)
+    const base = findEstimation(option.domain, option.item, option.type)
     switch (option.operation) {
       case 'absolute-target':
         addAction(base, option, absoluteTarget(option.values[0]))

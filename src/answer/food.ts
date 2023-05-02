@@ -7,9 +7,9 @@ import {
   type DishItem,
   type Domain,
   type Type
-} from 'common'
-import { getBaselineAmount } from 'data'
-import { type Item } from 'entity/item'
+} from '../common'
+import { getBaselineAmount } from '../data'
+import { type Item } from '../entity/item'
 import { estimateAlcoholAnnualAmount } from '../food/alcohol'
 import { estimateDairyFoodAnnualAmount } from '../food/dairy-food'
 import { estimateDishAnnualAmount } from '../food/dish'

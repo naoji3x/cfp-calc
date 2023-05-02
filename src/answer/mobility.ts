@@ -1,6 +1,6 @@
-import { type Domain, type OtherCarItem, type Type } from 'common'
+import { type Domain, type OtherCarItem, type Type } from '../common'
 
-import { getBaselineAmount } from 'data'
+import { getBaselineAmount } from '../data'
 import { type Item } from '../entity/item'
 import { estimateAirplaneAnnualAmount } from '../mobility/airplane'
 import { estimateBicycleDrivingAnnualAmount } from '../mobility/bicycle-driving'

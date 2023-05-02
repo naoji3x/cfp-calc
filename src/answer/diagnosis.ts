@@ -1,6 +1,6 @@
-import { type Domain, type Type } from 'common'
-import { enumerateBaselines } from 'data'
 import { type Action, type Footprint, type Item } from 'entity'
+import { type Domain, type Type } from '../common'
+import { enumerateBaselines } from '../data'
 import { calculateActions, type ActionAnswer } from './action'
 import {
   type FoodAnswer,
@@ -171,15 +171,26 @@ export class Diagnosis {
   public readonly findEstimation = (
     domain: Domain,
     item: string,
-    type: Type
+    type: Type,
+    fallback = true
   ): Item => {
     const key = domain + '_' + item + '_' + type
     const estimation = this.estimations[key]
-    if (estimation !== undefined) {
-      return estimation
+    if (fallback && estimation === undefined) {
+      return this.baselines[key]
     }
-    return this.baselines[key]
+    return estimation
   }
+
+  public readonly enumerateEstimations = (fallback = true): Item[] =>
+    fallback
+      ? Object.values(this.baselines).map((bl) =>
+          this.findEstimation(bl.domain, bl.item, bl.type)
+        )
+      : Object.values(this.estimations)
+
+  public readonly enumerateBaselines = (): Item[] =>
+    Object.values(this.baselines)
 
   public readonly answerMobility = (
     answer: MobilityAnswer,

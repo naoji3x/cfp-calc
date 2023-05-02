@@ -9,9 +9,9 @@ import {
   TRAVEL_ITEMS,
   type Domain,
   type Type
-} from 'common'
-import { getBaselineAmount, getParameter } from 'data'
-import { type Item } from 'entity/item'
+} from '../common'
+import { getBaselineAmount, getParameter } from '../data'
+import { type Item } from '../entity/item'
 import { estimateApplianceFurnitureAnnualAmount } from '../other/appliance-furniture'
 import { estimateClothesBeautyAnnualAmount } from '../other/clothes-beauty'
 import { estimateCommunicationAnnualAmount } from '../other/communication'
