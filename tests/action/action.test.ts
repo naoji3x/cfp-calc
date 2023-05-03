@@ -1,6 +1,5 @@
 import {
   absoluteTarget,
-  addAmount,
   drivingIntensityToEvPhv,
   drivingIntensityToPrivateCarRideshare,
   drivingIntensityToTaxiRideshare,
@@ -120,13 +119,6 @@ class SearchImpl implements Search {
 describe('absoluteTarget', () => {
   test('returns the target', () => {
     expect(absoluteTarget(50)).toBeCloseTo(50)
-  })
-})
-
-// test the addAmount function
-describe('addAmount', () => {
-  test('returns base + addition', () => {
-    expect(addAmount(50, 50)).toBeCloseTo(100)
   })
 })
 

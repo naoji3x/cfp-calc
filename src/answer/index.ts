@@ -1,4 +1,6 @@
 export * from './action'
+export * from './answer'
+export * from './diagnosis'
 export * from './food'
 export * from './housing'
 export * from './mobility'

@@ -56,17 +56,6 @@ export interface Search {
 export const absoluteTarget = (target: number): number => target
 
 /**
- * [削減後] = [削減前(base)] + [addition] あらかじめ定めたの値(addition)を増加する
- * 例）ゼロエネルギー住宅の設備費増加分
- * @remarks Phase1: 推定値があれば計算可能な削減施策（他の削減施策に依存しないので最初に計算可能）
- * @param base 削減前の値
- * @param addition 増加分の値
- * @returns 削減後の活動量もしくはGHG原単位
- */
-export const addAmount = (base: number, addition: number): number =>
-  base + addition
-
-/**
  * [削減後] = [削減前(base)] x (1+[rate])
  * 例）テレワークを最大限実施した場合、通勤分のみ削減される
  * その選択肢を最大限採用した場合に削減が可能な割合を指定（rate < 0で削減、rate > 0で増加）
@@ -145,8 +134,8 @@ export const drivingIntensityToPrivateCarRideshare = (
 export const foodAmountToAverageWithoutFoodLoss = (
   base: number,
   valueAfterAction: number,
-  foodDirectWaste: FoodDirectWasteFrequency = 'unknown',
-  foodLeftover: FoodLeftoverFrequency = 'unknown'
+  foodDirectWaste: FoodDirectWasteFrequency,
+  foodLeftover: FoodLeftoverFrequency
 ): number => {
   const valueBeforeAction = estimateFoodLossRate(foodDirectWaste, foodLeftover)
   return (base * valueAfterAction) / valueBeforeAction
@@ -404,9 +393,7 @@ export const proportionalToOtherFootprints = (
     sumBefore += ab * ib
     sumAfter += aa * ia
   }
-  return sumBefore !== 0
-    ? base * (1 - rate) + base * rate * (sumAfter / sumBefore)
-    : base
+  return base * (1 - rate) + base * rate * (sumAfter / sumBefore)
 }
 
 /**

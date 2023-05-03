@@ -1,6 +1,5 @@
 import {
   absoluteTarget,
-  addAmount,
   drivingIntensityToEvPhv,
   drivingIntensityToPrivateCarRideshare,
   drivingIntensityToTaxiRideshare,
@@ -43,7 +42,6 @@ export interface ActionAnswer {
 
 const phase1Operations = new Set([
   'absolute-target',
-  'add-amount',
   'increase-rate',
   'reduction-rate',
   'question-reduction-rate',
@@ -114,9 +112,6 @@ export const calculateActions = (
     switch (option.operation) {
       case 'absolute-target':
         addAction(base, option, absoluteTarget(option.values[0]))
-        break
-      case 'add-amount':
-        addAction(base, option, addAmount(base.value, option.values[0]))
         break
       case 'increase-rate':
       case 'reduction-rate':

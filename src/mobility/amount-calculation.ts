@@ -29,11 +29,10 @@ export const estimateAnnualAmountAddingWeeklyTravel = (
   annualTravelingTime: number,
   annualSpeedType: string
 ): number => {
-  const wpy = getParameter(
+  const weekCount = getParameter(
     'misc',
     'weeks-per-year-excluding-long-vacations'
-  )?.value
-  const weekCount = isNaN(wpy) ? 49 : wpy
+  ).value
 
   const milage =
     annualTravelingTime *

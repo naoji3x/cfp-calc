@@ -24,15 +24,15 @@ import { estimateWasteAnnualAmount } from '../other/waste'
 import { type OtherAnswer } from './answer'
 
 export const estimateOther = ({
-  residentCount = undefined,
-  travelExpenses = undefined,
-  applianceFurnitureExpenses = undefined,
-  clothesBeautyExpenses = undefined,
-  hobbyGoodsExpenses = undefined,
-  serviceExpenses = undefined,
-  dailyGoodsExpenses = undefined,
-  leisureSportsExpenses = undefined,
-  communicationExpenses = undefined
+  residentCount,
+  travelExpenses,
+  applianceFurnitureExpenses,
+  clothesBeautyExpenses,
+  hobbyGoodsExpenses,
+  serviceExpenses,
+  dailyGoodsExpenses,
+  leisureSportsExpenses,
+  communicationExpenses
 }: OtherAnswer): Item[] => {
   const domain: Domain = 'other'
   const estimations: Item[] = []

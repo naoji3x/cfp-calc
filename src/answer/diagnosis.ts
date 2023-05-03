@@ -182,12 +182,8 @@ export class Diagnosis {
     return estimation
   }
 
-  public readonly enumerateEstimations = (fallback = true): Item[] =>
-    fallback
-      ? Object.values(this.baselines).map((bl) =>
-          this.findEstimation(bl.domain, bl.item, bl.type)
-        )
-      : Object.values(this.estimations)
+  public readonly enumerateEstimations = (): Item[] =>
+    Object.values(this.estimations)
 
   public readonly enumerateActions = (option: string): Action[] =>
     Object.values(this.actions).filter((a) => a.option === option)

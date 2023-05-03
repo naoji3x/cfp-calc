@@ -28,11 +28,11 @@ import { estimateWalkingAnnualAmount } from '../mobility/walking'
 import { type MobilityAnswer } from './answer'
 
 export const estimateMobility = ({
-  privateCarAnnualMileage = undefined,
-  carType = undefined,
-  carPassengers = undefined,
-  carCharging = undefined,
-  electricityType = undefined,
+  privateCarAnnualMileage,
+  carType,
+  carPassengers,
+  carCharging,
+  electricityType,
   travelingTimeOrResidentialAreaSize
 }: MobilityAnswer): Item[] => {
   const domain: Domain = 'mobility'

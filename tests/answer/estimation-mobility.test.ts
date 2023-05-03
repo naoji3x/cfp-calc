@@ -24,7 +24,7 @@ describe(`Test ${domain} estimations`, () => {
 
       testEstimation(
         testCase,
-        diagnosis.enumerateEstimations(false),
+        diagnosis.enumerateEstimations(),
         diagnosis.enumerateBaselines(),
         originalBaselines
       )

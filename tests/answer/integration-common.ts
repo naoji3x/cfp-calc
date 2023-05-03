@@ -20,7 +20,7 @@ export const testIntegration = (name: string): void => {
       answer(testCase.answers, diagnosis)
       testEstimation(
         testCase,
-        diagnosis.enumerateEstimations(false),
+        diagnosis.enumerateEstimations(),
         diagnosis.enumerateBaselines(),
         originalBaselines
       )

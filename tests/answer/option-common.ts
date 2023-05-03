@@ -28,9 +28,11 @@ export const testOption = (option: string): void => {
             e.type === action.type
         )
 
-        expect(exp).not.toBeNull()
-        expect(exp?.estimated).toBeTruthy()
-        expect(action.value).toBeCloseTo(exp?.value as number)
+        expect(exp).not.toBeUndefined()
+        if (exp !== undefined) {
+          expect(exp.estimated).toBeTruthy()
+          expect(action.value).toBeCloseTo(exp.value)
+        }
       }
 
       // actionに重複がないことを確認
@@ -73,7 +75,10 @@ export const testOption = (option: string): void => {
             b.type === baseline.type
         )
 
-        expect(baseline.value).toBeCloseTo(org !== undefined ? org.value : NaN)
+        expect(org).not.toBeUndefined()
+        if (org !== undefined) {
+          expect(baseline.value).toBeCloseTo(org.value)
+        }
       }
     })
   }

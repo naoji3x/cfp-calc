@@ -15,9 +15,11 @@ export const testEstimation = (
         e.type === estimation.type
     )
 
-    expect(exp).not.toBeNull()
-    expect(exp?.estimated).toBeTruthy()
-    expect(estimation.value).toBeCloseTo(exp?.value as number)
+    expect(exp).not.toBeUndefined()
+    if (exp !== undefined) {
+      expect(exp.estimated).toBeTruthy()
+      expect(estimation.value).toBeCloseTo(exp.value)
+    }
   }
 
   // estimationに重複がないことを確認
@@ -52,7 +54,10 @@ export const testEstimation = (
         b.domain === exp.domain && b.item === exp.item && b.type === exp.type
     )
     const result = estimation ?? baseline
-    expect(result?.value).toBeCloseTo(exp.value)
+    expect(result).not.toBeUndefined()
+    if (result !== undefined) {
+      expect(result.value).toBeCloseTo(exp.value)
+    }
   }
 
   // baselineが間違って書き換えられていないかを確認
@@ -64,6 +69,9 @@ export const testEstimation = (
         b.type === baseline.type
     )
 
-    expect(baseline.value).toBeCloseTo(org !== undefined ? org.value : NaN)
+    expect(org).not.toBeUndefined()
+    if (org !== undefined) {
+      expect(baseline.value).toBeCloseTo(org.value)
+    }
   }
 }
