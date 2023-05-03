@@ -19,10 +19,26 @@ export class Diagnosis {
   private estimations: Record<string, Item> = {}
   private actions: Record<string, Action> = {}
 
-  private mobilityAnswer: MobilityAnswer = {}
-  private housingAnswer: HousingAnswer = {}
-  private foodAnswer: FoodAnswer = {}
-  private otherAnswer: OtherAnswer = {}
+  private mobilityAnswer_: MobilityAnswer = {}
+  private housingAnswer_: HousingAnswer = {}
+  private foodAnswer_: FoodAnswer = {}
+  private otherAnswer_: OtherAnswer = {}
+
+  public get housingAnswer(): HousingAnswer {
+    return this.housingAnswer_
+  }
+
+  public get mobilityAnswer(): MobilityAnswer {
+    return this.mobilityAnswer_
+  }
+
+  public get foodAnswer(): FoodAnswer {
+    return this.foodAnswer_
+  }
+
+  public get otherAnswer(): OtherAnswer {
+    return this.otherAnswer_
+  }
 
   private readonly toItem = (footprint: Footprint): Item => ({
     domain: footprint.domain,
@@ -61,10 +77,10 @@ export class Diagnosis {
     foodAnswer: FoodAnswer
     otherAnswer: OtherAnswer
   } => {
-    let mobilityAnswer = this.mobilityAnswer
-    let housingAnswer = this.housingAnswer
-    const foodAnswer = this.foodAnswer
-    let otherAnswer = this.otherAnswer
+    let mobilityAnswer = this.mobilityAnswer_
+    let housingAnswer = this.housingAnswer_
+    const foodAnswer = this.foodAnswer_
+    let otherAnswer = this.otherAnswer_
 
     // housing -> mobility
     if (
@@ -102,8 +118,8 @@ export class Diagnosis {
       Object.keys(otherAnswer).length > 0
     ) {
       otherAnswer = {
-        ...this.otherAnswer,
-        residentCount: this.housingAnswer.residentCount
+        ...this.otherAnswer_,
+        residentCount: this.housingAnswer_.residentCount
       }
     }
     return { mobilityAnswer, housingAnswer, foodAnswer, otherAnswer }
@@ -195,9 +211,9 @@ export class Diagnosis {
     answer: MobilityAnswer,
     reset: boolean = false
   ): void => {
-    this.mobilityAnswer = reset
+    this.mobilityAnswer_ = reset
       ? { ...answer }
-      : { ...this.mobilityAnswer, ...answer }
+      : { ...this.mobilityAnswer_, ...answer }
     this.validate()
   }
 
@@ -205,9 +221,9 @@ export class Diagnosis {
     answer: HousingAnswer,
     reset: boolean = false
   ): void => {
-    this.housingAnswer = reset
+    this.housingAnswer_ = reset
       ? { ...answer }
-      : { ...this.housingAnswer, ...answer }
+      : { ...this.housingAnswer_, ...answer }
     this.validate()
   }
 
@@ -215,7 +231,9 @@ export class Diagnosis {
     answer: FoodAnswer,
     reset: boolean = false
   ): void => {
-    this.foodAnswer = reset ? { ...answer } : { ...this.foodAnswer, ...answer }
+    this.foodAnswer_ = reset
+      ? { ...answer }
+      : { ...this.foodAnswer_, ...answer }
     this.validate()
   }
 
@@ -223,9 +241,9 @@ export class Diagnosis {
     answer: OtherAnswer,
     reset: boolean = false
   ): void => {
-    this.otherAnswer = reset
+    this.otherAnswer_ = reset
       ? { ...answer }
-      : { ...this.otherAnswer, ...answer }
+      : { ...this.otherAnswer_, ...answer }
     this.validate()
   }
 }

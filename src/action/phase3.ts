@@ -53,9 +53,7 @@ export const proportionalToOtherItems = (
   const sumAfter = domainItemTypes.reduce((sum, key) => {
     const [domain, item, type] = key.split('_')
     return (
-      sum +
-      (findActionOrDefault(option, domain as Domain, item, type as Type) ??
-        findEstimationOrDefault(domain as Domain, item, type as Type))
+      sum + findActionOrDefault(option, domain as Domain, item, type as Type)
     )
   }, 0)
 

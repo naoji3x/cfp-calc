@@ -7,7 +7,8 @@ import {
   housingInsulationClothing,
   housingInsulationRenovation,
   increaseRate,
-  manufacturingIntensityToEvPhv
+  manufacturingIntensityToEvPhv,
+  questionReductionRate
 } from '../../src/action'
 import {
   type CarCharging,
@@ -219,5 +220,18 @@ describe('housingInsulationClothing', () => {
     expect(
       housingInsulationClothing(keroseneAmount, 0.771779141, insulation)
     ).toBeCloseTo(1881.53320256687)
+  })
+})
+
+// test the questionReductionRate function
+describe('questionReductionRate', () => {
+  test('NaN', () => {
+    expect(
+      questionReductionRate({
+        base: 0,
+        target: 'unknown',
+        reductionRate: 0
+      })
+    ).toBeNaN()
   })
 })

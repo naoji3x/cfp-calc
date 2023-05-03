@@ -5,6 +5,7 @@ import {
   type HobbyGoodsExpenses,
   type ServiceExpenses
 } from '../../src/common/types'
+import { getBaselineAmount } from '../../src/data'
 import {
   estimateWasteAnnualAmount,
   estimateWasteIntensity
@@ -73,5 +74,11 @@ describe('waste', () => {
 
   test('intensity case 01', () => {
     expectIntensity(8.586030351)
+  })
+
+  test('empty amount', () => {
+    expect(estimateWasteAnnualAmount({})).toBeCloseTo(
+      getBaselineAmount('other', 'waste').value
+    )
   })
 })

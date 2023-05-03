@@ -1,11 +1,11 @@
 import xlsx from 'xlsx'
+import { type MobilityAnswer } from '../../src/answer/answer'
 import { Diagnosis } from '../../src/answer/diagnosis'
 import { enumerateBaselines } from '../../src/data'
 import { toMobilityAnswer } from './answer-converter'
 import { testEstimation } from './estimation-common'
 import { createTestCases } from './util'
 
-/** テスト */
 const domain = 'mobility'
 describe(`Test ${domain} estimations`, () => {
   // テストケースを記載したExcel
@@ -30,4 +30,30 @@ describe(`Test ${domain} estimations`, () => {
       )
     })
   }
+})
+
+describe(`Extra test ${domain} estimations`, () => {
+  test('empty answer', () => {
+    const diagnosis = new Diagnosis()
+    diagnosis.answerMobility({ privateCarAnnualMileage: 0 })
+    expect(
+      diagnosis.findEstimationOrDefault(
+        'mobility',
+        'private-car-driving',
+        'amount'
+      ).value
+    ).toBeCloseTo(0)
+  })
+
+  test('property', () => {
+    const diagnosis = new Diagnosis()
+    const answer1: MobilityAnswer = { privateCarAnnualMileage: 0 }
+    diagnosis.answerMobility(answer1)
+    expect(diagnosis.mobilityAnswer).toStrictEqual(answer1)
+    const answer2: MobilityAnswer = { carType: 'gasoline' }
+    diagnosis.answerMobility(answer2)
+    expect(diagnosis.mobilityAnswer).toStrictEqual({ ...answer1, ...answer2 })
+    diagnosis.answerMobility({}, true)
+    expect(diagnosis.mobilityAnswer).toStrictEqual({})
+  })
 })

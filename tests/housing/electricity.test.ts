@@ -89,4 +89,18 @@ describe('electricity', () => {
   testIntensity('intensity case 04', '100-renewable', 0.062972926)
   testIntensity('intensity case 05', 'solar-panel', 0.042861845)
   testIntensity('intensity case 06', 'unknown', 0.634319811)
+
+  test('amount carCharging === undefined', () => {
+    expect(
+      estimateElectricityAnnualAmount({
+        monthlyConsumption: 0,
+        month: 'january',
+        residentCount: 1,
+        privateCar: {
+          carType: 'ev',
+          annualMileage: 0
+        }
+      })
+    ).toBeCloseTo(0)
+  })
 })

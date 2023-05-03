@@ -128,9 +128,9 @@ export const foodAmountToAverageWithoutFoodLoss = (
 export const drivingIntensityToEvPhv = (
   base: number,
   valueAfterAction: number,
-  carType: CarType = 'unknown',
-  carCharging: CarCharging = 'unknown',
-  electricityType: ElectricityType = 'unknown'
+  carType: CarType,
+  carCharging: CarCharging,
+  electricityType: ElectricityType
 ): number => {
   const valueBeforeAction = estimateCarDrivingIntensityFactor(
     carType,
@@ -157,7 +157,7 @@ export const drivingIntensityToEvPhv = (
 export const manufacturingIntensityToEvPhv = (
   base: number,
   valueAfterAction: number,
-  carType: CarType = 'unknown'
+  carType: CarType
 ): number => {
   const valueBeforeAction = getParameter(
     'car-intensity-factor',
