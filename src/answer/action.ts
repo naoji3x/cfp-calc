@@ -13,8 +13,7 @@ import {
   proportionalToOtherItems,
   reboundFromOtherFootprints,
   shiftFromOtherItems,
-  shiftFromOtherItemsThenReductionRate,
-  type Search
+  shiftFromOtherItemsThenReductionRate
 } from '../action'
 import {
   type CarCharging,
@@ -79,11 +78,11 @@ export const calculateActions = (
    * @param type amount or intensity
    * @returns 推定値もしくはベースライン
    */
-  findEstimation: (domain: Domain, item: string, type: Type) => Item
+  findEstimationOrDefault: (domain: Domain, item: string, type: Type) => Item
 ): Action[] => {
   const actions: Action[] = []
   const options = enumerateOptions().filter(
-    (o) => findEstimation(o.domain, o.item, o.type) !== undefined
+    (o) => findEstimationOrDefault(o.domain, o.item, o.type) !== undefined
   )
 
   const addAction = (base: Item, option: Option, value: number): void => {
@@ -108,7 +107,11 @@ export const calculateActions = (
 
   // Phase 1
   for (const option of phase1Options) {
-    const base = findEstimation(option.domain, option.item, option.type)
+    const base = findEstimationOrDefault(
+      option.domain,
+      option.item,
+      option.type
+    )
     switch (option.operation) {
       case 'absolute-target':
         addAction(base, option, absoluteTarget(option.values[0]))
@@ -160,35 +163,39 @@ export const calculateActions = (
         break
     }
   }
-  class SearchImpl implements Search {
-    findAction = (
-      option: string,
-      domain: Domain,
-      item: string,
-      type: Type
-    ): number => {
-      const action = actions.find(
-        (a) =>
-          a.domain === domain &&
-          a.item === item &&
-          a.type === type &&
-          a.option === option
-      )
-      if (action !== undefined) {
-        return action.value
-      }
-      return findEstimation(domain, item, type).value
-    }
 
-    findEstimation = (domain: Domain, item: string, type: Type): number => {
-      return findEstimation(domain, item, type).value
+  const estimationValueOrDefault = (
+    domain: Domain,
+    item: string,
+    type: Type
+  ): number => findEstimationOrDefault(domain, item, type).value
+
+  const actionValueOrDefault = (
+    option: string,
+    domain: Domain,
+    item: string,
+    type: Type
+  ): number => {
+    const action = actions.find(
+      (a) =>
+        a.domain === domain &&
+        a.item === item &&
+        a.type === type &&
+        a.option === option
+    )
+    if (action !== undefined) {
+      return action.value
     }
+    return estimationValueOrDefault(domain, item, type)
   }
-  const searchImpl = new SearchImpl()
 
   // Phase 2
   for (const option of phase2Options) {
-    const base = findEstimation(option.domain, option.item, option.type)
+    const base = findEstimationOrDefault(
+      option.domain,
+      option.item,
+      option.type
+    )
     switch (option.operation) {
       case 'shift-from-other-items':
         addAction(
@@ -199,7 +206,8 @@ export const calculateActions = (
             option.option,
             option.args,
             option.values[0],
-            searchImpl
+            estimationValueOrDefault,
+            actionValueOrDefault
           )
         )
         break
@@ -214,7 +222,8 @@ export const calculateActions = (
             option.args,
             option.values[0],
             option.values[1],
-            searchImpl
+            estimationValueOrDefault,
+            actionValueOrDefault
           )
         )
         break
@@ -223,7 +232,11 @@ export const calculateActions = (
 
   // Phase 3
   for (const option of phase3Options) {
-    const base = findEstimation(option.domain, option.item, option.type)
+    const base = findEstimationOrDefault(
+      option.domain,
+      option.item,
+      option.type
+    )
     if (option.operation === 'proportional-to-other-items') {
       addAction(
         base,
@@ -233,7 +246,8 @@ export const calculateActions = (
           option.option,
           option.args,
           option.values[0],
-          searchImpl
+          estimationValueOrDefault,
+          actionValueOrDefault
         )
       )
     }
@@ -241,8 +255,12 @@ export const calculateActions = (
 
   // Phase 4
   for (const option of phase4Options) {
-    const baseAmount = findEstimation(option.domain, option.item, 'amount')
-    const baseIntensity = findEstimation(
+    const baseAmount = findEstimationOrDefault(
+      option.domain,
+      option.item,
+      'amount'
+    )
+    const baseIntensity = findEstimationOrDefault(
       option.domain,
       option.item,
       'intensity'
@@ -261,7 +279,8 @@ export const calculateActions = (
             option.option,
             option.args,
             option.values[0],
-            searchImpl
+            estimationValueOrDefault,
+            actionValueOrDefault
           )
         )
         break
@@ -275,7 +294,8 @@ export const calculateActions = (
             option.option,
             option.args,
             option.values[0],
-            searchImpl
+            estimationValueOrDefault,
+            actionValueOrDefault
           )
         )
         break
@@ -291,7 +311,8 @@ export const calculateActions = (
             option.option,
             option.args,
             option.values[0],
-            searchImpl
+            estimationValueOrDefault,
+            actionValueOrDefault
           )
         )
         break

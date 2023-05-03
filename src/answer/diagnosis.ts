@@ -158,7 +158,7 @@ export class Diagnosis {
       foodAnswer,
       otherAnswer
     )
-    this.addActions(calculateActions(param, this.findEstimation))
+    this.addActions(calculateActions(param, this.findEstimationOrDefault))
   }
 
   /**
@@ -168,7 +168,7 @@ export class Diagnosis {
    * @param type amount or intensity
    * @returns 活動量もしくはGHG原単位（推定値、ベースライン値ともない場合はNaNを返す）
    */
-  public readonly findEstimation = (
+  public readonly findEstimationOrDefault = (
     domain: Domain,
     item: string,
     type: Type,

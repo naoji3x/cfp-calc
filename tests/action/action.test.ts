@@ -13,8 +13,7 @@ import {
   proportionalToOtherItems,
   reboundFromOtherFootprints,
   shiftFromOtherItems,
-  shiftFromOtherItemsThenReductionRate,
-  type Search
+  shiftFromOtherItemsThenReductionRate
 } from '../../src/action/action'
 import {
   type AlcoholFrequency,
@@ -88,15 +87,20 @@ import {
 import { estimateTaxiIntensity } from '../../src/mobility/taxi'
 import { estimateTrainAnnualAmount } from '../../src/mobility/train'
 
-class SearchImpl implements Search {
+class Result {
   private readonly items: Record<string, number> = {}
   private readonly actions: Record<string, number> = {}
 
-  addItem = (domain: Domain, item: string, type: Type, value: number): void => {
+  readonly addItem = (
+    domain: Domain,
+    item: string,
+    type: Type,
+    value: number
+  ): void => {
     this.items[domain + '_' + item + '_' + type] = value
   }
 
-  addAction = (
+  readonly addAction = (
     option: string,
     domain: Domain,
     item: string,
@@ -106,13 +110,24 @@ class SearchImpl implements Search {
     this.actions[option + '_' + domain + '_' + item + '_' + type] = value
   }
 
-  findEstimation(domain: Domain, item: string, type: Type): number {
+  readonly findEstimationOrDefault = (
+    domain: Domain,
+    item: string,
+    type: Type
+  ): number => {
     return this.items[domain + '_' + item + '_' + type]
   }
 
-  findAction(option: string, domain: Domain, item: string, type: Type): number {
+  readonly findActionOrDefault = (
+    option: string,
+    domain: Domain,
+    item: string,
+    type: Type
+  ): number => {
     const value = this.actions[option + '_' + domain + '_' + item + '_' + type]
-    return isNaN(value) ? this.findEstimation(domain, item, type) : value
+    return isNaN(value)
+      ? this.findEstimationOrDefault(domain, item, type)
+      : value
   }
 }
 
@@ -318,8 +333,8 @@ describe('dailyshift01', () => {
   const trainAnnualTravelingTime = 20
   const busAnnualTravelingTime = 20
 
-  const search = new SearchImpl()
-  search.addItem(
+  const result = new Result()
+  result.addItem(
     'mobility',
     'train',
     'amount',
@@ -328,7 +343,7 @@ describe('dailyshift01', () => {
       annualTravelingTime: trainAnnualTravelingTime
     })
   )
-  search.addItem(
+  result.addItem(
     'mobility',
     'bus',
     'amount',
@@ -337,7 +352,7 @@ describe('dailyshift01', () => {
       annualTravelingTime: busAnnualTravelingTime
     })
   )
-  search.addItem(
+  result.addItem(
     'mobility',
     'taxi',
     'amount',
@@ -346,19 +361,19 @@ describe('dailyshift01', () => {
       annualTravelingTime: otherCarAnnualTravelingTime
     })
   )
-  search.addItem(
+  result.addItem(
     'mobility',
     'private-car-driving',
     'amount',
     estimatePrivateCarDrivingAmount({ mileage: privateCarAnnualMileage })
   )
-  search.addItem(
+  result.addItem(
     'mobility',
     'bicycle-driving',
     'amount',
     estimateBicycleDrivingAnnualAmount({ residentialAreaSize: 'unknown' })
   )
-  search.addItem(
+  result.addItem(
     'mobility',
     'private-car-purchase',
     'amount',
@@ -366,7 +381,7 @@ describe('dailyshift01', () => {
       mileage: privateCarAnnualMileage
     })
   )
-  search.addItem(
+  result.addItem(
     'mobility',
     'car-sharing-driving',
     'amount',
@@ -375,7 +390,7 @@ describe('dailyshift01', () => {
       annualTravelingTime: otherCarAnnualTravelingTime
     })
   )
-  search.addItem(
+  result.addItem(
     'mobility',
     'car-sharing-rental',
     'amount',
@@ -384,7 +399,7 @@ describe('dailyshift01', () => {
       annualTravelingTime: otherCarAnnualTravelingTime
     })
   )
-  search.addItem(
+  result.addItem(
     'mobility',
     'private-car-maintenance',
     'amount',
@@ -392,7 +407,7 @@ describe('dailyshift01', () => {
       mileage: privateCarAnnualMileage
     })
   )
-  search.addItem(
+  result.addItem(
     'mobility',
     'bicycle-maintenance',
     'amount',
@@ -400,7 +415,7 @@ describe('dailyshift01', () => {
   )
 
   const taxiAmount = increaseRate(
-    search.findEstimation('mobility', 'taxi', 'amount'),
+    result.findEstimationOrDefault('mobility', 'taxi', 'amount'),
     -1
   )
   test('taxi_amount', () => {
@@ -408,15 +423,15 @@ describe('dailyshift01', () => {
   })
 
   const privateCarDrivingAmount = increaseRate(
-    search.findEstimation('mobility', 'private-car-driving', 'amount'),
+    result.findEstimationOrDefault('mobility', 'private-car-driving', 'amount'),
     -0.704901961
   )
   test('private-car-driving_amount', () => {
     expect(privateCarDrivingAmount).toBeCloseTo(1475.49019607844)
   })
 
-  search.addAction('dailyshift', 'mobility', 'taxi', 'amount', taxiAmount)
-  search.addAction(
+  result.addAction('dailyshift', 'mobility', 'taxi', 'amount', taxiAmount)
+  result.addAction(
     'dailyshift',
     'mobility',
     'private-car-driving',
@@ -427,11 +442,12 @@ describe('dailyshift01', () => {
   test('mobility_train_amount', () => {
     expect(
       shiftFromOtherItems(
-        search.findEstimation('mobility', 'train', 'amount'),
+        result.findEstimationOrDefault('mobility', 'train', 'amount'),
         'dailyshift',
         ['mobility_private-car-driving_amount', 'mobility_taxi_amount'],
         0.333333333,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(18232.1992366984)
   })
@@ -439,25 +455,27 @@ describe('dailyshift01', () => {
   test('mobility_bus_amount', () => {
     expect(
       shiftFromOtherItems(
-        search.findEstimation('mobility', 'bus', 'amount'),
+        result.findEstimationOrDefault('mobility', 'bus', 'amount'),
         'dailyshift',
         ['mobility_private-car-driving_amount', 'mobility_taxi_amount'],
         0.333333333,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(3022.19923669836)
   })
 
   test('mobility_bicycle-driving_amount', () => {
     const bicycleDrivingAmount = shiftFromOtherItems(
-      search.findEstimation('mobility', 'bicycle-driving', 'amount'),
+      result.findEstimationOrDefault('mobility', 'bicycle-driving', 'amount'),
       'dailyshift',
       ['mobility_private-car-driving_amount', 'mobility_taxi_amount'],
       0.333333333,
-      search
+      result.findEstimationOrDefault,
+      result.findActionOrDefault
     )
     expect(bicycleDrivingAmount).toBeCloseTo(1796.21257212208)
-    search.addAction(
+    result.addAction(
       'dailyshift',
       'mobility',
       'bicycle-driving',
@@ -470,11 +488,16 @@ describe('dailyshift01', () => {
   test('mobility_private-car-purchase_amount', () => {
     expect(
       proportionalToOtherItems(
-        search.findEstimation('mobility', 'private-car-purchase', 'amount'),
+        result.findEstimationOrDefault(
+          'mobility',
+          'private-car-purchase',
+          'amount'
+        ),
         'dailyshift',
         ['mobility_private-car-driving_amount'],
         1,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(0.014786433479391)
   })
@@ -483,11 +506,16 @@ describe('dailyshift01', () => {
   test('mobility_car-sharing-rental_amount', () => {
     expect(
       proportionalToOtherItems(
-        search.findEstimation('mobility', 'car-sharing-rental', 'amount'),
+        result.findEstimationOrDefault(
+          'mobility',
+          'car-sharing-rental',
+          'amount'
+        ),
         'dailyshift',
         ['mobility_car-sharing-driving_amount'],
         1,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(3.5897022020565)
   })
@@ -496,11 +524,16 @@ describe('dailyshift01', () => {
   test('mobility_private-car-maintenance_amount', () => {
     expect(
       proportionalToOtherItems(
-        search.findEstimation('mobility', 'private-car-maintenance', 'amount'),
+        result.findEstimationOrDefault(
+          'mobility',
+          'private-car-maintenance',
+          'amount'
+        ),
         'dailyshift',
         ['mobility_private-car-driving_amount'],
         1,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(18.9384233919727)
   })
@@ -509,11 +542,16 @@ describe('dailyshift01', () => {
   test('mobility_bicycle-maintenance_amount', () => {
     expect(
       proportionalToOtherItems(
-        search.findEstimation('mobility', 'bicycle-maintenance', 'amount'),
+        result.findEstimationOrDefault(
+          'mobility',
+          'bicycle-maintenance',
+          'amount'
+        ),
         'dailyshift',
         ['mobility_bicycle-driving_amount'],
         1,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(2.76676070917255)
   })
@@ -531,14 +569,14 @@ describe('zeh01', () => {
   const keroseneMonthlyConsumption = 200
   const keroseneMonthCount = 2
 
-  const search = new SearchImpl()
-  search.addItem(
+  const result = new Result()
+  result.addItem(
     'housing',
     'housing-maintenance',
     'amount',
     estimateHousingMaintenanceAnnualAmount({ residentCount, housingSize })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'electricity',
     'amount',
@@ -548,7 +586,7 @@ describe('zeh01', () => {
       residentCount
     })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'urban-gas',
     'amount',
@@ -558,8 +596,8 @@ describe('zeh01', () => {
       residentCount
     })
   )
-  search.addItem('housing', 'lpg', 'amount', 0)
-  search.addItem(
+  result.addItem('housing', 'lpg', 'amount', 0)
+  result.addItem(
     'housing',
     'kerosene',
     'amount',
@@ -569,7 +607,7 @@ describe('zeh01', () => {
       residentCount
     })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'other-energy',
     'amount',
@@ -579,11 +617,15 @@ describe('zeh01', () => {
   // test housing_housing-maintenance_amount
   test('housing_housing-maintenance_amount', () => {
     const housingMaintenanceAmount = increaseRate(
-      search.findEstimation('housing', 'housing-maintenance', 'amount'),
+      result.findEstimationOrDefault(
+        'housing',
+        'housing-maintenance',
+        'amount'
+      ),
       0.7449956
     )
     expect(housingMaintenanceAmount).toBeCloseTo(29.6565001221022)
-    search.addAction(
+    result.addAction(
       'zeh',
       'housing',
       'housing-maintenance',
@@ -596,28 +638,28 @@ describe('zeh01', () => {
   test('housing_urban-gas_amount', () => {
     const urbanGasAmount = absoluteTarget(0)
     expect(urbanGasAmount).toBeCloseTo(0.0)
-    search.addAction('zeh', 'housing', 'urban-gas', 'amount', urbanGasAmount)
+    result.addAction('zeh', 'housing', 'urban-gas', 'amount', urbanGasAmount)
   })
 
   // test housing_lpg_amount
   test('housing_lpg_amount', () => {
     const lpgAmount = absoluteTarget(0)
     expect(lpgAmount).toBeCloseTo(0.0)
-    search.addAction('zeh', 'housing', 'lpg', 'amount', lpgAmount)
+    result.addAction('zeh', 'housing', 'lpg', 'amount', lpgAmount)
   })
 
   // test housing_kerosene_amount
   test('housing_kerosene_amount', () => {
     const keroseneAmount = absoluteTarget(0)
     expect(keroseneAmount).toBeCloseTo(0.0)
-    search.addAction('zeh', 'housing', 'kerosene', 'amount', keroseneAmount)
+    result.addAction('zeh', 'housing', 'kerosene', 'amount', keroseneAmount)
   })
 
   // test housing_other-energy_amount
   test('housing_other-energy_amount', () => {
     const otherEnergyAmount = absoluteTarget(0)
     expect(otherEnergyAmount).toBeCloseTo(0.0)
-    search.addAction(
+    result.addAction(
       'zeh',
       'housing',
       'other-energy',
@@ -630,7 +672,7 @@ describe('zeh01', () => {
   test('housing_electricity_intensity', () => {
     const electricityIntensity = absoluteTarget(0.042861845)
     expect(electricityIntensity).toBeCloseTo(0.042861845)
-    search.addAction(
+    result.addAction(
       'zeh',
       'housing',
       'electricity',
@@ -643,7 +685,7 @@ describe('zeh01', () => {
   test('housing_electricity_amount', () => {
     expect(
       shiftFromOtherItemsThenReductionRate(
-        search.findEstimation('housing', 'electricity', 'amount'),
+        result.findEstimationOrDefault('housing', 'electricity', 'amount'),
         'zeh',
         [
           'housing_urban-gas_amount',
@@ -653,7 +695,8 @@ describe('zeh01', () => {
         ],
         0.369,
         -0.2,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(3533.7319988604)
   })
@@ -667,8 +710,8 @@ describe('led01', () => {
   const electricityMonthlyConsumption = 750
   const electricityMonth: Month = 'january'
 
-  const search = new SearchImpl()
-  search.addItem(
+  const result = new Result()
+  result.addItem(
     'housing',
     'electricity',
     'amount',
@@ -678,19 +721,19 @@ describe('led01', () => {
       residentCount
     })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'electricity',
     'intensity',
     estimateElectricityIntensity({ electricityType: electricity })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'housing-maintenance',
     'amount',
     estimateHousingMaintenanceAnnualAmount({ residentCount, housingSize })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'housing-maintenance',
     'intensity',
@@ -700,11 +743,11 @@ describe('led01', () => {
   // test housing_electricity_amount
   test('housing_electricity_amount', () => {
     const electricityAmount = increaseRate(
-      search.findEstimation('housing', 'electricity', 'amount'),
+      result.findEstimationOrDefault('housing', 'electricity', 'amount'),
       -0.0660406
     )
     expect(electricityAmount).toBeCloseTo(3206.52721639271)
-    search.addAction(
+    result.addAction(
       'led',
       'housing',
       'electricity',
@@ -717,13 +760,22 @@ describe('led01', () => {
   test('housing_housing-maintenance_amount', () => {
     expect(
       furtherReductionFromOtherFootprints(
-        search.findEstimation('housing', 'housing-maintenance', 'amount'),
-        search.findEstimation('housing', 'housing-maintenance', 'intensity'),
+        result.findEstimationOrDefault(
+          'housing',
+          'housing-maintenance',
+          'amount'
+        ),
+        result.findEstimationOrDefault(
+          'housing',
+          'housing-maintenance',
+          'intensity'
+        ),
         'amount',
         'led',
         ['housing_electricity'],
         0.020622194,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(19.1471336056997)
   })
@@ -742,7 +794,7 @@ describe('vegan01', () => {
   const alcoholFrequency: AlcoholFrequency = '2-3-less-per-month'
   const softDrinkSnackExpenses: SoftDrinkSnackExpenses = '15k-more'
 
-  const search = new SearchImpl()
+  const result = new Result()
 
   const foodIntakeItems: FoodIntakeItem[] = [
     'rice',
@@ -759,7 +811,7 @@ describe('vegan01', () => {
 
   // add items
   for (const item of foodIntakeItems) {
-    search.addItem(
+    result.addItem(
       'food',
       item,
       'amount',
@@ -769,7 +821,7 @@ describe('vegan01', () => {
         foodLeftoverFrequency: foodLeftover
       })
     )
-    search.addItem('food', item, 'intensity', estimateFoodIntakeIntensity(item))
+    result.addItem('food', item, 'intensity', estimateFoodIntakeIntensity(item))
   }
 
   // beef, pork, chicken, other-meat, fish, processed-fish
@@ -782,12 +834,12 @@ describe('vegan01', () => {
     seafoodDishFrequency
   })
   for (const item in dishAmounts) {
-    search.addItem('food', item, 'amount', dishAmounts[item])
+    result.addItem('food', item, 'amount', dishAmounts[item])
   }
 
   const dishIntensities = estimateDishIntensities()
   for (const item in dishIntensities) {
-    search.addItem('food', item, 'intensity', dishIntensities[item])
+    result.addItem('food', item, 'intensity', dishIntensities[item])
   }
 
   // milk, other-dairy, eggs
@@ -797,16 +849,16 @@ describe('vegan01', () => {
     dairyFoodFrequency
   })
   for (const item in dairyFoodAmounts) {
-    search.addItem('food', item, 'amount', dairyFoodAmounts[item])
+    result.addItem('food', item, 'amount', dairyFoodAmounts[item])
   }
 
   const dairyFoodIntensities = estimateDairyFoodIntensities()
   for (const item in dairyFoodIntensities) {
-    search.addItem('food', item, 'intensity', dairyFoodIntensities[item])
+    result.addItem('food', item, 'intensity', dairyFoodIntensities[item])
   }
 
   // processed-meat
-  search.addItem(
+  result.addItem(
     'food',
     'processed-meat',
     'amount',
@@ -818,7 +870,7 @@ describe('vegan01', () => {
       chickenDishFrequency
     })
   )
-  search.addItem(
+  result.addItem(
     'food',
     'processed-meat',
     'intensity',
@@ -826,7 +878,7 @@ describe('vegan01', () => {
   )
 
   // ready-meal
-  search.addItem(
+  result.addItem(
     'food',
     'ready-meal',
     'intensity',
@@ -844,7 +896,7 @@ describe('vegan01', () => {
   )
 
   // restaurant
-  search.addItem(
+  result.addItem(
     'food',
     'restaurant',
     'intensity',
@@ -863,7 +915,7 @@ describe('vegan01', () => {
   )
 
   // bar-cafe
-  search.addItem(
+  result.addItem(
     'food',
     'bar-cafe',
     'intensity',
@@ -887,12 +939,12 @@ describe('vegan01', () => {
     type: Type,
     rate: number
   ): void => {
-    search.addAction(
+    result.addAction(
       'vegan',
       domain,
       item,
       type,
-      increaseRate(search.findEstimation(domain, item, type), rate)
+      increaseRate(result.findEstimationOrDefault(domain, item, type), rate)
     )
   }
 
@@ -902,7 +954,7 @@ describe('vegan01', () => {
     type: Type,
     target: number
   ): void => {
-    search.addAction('vegan', domain, item, type, absoluteTarget(target))
+    result.addAction('vegan', domain, item, type, absoluteTarget(target))
   }
 
   addIncreaseRateAction('food', 'rice', 'amount', -0.181818182)
@@ -923,13 +975,13 @@ describe('vegan01', () => {
   addAbsoluteTargetAction('food', 'fish', 'amount', 0)
   addAbsoluteTargetAction('food', 'processed-fish', 'amount', 0)
 
-  search.addAction(
+  result.addAction(
     'vegan',
     'food',
     'beans',
     'amount',
     shiftFromOtherItems(
-      search.findEstimation('food', 'beans', 'amount'),
+      result.findEstimationOrDefault('food', 'beans', 'amount'),
       'vegan',
       [
         'food_milk_amount',
@@ -944,14 +996,15 @@ describe('vegan01', () => {
         'food_processed-fish_amount'
       ],
       1,
-      search
+      result.findEstimationOrDefault,
+      result.findActionOrDefault
     )
   )
 
   test('food_beans_amount', () => {
-    expect(search.findAction('vegan', 'food', 'beans', 'amount')).toBeCloseTo(
-      64.9510941476434
-    )
+    expect(
+      result.findActionOrDefault('vegan', 'food', 'beans', 'amount')
+    ).toBeCloseTo(64.9510941476434)
   })
 
   const domainItems = [
@@ -981,11 +1034,12 @@ describe('vegan01', () => {
   test('food_ready-meal_intensity', () => {
     expect(
       proportionalToOtherFootprints(
-        search.findEstimation('food', 'ready-meal', 'intensity'),
+        result.findEstimationOrDefault('food', 'ready-meal', 'intensity'),
         'vegan',
         domainItems,
         1,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(3.58274908840034)
   })
@@ -994,11 +1048,12 @@ describe('vegan01', () => {
   test('food_restaurant_intensity', () => {
     expect(
       proportionalToOtherFootprints(
-        search.findEstimation('food', 'restaurant', 'intensity'),
+        result.findEstimationOrDefault('food', 'restaurant', 'intensity'),
         'vegan',
         domainItems,
         0.7157,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(2.24004125926062)
   })
@@ -1007,11 +1062,12 @@ describe('vegan01', () => {
   test('food_bar-cafe_intensity', () => {
     expect(
       proportionalToOtherFootprints(
-        search.findEstimation('food', 'bar-cafe', 'intensity'),
+        result.findEstimationOrDefault('food', 'bar-cafe', 'intensity'),
         'vegan',
         domainItems,
         0.7157,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(2.25462895912396)
   })
@@ -1030,22 +1086,22 @@ describe('ac01', () => {
   const keroseneMonthlyConsumption = 200
   const keroseneMonthCount = 2
 
-  const search = new SearchImpl()
+  const result = new Result()
 
-  search.addItem(
+  result.addItem(
     'housing',
     'housing-maintenance',
     'amount',
     estimateHousingMaintenanceAnnualAmount({ residentCount, housingSize })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'housing-maintenance',
     'intensity',
     estimateHousingMaintenanceIntensity()
   )
 
-  search.addItem(
+  result.addItem(
     'housing',
     'electricity',
     'amount',
@@ -1055,7 +1111,7 @@ describe('ac01', () => {
       residentCount
     })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'electricity',
     'intensity',
@@ -1064,7 +1120,7 @@ describe('ac01', () => {
     })
   )
 
-  search.addItem(
+  result.addItem(
     'housing',
     'urban-gas',
     'amount',
@@ -1074,17 +1130,17 @@ describe('ac01', () => {
       residentCount
     })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'urban-gas',
     'intensity',
     estimateGasIntensity(gasItem)
   )
 
-  search.addItem('housing', 'lpg', 'amount', 0)
-  search.addItem('housing', 'lpg', 'intensity', estimateGasIntensity('lpg'))
+  result.addItem('housing', 'lpg', 'amount', 0)
+  result.addItem('housing', 'lpg', 'intensity', estimateGasIntensity('lpg'))
 
-  search.addItem(
+  result.addItem(
     'housing',
     'kerosene',
     'amount',
@@ -1094,7 +1150,7 @@ describe('ac01', () => {
       residentCount
     })
   )
-  search.addItem(
+  result.addItem(
     'housing',
     'kerosene',
     'intensity',
@@ -1107,12 +1163,12 @@ describe('ac01', () => {
     type: Type,
     rate: number
   ): void => {
-    search.addAction(
+    result.addAction(
       'ac',
       domain,
       item,
       type,
-      increaseRate(search.findEstimation(domain, item, type), rate)
+      increaseRate(result.findEstimationOrDefault(domain, item, type), rate)
     )
   }
 
@@ -1121,7 +1177,7 @@ describe('ac01', () => {
   addIncreaseRateAction('housing', 'kerosene', 'amount', -0.771779141)
 
   const electricityAmount = shiftFromOtherItems(
-    search.findEstimation('housing', 'electricity', 'amount'),
+    result.findEstimationOrDefault('housing', 'electricity', 'amount'),
     'ac',
     [
       'housing_urban-gas_amount',
@@ -1129,7 +1185,8 @@ describe('ac01', () => {
       'housing_kerosene_amount'
     ],
     0.2125,
-    search
+    result.findEstimationOrDefault,
+    result.findActionOrDefault
   )
 
   // test electricity amount
@@ -1137,14 +1194,22 @@ describe('ac01', () => {
     expect(electricityAmount).toBeCloseTo(3796.17610953312)
   })
 
-  search.addAction('ac', 'housing', 'electricity', 'amount', electricityAmount)
+  result.addAction('ac', 'housing', 'electricity', 'amount', electricityAmount)
 
   // test housing_housing-maintenance_amount
   test('housing_housing-maintenance_amount', () => {
     expect(
       reboundFromOtherFootprints(
-        search.findEstimation('housing', 'housing-maintenance', 'amount'),
-        search.findEstimation('housing', 'housing-maintenance', 'intensity'),
+        result.findEstimationOrDefault(
+          'housing',
+          'housing-maintenance',
+          'amount'
+        ),
+        result.findEstimationOrDefault(
+          'housing',
+          'housing-maintenance',
+          'intensity'
+        ),
         'amount',
         'ac',
         [
@@ -1154,7 +1219,8 @@ describe('ac01', () => {
           'housing_kerosene'
         ],
         -0.015345044,
-        search
+        result.findEstimationOrDefault,
+        result.findActionOrDefault
       )
     ).toBeCloseTo(19.8033015569162)
   })
