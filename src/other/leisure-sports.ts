@@ -8,7 +8,7 @@ import { estimateAnnualAmount } from './amount-calculation'
 /** レジャー・スポーツの活動量を計算するための引数 */
 export interface LeisureSportsAmountParam {
   /** レジャー・スポーツに関わる支出 */
-  expenses: LeisureSportsExpenses
+  leisureSportsExpenses: LeisureSportsExpenses
 }
 
 /**
@@ -19,8 +19,9 @@ export interface LeisureSportsAmountParam {
  */
 export const estimateLeisureSportsAnnualAmount = (
   item: LeisureSportsItem,
-  { expenses }: LeisureSportsAmountParam
-): number => estimateAnnualAmount(item, 'leisure-sports-factor', expenses)
+  { leisureSportsExpenses }: LeisureSportsAmountParam
+): number =>
+  estimateAnnualAmount(item, 'leisure-sports-factor', leisureSportsExpenses)
 
 /**
  * レジャー・スポーツのGHG原単位を計算

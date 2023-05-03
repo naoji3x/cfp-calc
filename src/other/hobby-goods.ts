@@ -5,7 +5,7 @@ import { estimateAnnualAmount } from './amount-calculation'
 /** 趣味・娯楽の活動量を計算するための引数 */
 export interface HobbyGoodsAmountParam {
   /** 趣味・娯楽に関わる支出 */
-  expenses: HobbyGoodsExpenses
+  hobbyGoodsExpenses: HobbyGoodsExpenses
 }
 
 /**
@@ -16,8 +16,9 @@ export interface HobbyGoodsAmountParam {
  */
 export const estimateHobbyGoodsAnnualAmount = (
   item: HobbyGoodsItem,
-  { expenses }: HobbyGoodsAmountParam
-): number => estimateAnnualAmount(item, 'hobby-goods-factor', expenses)
+  { hobbyGoodsExpenses }: HobbyGoodsAmountParam
+): number =>
+  estimateAnnualAmount(item, 'hobby-goods-factor', hobbyGoodsExpenses)
 
 /**
  * 趣味・娯楽のGHG原単位を計算

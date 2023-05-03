@@ -5,7 +5,7 @@ import { estimateAnnualAmount } from './amount-calculation'
 /** サービスの活動量を計算するための引数 */
 export interface ServiceAmountParam {
   /** サービスに関わる支出 */
-  expenses: ServiceExpenses
+  serviceExpenses: ServiceExpenses
 }
 
 /**
@@ -16,8 +16,8 @@ export interface ServiceAmountParam {
  */
 export const estimateServiceAnnualAmount = (
   item: ServiceItem,
-  { expenses }: ServiceAmountParam
-): number => estimateAnnualAmount(item, 'service-factor', expenses)
+  { serviceExpenses }: ServiceAmountParam
+): number => estimateAnnualAmount(item, 'service-factor', serviceExpenses)
 
 /**
  * サービスのGHG原単位を計算

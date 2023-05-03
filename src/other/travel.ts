@@ -4,7 +4,7 @@ import { estimateAnnualAmount } from './amount-calculation'
 
 /** 旅行の活動量を計算するための引数 */
 export interface TravelAmountParam {
-  expenses: TravelExpenses
+  travelExpenses: TravelExpenses
 }
 
 /**
@@ -15,8 +15,8 @@ export interface TravelAmountParam {
  */
 export const estimateTravelAnnualAmount = (
   item: TravelItem,
-  { expenses }: TravelAmountParam
-): number => estimateAnnualAmount(item, 'travel-factor', expenses)
+  { travelExpenses }: TravelAmountParam
+): number => estimateAnnualAmount(item, 'travel-factor', travelExpenses)
 
 /**
  * 旅行のGHG原単位を計算

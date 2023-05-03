@@ -115,7 +115,7 @@ export const estimateWasteAnnualAmount = ({
       residentCount !== undefined
     ) {
       numerator += estimateApplianceFurnitureAnnualAmount(item, {
-        expenses: applianceFurnitureExpenses,
+        applianceFurnitureExpenses,
         residentCount
       })
     } else {
@@ -128,7 +128,7 @@ export const estimateWasteAnnualAmount = ({
     const baseline = getBaselineAmount('other', item).value
     if (clothesBeautyExpenses !== undefined) {
       numerator += estimateClothesBeautyAnnualAmount(item, {
-        expenses: clothesBeautyExpenses
+        clothesBeautyExpenses
       })
     } else {
       numerator += baseline
@@ -140,7 +140,7 @@ export const estimateWasteAnnualAmount = ({
     const baseline = getBaselineAmount('other', item).value
     if (hobbyGoodsExpenses !== undefined) {
       numerator += estimateHobbyGoodsAnnualAmount(item, {
-        expenses: hobbyGoodsExpenses
+        hobbyGoodsExpenses
       })
     } else {
       numerator += baseline
@@ -152,7 +152,7 @@ export const estimateWasteAnnualAmount = ({
     const baseline = getBaselineAmount('other', item).value
     if (serviceExpenses !== undefined) {
       numerator += estimateServiceAnnualAmount(item, {
-        expenses: serviceExpenses
+        serviceExpenses
       })
     } else {
       numerator += baseline
@@ -164,7 +164,7 @@ export const estimateWasteAnnualAmount = ({
     const baseline = getBaselineAmount('other', item).value
     if (dailyGoodsExpenses !== undefined && residentCount !== undefined) {
       numerator += estimateDailyGoodsAnnualAmount(item, {
-        expenses: dailyGoodsExpenses,
+        dailyGoodsExpenses,
         residentCount
       })
     } else {

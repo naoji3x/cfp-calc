@@ -8,7 +8,7 @@ import { estimateAnnualAmountConsideringResidentCount } from './amount-calculati
 /** 通信の活動量を計算するための引数 */
 export interface CommunicationAmountParam {
   /** 通信に関わる支出 */
-  expenses: CommunicationExpenses
+  communicationExpenses: CommunicationExpenses
   /** 居住者数 */
   residentCount: number
 }
@@ -21,12 +21,12 @@ export interface CommunicationAmountParam {
  */
 export const estimateCommunicationAnnualAmount = (
   item: CommunicationItem,
-  { expenses, residentCount }: CommunicationAmountParam
+  { communicationExpenses, residentCount }: CommunicationAmountParam
 ): number =>
   estimateAnnualAmountConsideringResidentCount(
     item,
     'communication-amount',
-    expenses,
+    communicationExpenses,
     residentCount
   )
 

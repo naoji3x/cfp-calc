@@ -5,7 +5,7 @@ import {
 } from '../../src/other/service'
 
 const expectAmount = (
-  param: { expenses: ServiceExpenses },
+  param: { serviceExpenses: ServiceExpenses },
   itemAndValues: Array<{ item: ServiceItem; value: number }>
 ): void => {
   for (const inv of itemAndValues) {
@@ -23,7 +23,7 @@ const expectIntensity = (
 
 describe('service', () => {
   test('amount case 01', () => {
-    expectAmount({ expenses: '5k-less' }, [
+    expectAmount({ serviceExpenses: '5k-less' }, [
       { item: 'medicine', value: 5.343035666 },
       { item: 'housework', value: 0.194589204 },
       { item: 'washing', value: 0.762378308 },
@@ -36,7 +36,7 @@ describe('service', () => {
   })
 
   test('amount case 02', () => {
-    expectAmount({ expenses: '5k-10k' }, [
+    expectAmount({ serviceExpenses: '5k-10k' }, [
       { item: 'medicine', value: 11.44936214 },
       { item: 'housework', value: 0.416976865 },
       { item: 'washing', value: 1.633667804 },
@@ -49,7 +49,7 @@ describe('service', () => {
   })
 
   test('amount case 03', () => {
-    expectAmount({ expenses: '10k-20k' }, [
+    expectAmount({ serviceExpenses: '10k-20k' }, [
       { item: 'medicine', value: 22.89872428 },
       { item: 'housework', value: 0.833953731 },
       { item: 'washing', value: 3.267335607 },
@@ -62,7 +62,7 @@ describe('service', () => {
   })
 
   test('amount case 04', () => {
-    expectAmount({ expenses: '20k-50k' }, [
+    expectAmount({ serviceExpenses: '20k-50k' }, [
       { item: 'medicine', value: 53.43035666 },
       { item: 'housework', value: 1.945892038 },
       { item: 'washing', value: 7.623783083 },
@@ -75,7 +75,7 @@ describe('service', () => {
   })
 
   test('amount case 05', () => {
-    expectAmount({ expenses: '50k-more' }, [
+    expectAmount({ serviceExpenses: '50k-more' }, [
       { item: 'medicine', value: 114.4936214 },
       { item: 'housework', value: 4.169768653 },
       { item: 'washing', value: 16.33667804 },
@@ -88,7 +88,7 @@ describe('service', () => {
   })
 
   test('amount case 06', () => {
-    expectAmount({ expenses: 'unknown' }, [
+    expectAmount({ serviceExpenses: 'unknown' }, [
       { item: 'medicine', value: 20.34191228 },
       { item: 'housework', value: 0.740836626 },
       { item: 'washing', value: 2.902513411 },

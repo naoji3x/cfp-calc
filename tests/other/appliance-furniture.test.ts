@@ -8,7 +8,10 @@ import {
 } from '../../src/other/appliance-furniture'
 
 const expectAmount = (
-  param: { expenses: ApplianceFurnitureExpenses; residentCount: number },
+  param: {
+    applianceFurnitureExpenses: ApplianceFurnitureExpenses
+    residentCount: number
+  },
   itemAndValues: Array<{ item: ApplianceFurnitureItem; value: number }>
 ): void => {
   for (const inv of itemAndValues) {
@@ -28,7 +31,7 @@ const expectIntensity = (
 
 describe('appliance-furniture', () => {
   test('amount case 01', () => {
-    expectAmount({ expenses: '50k-less', residentCount: 1 }, [
+    expectAmount({ applianceFurnitureExpenses: '50k-less', residentCount: 1 }, [
       { item: 'electrical-appliances-repair-rental', value: 0.273075511 },
       { item: 'furniture-daily-goods-repair-rental', value: 0.879636251 },
       { item: 'cooking-appliances', value: 3.378927229 },
@@ -41,7 +44,7 @@ describe('appliance-furniture', () => {
   })
 
   test('amount case 02', () => {
-    expectAmount({ expenses: '50k-100k', residentCount: 1 }, [
+    expectAmount({ applianceFurnitureExpenses: '50k-100k', residentCount: 1 }, [
       { item: 'electrical-appliances-repair-rental', value: 0.819226533 },
       { item: 'furniture-daily-goods-repair-rental', value: 2.638908754 },
       { item: 'cooking-appliances', value: 10.13678169 },
@@ -54,59 +57,71 @@ describe('appliance-furniture', () => {
   })
 
   test('amount case 03', () => {
-    expectAmount({ expenses: '100k-200k', residentCount: 1 }, [
-      { item: 'electrical-appliances-repair-rental', value: 1.638453066 },
-      { item: 'furniture-daily-goods-repair-rental', value: 5.277817508 },
-      { item: 'cooking-appliances', value: 20.27356337 },
-      { item: 'heating-cooling-appliances', value: 23.23862486 },
-      { item: 'other-appliances', value: 21.86737867 },
-      { item: 'electronics', value: 48.84089695 },
-      { item: 'furniture', value: 12.20122695 },
-      { item: 'covering', value: 16.66203863 }
-    ])
+    expectAmount(
+      { applianceFurnitureExpenses: '100k-200k', residentCount: 1 },
+      [
+        { item: 'electrical-appliances-repair-rental', value: 1.638453066 },
+        { item: 'furniture-daily-goods-repair-rental', value: 5.277817508 },
+        { item: 'cooking-appliances', value: 20.27356337 },
+        { item: 'heating-cooling-appliances', value: 23.23862486 },
+        { item: 'other-appliances', value: 21.86737867 },
+        { item: 'electronics', value: 48.84089695 },
+        { item: 'furniture', value: 12.20122695 },
+        { item: 'covering', value: 16.66203863 }
+      ]
+    )
   })
 
   test('amount case 04', () => {
-    expectAmount({ expenses: '200k-300k', residentCount: 1 }, [
-      { item: 'electrical-appliances-repair-rental', value: 2.730755111 },
-      { item: 'furniture-daily-goods-repair-rental', value: 8.796362514 },
-      { item: 'cooking-appliances', value: 33.78927229 },
-      { item: 'heating-cooling-appliances', value: 38.73104143 },
-      { item: 'other-appliances', value: 36.44563112 },
-      { item: 'electronics', value: 81.40149492 },
-      { item: 'furniture', value: 20.33537824 },
-      { item: 'covering', value: 27.77006438 }
-    ])
+    expectAmount(
+      { applianceFurnitureExpenses: '200k-300k', residentCount: 1 },
+      [
+        { item: 'electrical-appliances-repair-rental', value: 2.730755111 },
+        { item: 'furniture-daily-goods-repair-rental', value: 8.796362514 },
+        { item: 'cooking-appliances', value: 33.78927229 },
+        { item: 'heating-cooling-appliances', value: 38.73104143 },
+        { item: 'other-appliances', value: 36.44563112 },
+        { item: 'electronics', value: 81.40149492 },
+        { item: 'furniture', value: 20.33537824 },
+        { item: 'covering', value: 27.77006438 }
+      ]
+    )
   })
 
   test('amount case 05', () => {
-    expectAmount({ expenses: '300k-400k', residentCount: 1 }, [
-      { item: 'electrical-appliances-repair-rental', value: 3.823057155 },
-      { item: 'furniture-daily-goods-repair-rental', value: 12.31490752 },
-      { item: 'cooking-appliances', value: 47.3049812 },
-      { item: 'heating-cooling-appliances', value: 54.223458 },
-      { item: 'other-appliances', value: 51.02388357 },
-      { item: 'electronics', value: 113.9620929 },
-      { item: 'furniture', value: 28.46952954 },
-      { item: 'covering', value: 38.87809013 }
-    ])
+    expectAmount(
+      { applianceFurnitureExpenses: '300k-400k', residentCount: 1 },
+      [
+        { item: 'electrical-appliances-repair-rental', value: 3.823057155 },
+        { item: 'furniture-daily-goods-repair-rental', value: 12.31490752 },
+        { item: 'cooking-appliances', value: 47.3049812 },
+        { item: 'heating-cooling-appliances', value: 54.223458 },
+        { item: 'other-appliances', value: 51.02388357 },
+        { item: 'electronics', value: 113.9620929 },
+        { item: 'furniture', value: 28.46952954 },
+        { item: 'covering', value: 38.87809013 }
+      ]
+    )
   })
 
   test('amount case 06', () => {
-    expectAmount({ expenses: '400k-more', residentCount: 1 }, [
-      { item: 'electrical-appliances-repair-rental', value: 5.461510221 },
-      { item: 'furniture-daily-goods-repair-rental', value: 17.59272503 },
-      { item: 'cooking-appliances', value: 67.57854458 },
-      { item: 'heating-cooling-appliances', value: 77.46208286 },
-      { item: 'other-appliances', value: 72.89126224 },
-      { item: 'electronics', value: 162.8029898 },
-      { item: 'furniture', value: 40.67075648 },
-      { item: 'covering', value: 55.54012875 }
-    ])
+    expectAmount(
+      { applianceFurnitureExpenses: '400k-more', residentCount: 1 },
+      [
+        { item: 'electrical-appliances-repair-rental', value: 5.461510221 },
+        { item: 'furniture-daily-goods-repair-rental', value: 17.59272503 },
+        { item: 'cooking-appliances', value: 67.57854458 },
+        { item: 'heating-cooling-appliances', value: 77.46208286 },
+        { item: 'other-appliances', value: 72.89126224 },
+        { item: 'electronics', value: 162.8029898 },
+        { item: 'furniture', value: 40.67075648 },
+        { item: 'covering', value: 55.54012875 }
+      ]
+    )
   })
 
   test('amount case 07', () => {
-    expectAmount({ expenses: 'unknown', residentCount: 1 }, [
+    expectAmount({ applianceFurnitureExpenses: 'unknown', residentCount: 1 }, [
       { item: 'electrical-appliances-repair-rental', value: 0.873530497 },
       { item: 'furniture-daily-goods-repair-rental', value: 2.813833758 },
       { item: 'cooking-appliances', value: 10.80871722 },
@@ -119,7 +134,7 @@ describe('appliance-furniture', () => {
   })
 
   test('amount case 08', () => {
-    expectAmount({ expenses: 'unknown', residentCount: 3 }, [
+    expectAmount({ applianceFurnitureExpenses: 'unknown', residentCount: 3 }, [
       { item: 'electrical-appliances-repair-rental', value: 0.873530497 },
       { item: 'furniture-daily-goods-repair-rental', value: 2.813833758 },
       { item: 'cooking-appliances', value: 10.80871722 },
@@ -132,7 +147,7 @@ describe('appliance-furniture', () => {
   })
 
   test('amount case 09', () => {
-    expectAmount({ expenses: '50k-less', residentCount: 3 }, [
+    expectAmount({ applianceFurnitureExpenses: '50k-less', residentCount: 3 }, [
       { item: 'electrical-appliances-repair-rental', value: 0.09102517 },
       { item: 'furniture-daily-goods-repair-rental', value: 0.293212084 },
       { item: 'cooking-appliances', value: 1.126309076 },

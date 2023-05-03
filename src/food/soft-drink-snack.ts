@@ -33,11 +33,14 @@ export const estimateSoftDrinkSnackAnnualAmount = (
   {
     foodDirectWasteFrequency: foodDirectWaste,
     foodLeftoverFrequency: foodLeftover,
-    softDrinkSnackExpenses: expenses
+    softDrinkSnackExpenses
   }: SoftDrinkSnackAmountParam
 ): number => {
   const baseline = getBaselineAmount('food', item).value
-  const dishFactor = getParameter('soft-drink-snack-factor', expenses).value
+  const dishFactor = getParameter(
+    'soft-drink-snack-factor',
+    softDrinkSnackExpenses
+  ).value
   return (
     baseline * dishFactor * estimateFoodLossRate(foodDirectWaste, foodLeftover)
   )
@@ -53,7 +56,7 @@ export const estimateSoftDrinkSnackAnnualAmounts = (
   {
     foodDirectWasteFrequency: foodDirectWaste,
     foodLeftoverFrequency: foodLeftover,
-    softDrinkSnackExpenses: expenses
+    softDrinkSnackExpenses
   }: SoftDrinkSnackAmountParam,
   items?: SoftDrinkSnackItem[]
 ): Record<string, number> => {
@@ -67,7 +70,7 @@ export const estimateSoftDrinkSnackAnnualAmounts = (
       [item]: estimateSoftDrinkSnackAnnualAmount(item, {
         foodDirectWasteFrequency: foodDirectWaste,
         foodLeftoverFrequency: foodLeftover,
-        softDrinkSnackExpenses: expenses
+        softDrinkSnackExpenses
       })
     }),
     {}

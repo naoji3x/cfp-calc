@@ -64,7 +64,7 @@ export const estimateOther = ({
       addEstimatedAmount(
         item,
         estimateDailyGoodsAnnualAmount(item, {
-          expenses: dailyGoodsExpenses,
+          dailyGoodsExpenses,
           residentCount
         })
       )
@@ -77,7 +77,7 @@ export const estimateOther = ({
       addEstimatedAmount(
         item,
         estimateTravelAnnualAmount(item, {
-          expenses: travelExpenses
+          travelExpenses
         })
       )
     }
@@ -89,7 +89,7 @@ export const estimateOther = ({
       addEstimatedAmount(
         item,
         estimateApplianceFurnitureAnnualAmount(item, {
-          expenses: applianceFurnitureExpenses,
+          applianceFurnitureExpenses,
           residentCount
         })
       )
@@ -102,7 +102,7 @@ export const estimateOther = ({
       addEstimatedAmount(
         item,
         estimateHobbyGoodsAnnualAmount(item, {
-          expenses: hobbyGoodsExpenses
+          hobbyGoodsExpenses
         })
       )
     }
@@ -114,7 +114,7 @@ export const estimateOther = ({
       addEstimatedAmount(
         item,
         estimateClothesBeautyAnnualAmount(item, {
-          expenses: clothesBeautyExpenses
+          clothesBeautyExpenses
         })
       )
     }
@@ -126,7 +126,7 @@ export const estimateOther = ({
       addEstimatedAmount(
         item,
         estimateLeisureSportsAnnualAmount(item, {
-          expenses: leisureSportsExpenses
+          leisureSportsExpenses
         })
       )
     }
@@ -138,7 +138,7 @@ export const estimateOther = ({
       addEstimatedAmount(
         item,
         estimateCommunicationAnnualAmount(item, {
-          expenses: communicationExpenses,
+          communicationExpenses,
           residentCount
         })
       )
@@ -151,7 +151,7 @@ export const estimateOther = ({
       addEstimatedAmount(
         item,
         estimateServiceAnnualAmount(item, {
-          expenses: serviceExpenses
+          serviceExpenses
         })
       )
     }

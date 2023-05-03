@@ -8,7 +8,7 @@ import {
 } from '../../src/other/hobby-goods'
 
 const expectAmount = (
-  param: { expenses: HobbyGoodsExpenses },
+  param: { hobbyGoodsExpenses: HobbyGoodsExpenses },
   itemAndValues: Array<{ item: HobbyGoodsItem; value: number }>
 ): void => {
   for (const inv of itemAndValues) {
@@ -28,7 +28,7 @@ const expectIntensity = (
 
 describe('hobby-goods', () => {
   test('amount case 01', () => {
-    expectAmount({ expenses: '5k-less' }, [
+    expectAmount({ hobbyGoodsExpenses: '5k-less' }, [
       { item: 'culture-goods', value: 5.212397128 },
       { item: 'entertainment-goods', value: 0.706433648 },
       { item: 'sports-goods', value: 4.412044588 },
@@ -42,7 +42,7 @@ describe('hobby-goods', () => {
   })
 
   test('amount case 02', () => {
-    expectAmount({ expenses: '5k-10k' }, [
+    expectAmount({ hobbyGoodsExpenses: '5k-10k' }, [
       { item: 'culture-goods', value: 13.03099282 },
       { item: 'entertainment-goods', value: 1.766084121 },
       { item: 'sports-goods', value: 11.03011147 },
@@ -56,7 +56,7 @@ describe('hobby-goods', () => {
   })
 
   test('amount case 03', () => {
-    expectAmount({ expenses: '10k-20k' }, [
+    expectAmount({ hobbyGoodsExpenses: '10k-20k' }, [
       { item: 'culture-goods', value: 26.06198564 },
       { item: 'entertainment-goods', value: 3.532168242 },
       { item: 'sports-goods', value: 22.06022294 },
@@ -70,7 +70,7 @@ describe('hobby-goods', () => {
   })
 
   test('amount case 04', () => {
-    expectAmount({ expenses: '20k-50k' }, [
+    expectAmount({ hobbyGoodsExpenses: '20k-50k' }, [
       { item: 'culture-goods', value: 60.81129982 },
       { item: 'entertainment-goods', value: 8.241725898 },
       { item: 'sports-goods', value: 51.47385353 },
@@ -84,7 +84,7 @@ describe('hobby-goods', () => {
   })
 
   test('amount case 05', () => {
-    expectAmount({ expenses: '50k-more' }, [
+    expectAmount({ hobbyGoodsExpenses: '50k-more' }, [
       { item: 'culture-goods', value: 104.2479426 },
       { item: 'entertainment-goods', value: 14.12867297 },
       { item: 'sports-goods', value: 88.24089176 },
@@ -98,7 +98,7 @@ describe('hobby-goods', () => {
   })
 
   test('amount case 06', () => {
-    expectAmount({ expenses: 'unknown' }, [
+    expectAmount({ hobbyGoodsExpenses: 'unknown' }, [
       { item: 'culture-goods', value: 11.26338699 },
       { item: 'entertainment-goods', value: 1.526521363 },
       { item: 'sports-goods', value: 9.533917775 },

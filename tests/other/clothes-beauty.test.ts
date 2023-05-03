@@ -8,7 +8,7 @@ import {
 } from '../../src/other/clothes-beauty'
 
 const expectAmount = (
-  param: { expenses: ClothesBeautyExpenses },
+  param: { clothesBeautyExpenses: ClothesBeautyExpenses },
   itemAndValues: Array<{ item: ClothesBeautyItem; value: number }>
 ): void => {
   for (const inv of itemAndValues) {
@@ -28,7 +28,7 @@ const expectIntensity = (
 
 describe('clothes-beauty', () => {
   test('amount case 01', () => {
-    expectAmount({ expenses: '5k-less' }, [
+    expectAmount({ clothesBeautyExpenses: '5k-less' }, [
       { item: 'haircare', value: 2.25947579 },
       { item: 'cosmetics', value: 3.638798193 },
       { item: 'clothes-goods', value: 24.64267084 },
@@ -39,7 +39,7 @@ describe('clothes-beauty', () => {
   })
 
   test('amount case 02', () => {
-    expectAmount({ expenses: '5k-10k' }, [
+    expectAmount({ clothesBeautyExpenses: '5k-10k' }, [
       { item: 'haircare', value: 5.648689476 },
       { item: 'cosmetics', value: 9.096995483 },
       { item: 'clothes-goods', value: 61.60667711 },
@@ -50,7 +50,7 @@ describe('clothes-beauty', () => {
   })
 
   test('amount case 03', () => {
-    expectAmount({ expenses: '10k-20k' }, [
+    expectAmount({ clothesBeautyExpenses: '10k-20k' }, [
       { item: 'haircare', value: 11.29737895 },
       { item: 'cosmetics', value: 18.19399097 },
       { item: 'clothes-goods', value: 123.2133542 },
@@ -61,7 +61,7 @@ describe('clothes-beauty', () => {
   })
 
   test('amount case 04', () => {
-    expectAmount({ expenses: '20k-50k' }, [
+    expectAmount({ clothesBeautyExpenses: '20k-50k' }, [
       { item: 'haircare', value: 26.36055089 },
       { item: 'cosmetics', value: 42.45264559 },
       { item: 'clothes-goods', value: 287.4978265 },
@@ -72,7 +72,7 @@ describe('clothes-beauty', () => {
   })
 
   test('amount case 05', () => {
-    expectAmount({ expenses: '50k-more' }, [
+    expectAmount({ clothesBeautyExpenses: '50k-more' }, [
       { item: 'haircare', value: 45.18951581 },
       { item: 'cosmetics', value: 72.77596386 },
       { item: 'clothes-goods', value: 492.8534169 },
@@ -83,7 +83,7 @@ describe('clothes-beauty', () => {
   })
 
   test('amount case 06', () => {
-    expectAmount({ expenses: 'unknown' }, [
+    expectAmount({ clothesBeautyExpenses: 'unknown' }, [
       { item: 'haircare', value: 8.727357202 },
       { item: 'cosmetics', value: 14.05507054 },
       { item: 'clothes-goods', value: 95.18375535 },

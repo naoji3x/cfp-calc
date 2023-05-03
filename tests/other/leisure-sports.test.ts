@@ -8,7 +8,7 @@ import {
 } from '../../src/other/leisure-sports'
 
 const expectAmount = (
-  param: { expenses: LeisureSportsExpenses },
+  param: { leisureSportsExpenses: LeisureSportsExpenses },
   itemAndValues: Array<{ item: LeisureSportsItem; value: number }>
 ): void => {
   for (const inv of itemAndValues) {
@@ -28,7 +28,7 @@ const expectIntensity = (
 
 describe('leisure-sports', () => {
   test('amount case 01', () => {
-    expectAmount({ expenses: '5k-less' }, [
+    expectAmount({ leisureSportsExpenses: '5k-less' }, [
       { item: 'culture-leisure', value: 7.476429256 },
       { item: 'entertainment-leisure', value: 6.598602984 },
       { item: 'sports-leisure', value: 12.39693054 },
@@ -37,7 +37,7 @@ describe('leisure-sports', () => {
   })
 
   test('amount case 02', () => {
-    expectAmount({ expenses: '5k-10k' }, [
+    expectAmount({ leisureSportsExpenses: '5k-10k' }, [
       { item: 'culture-leisure', value: 22.42928777 },
       { item: 'entertainment-leisure', value: 19.79580895 },
       { item: 'sports-leisure', value: 37.19079163 },
@@ -46,7 +46,7 @@ describe('leisure-sports', () => {
   })
 
   test('amount case 03', () => {
-    expectAmount({ expenses: '10k-20k' }, [
+    expectAmount({ leisureSportsExpenses: '10k-20k' }, [
       { item: 'culture-leisure', value: 44.85857553 },
       { item: 'entertainment-leisure', value: 39.5916179 },
       { item: 'sports-leisure', value: 74.38158326 },
@@ -55,7 +55,7 @@ describe('leisure-sports', () => {
   })
 
   test('amount case 04', () => {
-    expectAmount({ expenses: '20k-50k' }, [
+    expectAmount({ leisureSportsExpenses: '20k-50k' }, [
       { item: 'culture-leisure', value: 104.6700096 },
       { item: 'entertainment-leisure', value: 92.38044177 },
       { item: 'sports-leisure', value: 173.5570276 },
@@ -64,7 +64,7 @@ describe('leisure-sports', () => {
   })
 
   test('amount case 05', () => {
-    expectAmount({ expenses: '50k-more' }, [
+    expectAmount({ leisureSportsExpenses: '50k-more' }, [
       { item: 'culture-leisure', value: 224.2928777 },
       { item: 'entertainment-leisure', value: 197.9580895 },
       { item: 'sports-leisure', value: 371.9079163 },
@@ -73,7 +73,7 @@ describe('leisure-sports', () => {
   })
 
   test('amount case 06', () => {
-    expectAmount({ expenses: 'unknown' }, [
+    expectAmount({ leisureSportsExpenses: 'unknown' }, [
       { item: 'culture-leisure', value: 26.18197893 },
       { item: 'entertainment-leisure', value: 23.10788725 },
       { item: 'sports-leisure', value: 43.41326095 },

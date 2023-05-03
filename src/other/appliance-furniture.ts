@@ -9,7 +9,7 @@ import { estimateAnnualAmountConsideringResidentCount } from './amount-calculati
 
 export interface ApplianceFurnitureAmountParam {
   /** 家電・家具に関わる支出 */
-  expenses: ApplianceFurnitureExpenses
+  applianceFurnitureExpenses: ApplianceFurnitureExpenses
   /** 居住者数 */
   residentCount: number
 }
@@ -22,12 +22,12 @@ export interface ApplianceFurnitureAmountParam {
  */
 export const estimateApplianceFurnitureAnnualAmount = (
   item: ApplianceFurnitureItem,
-  { expenses, residentCount }: ApplianceFurnitureAmountParam
+  { applianceFurnitureExpenses, residentCount }: ApplianceFurnitureAmountParam
 ): number =>
   estimateAnnualAmountConsideringResidentCount(
     item,
     'appliance-furniture-amount',
-    expenses,
+    applianceFurnitureExpenses,
     residentCount
   )
 

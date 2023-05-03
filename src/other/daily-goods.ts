@@ -5,7 +5,7 @@ import { estimateAnnualAmountConsideringResidentCount } from './amount-calculati
 /** 日常品の活動量を計算するための引数 */
 export interface DailyGoodsAmountParam {
   /** 日常品に関わる支出 */
-  expenses: DailyGoodsExpenses
+  dailyGoodsExpenses: DailyGoodsExpenses
   /** 居住者数 */
   residentCount: number
 }
@@ -18,12 +18,12 @@ export interface DailyGoodsAmountParam {
  */
 export const estimateDailyGoodsAnnualAmount = (
   item: DailyGoodsItem,
-  { expenses, residentCount }: DailyGoodsAmountParam
+  { dailyGoodsExpenses, residentCount }: DailyGoodsAmountParam
 ): number =>
   estimateAnnualAmountConsideringResidentCount(
     item,
     'daily-goods-amount',
-    expenses,
+    dailyGoodsExpenses,
     residentCount
   )
 

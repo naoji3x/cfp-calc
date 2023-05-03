@@ -7,7 +7,7 @@ import { estimateAnnualAmount } from './amount-calculation'
 
 /** 衣服・美容の活動量を計算するための引数 */
 export interface ClothesBeautyAmountParam {
-  expenses: ClothesBeautyExpenses
+  clothesBeautyExpenses: ClothesBeautyExpenses
 }
 
 /**
@@ -18,8 +18,9 @@ export interface ClothesBeautyAmountParam {
  */
 export const estimateClothesBeautyAnnualAmount = (
   item: ClothesBeautyItem,
-  { expenses }: ClothesBeautyAmountParam
-): number => estimateAnnualAmount(item, 'clothes-beauty-factor', expenses)
+  { clothesBeautyExpenses }: ClothesBeautyAmountParam
+): number =>
+  estimateAnnualAmount(item, 'clothes-beauty-factor', clothesBeautyExpenses)
 
 /**
  * 衣服・美容のGHG原単位を計算
