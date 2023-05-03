@@ -1,6 +1,6 @@
 {
   "name": "cfp-calc",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A carbon footprint calculation library for those living in Japan",
   "author": "Naoto Komiya",
   "license": "MIT",
@@ -31,8 +31,7 @@
     "coverage": "jest --coverage",
     "commit-msg": "commitlint -e $GIT_PARAMS",
     "doc": "typedoc",
-    "prepack": "npm run build && cd dist",
-    "postpack": "cd .."
+    "npm": "npm run build && cd dist && npm publish && cd .."
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
