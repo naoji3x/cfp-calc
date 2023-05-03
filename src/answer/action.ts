@@ -1,16 +1,12 @@
 import {
   absoluteTarget,
-  drivingIntensityToEvPhv,
-  drivingIntensityToPrivateCarRideshare,
-  drivingIntensityToTaxiRideshare,
-  foodAmountToAverageWithoutFoodLoss,
   furtherReductionFromOtherFootprints,
-  housingInsulationClothing,
-  housingInsulationRenovation,
   increaseRate,
-  manufacturingIntensityToEvPhv,
   proportionalToOtherFootprints,
   proportionalToOtherItems,
+  questionAnswerToTarget,
+  questionAnswerToTargetInverse,
+  questionReductionRate,
   reboundFromOtherFootprints,
   shiftFromOtherItems,
   shiftFromOtherItemsThenReductionRate
@@ -320,100 +316,4 @@ export const calculateActions = (
   }
 
   return actions
-}
-const questionReductionRate = ({
-  base,
-  target,
-  reductionRate,
-  housingInsulation
-}: {
-  base: number
-  target: string
-  reductionRate: number
-  housingInsulation?: HousingInsulation
-}): number => {
-  housingInsulation ??= 'unknown'
-  if (target === 'housing_housing-insulation-renovation') {
-    return housingInsulationRenovation(base, reductionRate, housingInsulation)
-  } else if (target === 'housing_housing-insulation-clothing') {
-    return housingInsulationClothing(base, reductionRate, housingInsulation)
-  }
-  return NaN
-}
-
-const questionAnswerToTarget = ({
-  base,
-  target,
-  valueAfterAction,
-  foodDirectWaste = undefined,
-  foodLeftover = undefined,
-  carType = undefined,
-  carCharging = undefined,
-  electricityType = undefined
-}: {
-  base: number
-  target: string
-  valueAfterAction: number
-  foodDirectWaste?: FoodDirectWasteFrequency
-  foodLeftover?: FoodLeftoverFrequency
-  carType?: CarType
-  carCharging?: CarCharging
-  electricityType?: ElectricityType
-}): number => {
-  if (target === 'food_food-amount-to-average') {
-    if (foodDirectWaste !== undefined && foodLeftover !== undefined) {
-      return foodAmountToAverageWithoutFoodLoss(
-        base,
-        valueAfterAction,
-        foodDirectWaste,
-        foodLeftover
-      )
-    }
-  } else if (target === 'mobility_driving-intensity') {
-    if (carType !== undefined) {
-      carCharging ??= 'unknown'
-      electricityType ??= 'unknown'
-      return drivingIntensityToEvPhv(
-        base,
-        valueAfterAction,
-        carType,
-        carCharging,
-        electricityType
-      )
-    }
-  } else if (target === 'mobility_manufacturing-intensity') {
-    if (carType !== undefined) {
-      return manufacturingIntensityToEvPhv(base, valueAfterAction, carType)
-    }
-  }
-  return NaN
-}
-
-const questionAnswerToTargetInverse = ({
-  base,
-  target,
-  valueAfterAction,
-  carPassengers = undefined
-}: {
-  base: number
-  target: string
-  valueAfterAction: number
-  carPassengers?: CarPassengers
-}): number => {
-  if (carPassengers !== undefined) {
-    if (target === 'mobility_taxi-car-passengers') {
-      return drivingIntensityToTaxiRideshare(
-        base,
-        valueAfterAction,
-        carPassengers
-      )
-    } else if (target === 'mobility_private-car-passengers') {
-      return drivingIntensityToPrivateCarRideshare(
-        base,
-        valueAfterAction,
-        carPassengers
-      )
-    }
-  }
-  return NaN
 }
