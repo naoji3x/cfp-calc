@@ -28,6 +28,7 @@
     "export:options": "ts-node ./data/option2ts.ts",
     "export": "run-p export:**",
     "test": "jest",
+    "coverage": "jest --coverage",
     "commit-msg": "commitlint -e $GIT_PARAMS",
     "doc": "typedoc",
     "prepack": "npm run build && cd dist",

@@ -189,6 +189,9 @@ export class Diagnosis {
         )
       : Object.values(this.estimations)
 
+  public readonly enumerateActions = (option: string): Action[] =>
+    Object.values(this.actions).filter((a) => a.option === option)
+
   public readonly enumerateBaselines = (): Item[] =>
     Object.values(this.baselines)
 

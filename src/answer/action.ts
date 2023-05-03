@@ -66,13 +66,13 @@ const phase4Operations = new Set([
 
 export const calculateActions = (
   {
-    housingInsulation = undefined,
-    foodDirectWaste = undefined,
-    foodLeftover = undefined,
-    carType = undefined,
-    carCharging = undefined,
-    electricityType = undefined,
-    carPassengers = undefined
+    housingInsulation,
+    foodDirectWaste,
+    foodLeftover,
+    carType,
+    carCharging,
+    electricityType,
+    carPassengers
   }: ActionAnswer,
   /**
    * 活動量、GHG原単位の推定値を取得する（推定値がない場合はベースライン値を返す）
@@ -309,19 +309,18 @@ const questionReductionRate = ({
   base,
   target,
   reductionRate,
-  housingInsulation = undefined
+  housingInsulation
 }: {
   base: number
   target: string
   reductionRate: number
   housingInsulation?: HousingInsulation
 }): number => {
-  if (housingInsulation !== undefined) {
-    if (target === 'housing_housing-insulation-renovation') {
-      return housingInsulationRenovation(base, reductionRate, housingInsulation)
-    } else if (target === 'housing_housing-insulation-clothing') {
-      return housingInsulationClothing(base, reductionRate, housingInsulation)
-    }
+  housingInsulation ??= 'unknown'
+  if (target === 'housing_housing-insulation-renovation') {
+    return housingInsulationRenovation(base, reductionRate, housingInsulation)
+  } else if (target === 'housing_housing-insulation-clothing') {
+    return housingInsulationClothing(base, reductionRate, housingInsulation)
   }
   return NaN
 }
@@ -355,11 +354,9 @@ const questionAnswerToTarget = ({
       )
     }
   } else if (target === 'mobility_driving-intensity') {
-    if (
-      carType !== undefined &&
-      carCharging !== undefined &&
-      electricityType !== undefined
-    ) {
+    if (carType !== undefined) {
+      carCharging ??= 'unknown'
+      electricityType ??= 'unknown'
       return drivingIntensityToEvPhv(
         base,
         valueAfterAction,

@@ -1,17 +1,13 @@
-import { type Domain } from '../../src/common'
 import { type Item } from '../../src/entity'
 import { type TestCase } from './util'
 
 export const testEstimation = (
-  domain: Domain,
   testCase: TestCase,
   estimations: readonly Item[],
   baselines: readonly Item[],
   originalBaselines: readonly Item[]
 ): void => {
-  for (const estimation of estimations.filter(
-    (e: any) => e.domain === domain
-  )) {
+  for (const estimation of estimations) {
     const exp = testCase.expectations.find(
       (e) =>
         e.domain === estimation.domain &&
@@ -19,11 +15,9 @@ export const testEstimation = (
         e.type === estimation.type
     )
 
-    // console.log(estimation, exp)
-
     expect(exp).not.toBeNull()
     expect(exp?.estimated).toBeTruthy()
-    expect(estimation.value).toBeCloseTo(exp != null ? exp.value : NaN)
+    expect(estimation.value).toBeCloseTo(exp?.value as number)
   }
 
   // estimationに重複がないことを確認
@@ -44,13 +38,6 @@ export const testEstimation = (
         e.domain === exp.domain && e.item === exp.item && e.type === exp.type
     )
 
-    /*
-    console.log('estimation: ')
-    console.log(estimation)
-    console.log('exp: ')
-    console.log(exp)
-    */
-
     expect(Boolean(estimation)).toBe(exp.estimated)
   }
 
@@ -69,7 +56,7 @@ export const testEstimation = (
   }
 
   // baselineが間違って書き換えられていないかを確認
-  for (const baseline of baselines.filter((b) => b.domain === domain)) {
+  for (const baseline of baselines) {
     const org = originalBaselines.find(
       (b) =>
         b.domain === baseline.domain &&

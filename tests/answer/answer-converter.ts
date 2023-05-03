@@ -4,6 +4,7 @@ import {
   type MobilityAnswer,
   type OtherAnswer
 } from '../../src/answer/answer'
+import { type Diagnosis } from '../../src/answer/diagnosis'
 import {
   type AlcoholFrequency,
   type ApplianceFurnitureExpenses,
@@ -34,7 +35,11 @@ import {
 } from '../../src/common'
 import { type Answer } from './util'
 
-/** excelのanswerをfoodAnswerに変換 */
+/**
+ * excelのanswerをfoodAnswerに変換
+ * @param answers excelのanswer
+ * @returns FoodAnswer
+ */
 export const toFoodAnswer = (answers: readonly Answer[]): FoodAnswer => {
   const answer: Record<string, string | number | boolean> = {}
   for (const a of answers) {
@@ -59,7 +64,11 @@ export const toFoodAnswer = (answers: readonly Answer[]): FoodAnswer => {
   }
 }
 
-/** excelのanswerをmobilityAnswerに変換 */
+/**
+ * excelのanswerをmobilityAnswerに変換
+ * @param answers excelのanswer
+ * @returns MobilityAnswer
+ */
 export const toMobilityAnswer = (
   answers: readonly Answer[]
 ): MobilityAnswer => {
@@ -109,7 +118,11 @@ export const toMobilityAnswer = (
   }
 }
 
-/** excelのanswerをhousingAnswerに変換 */
+/**
+ * excelのanswerをhousingAnswerに変換
+ * @param answers excelのanswer
+ * @returns HousingAnswer
+ */
 export const toHousingAnswer = (answers: readonly Answer[]): HousingAnswer => {
   const answer: Record<string, string | number | boolean> = {}
   for (const a of answers) {
@@ -202,5 +215,33 @@ export const toOtherAnswer = (answers: readonly Answer[]): OtherAnswer => {
       answer.leisureSportsFactorKey as LeisureSportsExpenses,
     communicationExpenses:
       answer.communicationAmountKey as CommunicationExpenses
+  }
+}
+
+/**
+ * excelのanswerを元に設問に回答
+ * @param answers excelのanswer
+ * @param diagnosis カーボンフットプリント診断
+ */
+export const answer = (
+  answers: readonly Answer[],
+  diagnosis: Diagnosis
+): void => {
+  const housingAnswer = toHousingAnswer(answers)
+  const mobilityAnswer = toMobilityAnswer(answers)
+  const foodAnswer = toFoodAnswer(answers)
+  const otherAnswer = toOtherAnswer(answers)
+
+  if (answers.find((a) => a.answer === 'housingAnswer') !== undefined) {
+    diagnosis.answerHousing(housingAnswer)
+  }
+  if (answers.find((a) => a.answer === 'mobilityAnswer') !== undefined) {
+    diagnosis.answerMobility(mobilityAnswer)
+  }
+  if (answers.find((a) => a.answer === 'foodAnswer') !== undefined) {
+    diagnosis.answerFood(foodAnswer)
+  }
+  if (answers.find((a) => a.answer === 'otherAnswer') !== undefined) {
+    diagnosis.answerOther(otherAnswer)
   }
 }

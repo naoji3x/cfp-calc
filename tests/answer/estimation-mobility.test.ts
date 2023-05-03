@@ -23,7 +23,6 @@ describe(`Test ${domain} estimations`, () => {
       diagnosis.answerMobility(mobilityAnswer)
 
       testEstimation(
-        domain,
         testCase,
         diagnosis.enumerateEstimations(false),
         diagnosis.enumerateBaselines(),
