@@ -1,6 +1,6 @@
 {
   "name": "cfp-calc",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A carbon footprint calculation library for those living in Japan",
   "author": "Naoto Komiya",
   "license": "MIT",
@@ -12,13 +12,12 @@
   "bugs": {
     "url": "https://github.com/naoji3x/cfp-calc/issues"
   },
-  "homepage": "https://github.com/naoji3x/cfp-calc",
+  "homepage": "https://naoji3x.github.io/cfp-calc",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build:ts": "tsc",
     "build:doc": "shx cp README.md dist",
-    "build:docs": "typedoc",
     "build:package": "shx cp package.json dist",
     "build": "run-p build:**",
     "lint": "eslint 'src/**/*.ts'",
