@@ -18,6 +18,7 @@
   "scripts": {
     "build:ts": "tsc",
     "build:doc": "shx cp README.md dist",
+    "build:docs": "typedoc",
     "build:package": "shx cp package.json dist",
     "build": "run-p build:**",
     "lint": "eslint 'src/**/*.ts'",
@@ -30,7 +31,7 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "commit-msg": "commitlint -e $GIT_PARAMS",
-    "doc": "typedoc",
+    "docs": "typedoc",
     "npm": "npm run build && cd dist && npm publish && cd .."
   },
   "devDependencies": {

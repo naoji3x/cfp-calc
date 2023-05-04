@@ -1,6 +1,6 @@
 {
   "entryPoints": ["./src/**/*.ts"],
-  "out": "doc",
+  "out": "docs",
   "excludeExternals": true,
   "entryPointStrategy": "expand"
 }
