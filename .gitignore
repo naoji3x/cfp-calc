@@ -12,6 +12,3 @@ node_modules/
 
 # build
 /dist
-
-# doc
-/doc

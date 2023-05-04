@@ -1,5 +1,10 @@
-import type FootprintSummary from './footprint-summary'
+import { type FootprintSummary } from './footprint-summary'
 
-export default interface ActionSummary extends FootprintSummary {
+/**
+ * subdomain毎の改善アクションの集計値
+ */
+
+export interface ActionSummary extends FootprintSummary {
+  /** 改善アクションの種類 */
   readonly option: string
 }

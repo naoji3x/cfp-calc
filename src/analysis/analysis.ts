@@ -1,10 +1,10 @@
 import { type Diagnosis } from '../answer'
 import { type Domain } from '../common'
 import { type Item } from '../entity'
-import type ActionItem from './action-item'
-import type ActionSummary from './action-summary'
-import type FootprintItem from './footprint-item'
-import type FootprintSummary from './footprint-summary'
+import { type ActionItem } from './action-item'
+import { type ActionSummary } from './action-summary'
+import { type FootprintItem } from './footprint-item'
+import { type FootprintSummary } from './footprint-summary'
 
 /** カーボンフットプリントの診断結果を集計 */
 export class Analysis {

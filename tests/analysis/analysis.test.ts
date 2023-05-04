@@ -34,9 +34,10 @@ describe('analysis', () => {
     diagnosis.answerHousing(housingAnswer) // 居住に関する回答を診断に反映
 
     // 診断結果を解析するためのオブジェクトを生成
-    // ※Diagnosisはフットプリントを計算した項目（活動量、GHG原単位）、
-    // 改善アクションを計算した項目のみを縦展開して保持しており、
-    // 分析には使いにくいためAnalysisでデータを横展開し集計を行う
+    // ※Diagnosisでは、
+    //  フットプリントを計算した項目（活動量、GHG原単位）、
+    //  改善アクションを計算した項目のみを縦展開して保持しており、
+    //  分析には使いにくいためAnalysisでデータを横展開し集計を行う
     const analysis = new Analysis(diagnosis)
 
     // カーボンフットプリント排出量の推定結果の一覧を取得
