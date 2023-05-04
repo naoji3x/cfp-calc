@@ -1,5 +1,5 @@
 import { type Action, type Footprint, type Item } from 'entity'
-import { type Domain, type Type } from '../common'
+import { type Domain, type Origin, type Type } from '../common'
 import { enumerateBaselines } from '../data'
 import { calculateActions, type ActionAnswer } from './action'
 import {
@@ -182,31 +182,110 @@ export class Diagnosis {
    * @param domain 活動量、GHG原単位を計算する領域
    * @param item 活動量、GHG原単位を取得する要素
    * @param type amount or intensity
-   * @returns 活動量もしくはGHG原単位（推定値、ベースライン値ともない場合はNaNを返す）
+   * @returns 活動量もしくはGHG原単位の要素
    */
   public readonly findEstimationOrDefault = (
     domain: Domain,
     item: string,
-    type: Type,
-    fallback = true
+    type: Type
   ): Item => {
     const key = domain + '_' + item + '_' + type
     const estimation = this.estimations[key]
-    if (fallback && estimation === undefined) {
+    if (estimation === undefined) {
       return this.baselines[key]
     }
     return estimation
   }
 
+  /**
+   * 活動量、GHG原単位の推定値がどのデータに基づいているかを取得する
+   * @param domain 活動量、GHG原単位を計算する領域
+   * @param item 活動量、GHG原単位を取得する要素
+   * @param type amount or intensity
+   * @returns baseline or estimation
+   */
+  public readonly getEstimationOrigin = (
+    domain: Domain,
+    item: string,
+    type: Type
+  ): Origin => {
+    const key = domain + '_' + item + '_' + type
+    return this.estimations[key] === undefined ? 'baseline' : 'estimation'
+  }
+
+  /**
+   * 改善アクションを取得する（改善アクションがない場合は推定値->ベースライン値を返す）
+   * @param option 改善アクションの種類
+   * @param domain 改善アクションを計算する領域
+   * @param item 活動量、GHG原単位を取得する要素
+   * @param type amount or intensity
+   * @returns 改善アクション
+   */
+  public readonly findActionOrDefault = (
+    option: string,
+    domain: Domain,
+    item: string,
+    type: Type
+  ): Action => {
+    const key = option + '_' + domain + '_' + item + '_' + type
+    const action = this.actions[key]
+    if (action === undefined) {
+      return {
+        ...this.findEstimationOrDefault(domain, item, type),
+        option
+      }
+    }
+    return action
+  }
+
+  /**
+   * 改善アクションがどのデータに基づいているかを取得する
+   * @param domain 活動量、GHG原単位を計算する領域
+   * @param item 活動量、GHG原単位を取得する要素
+   * @param type amount or intensity
+   * @returns baseline, estimation or action
+   * */
+  public readonly getActionOrigin = (
+    option: string,
+    domain: Domain,
+    item: string,
+    type: Type
+  ): Origin => {
+    const key = option + '_' + domain + '_' + item + '_' + type
+    return this.actions[key] === undefined
+      ? this.getEstimationOrigin(domain, item, type)
+      : 'action'
+  }
+
+  /**
+   * 活動量、GHG原単位の推定値を列挙する
+   * @returns 推定値の一覧
+   */
   public readonly enumerateEstimations = (): Item[] =>
     Object.values(this.estimations)
 
-  public readonly enumerateActions = (option: string): Action[] =>
-    Object.values(this.actions).filter((a) => a.option === option)
+  /**
+   * 改善アクションを列挙する
+   * @param option 改善アクションの種類
+   * @returns 改善アクションの一覧
+   */
+  public readonly enumerateActions = (option?: string): Action[] =>
+    option === undefined
+      ? Object.values(this.actions)
+      : Object.values(this.actions).filter((a) => a.option === option)
 
+  /**
+   * ベースライン値を列挙する
+   * @returns ベースライン値の一覧
+   */
   public readonly enumerateBaselines = (): Item[] =>
     Object.values(this.baselines)
 
+  /**
+   * 移動に関する回答に対する推定値を更新する
+   * @param answer 移動に関する回答
+   * @param reset trueの場合は回答を上書きする
+   */
   public readonly answerMobility = (
     answer: MobilityAnswer,
     reset: boolean = false
@@ -217,6 +296,11 @@ export class Diagnosis {
     this.validate()
   }
 
+  /**
+   * 住居に関する回答に対する推定値を更新する
+   * @param answer 住居に関する回答
+   * @param reset trueの場合は回答を上書きする
+   */
   public readonly answerHousing = (
     answer: HousingAnswer,
     reset: boolean = false
@@ -227,6 +311,11 @@ export class Diagnosis {
     this.validate()
   }
 
+  /**
+   * 食に関する回答に対する推定値を更新する
+   * @param answer 食に関する回答
+   * @param reset trueの場合は回答を上書きする
+   */
   public readonly answerFood = (
     answer: FoodAnswer,
     reset: boolean = false
@@ -237,6 +326,11 @@ export class Diagnosis {
     this.validate()
   }
 
+  /**
+   * モノとサービスに関する回答に対する推定値を更新する
+   * @param answer モノとサービスに関する回答
+   * @param reset trueの場合は回答を上書きする
+   */
   public readonly answerOther = (
     answer: OtherAnswer,
     reset: boolean = false

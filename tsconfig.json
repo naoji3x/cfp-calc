@@ -1,25 +1,17 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es6",
+    "module": "commonjs",
     "baseUrl": "./src",
-    "declaration": true,  // ← 追記（コンパイルしたtsファイルの中でexportしているもの全ての型定義ファイルを出力する）
-    "sourceMap": true,  // ← 追記（ソースマップを出力する）
-    "outDir": "./dist",  // ← 追記（コンパイル結果の出力先を指定）
-    "esModuleInterop": true,
+    "declaration": true, // コンパイルしたtsファイルの中でexportしているもの全ての型定義ファイルを出力する
+    "sourceMap": true, // ソースマップを出力する
+    "outDir": "./dist", // コンパイル結果の出力先を指定
+    "esModuleInterop": true, // commonjsとes moduleの相互運用性を有効にする
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true, // デフォルトのエクスポートなしでデフォルトのインポートを許可する
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["dom", "es2015.promise", "es5"]
+    "resolveJsonModule": true // jsonファイルからの型の読み込みを許可する
   },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
-  "include": ["src/**/*.ts"]  // ← 追記（コンパイルする対象ファイルの場所を指定
+  "include": ["src/**/*.ts"] // ← 追記（コンパイルする対象ファイルの場所を指定
 }

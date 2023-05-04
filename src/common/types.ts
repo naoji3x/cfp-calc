@@ -1,6 +1,8 @@
 export type Domain = 'food' | 'housing' | 'mobility' | 'other'
 export type Type = 'amount' | 'intensity'
 
+export type Origin = 'baseline' | 'estimation' | 'action'
+
 //
 // mobility
 //
