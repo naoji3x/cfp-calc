@@ -1,4 +1,4 @@
-import { type Domain, type Type } from 'common'
+import { type Domain, type Type } from '../common'
 
 export interface Item {
   readonly domain: Domain

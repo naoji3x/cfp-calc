@@ -1,4 +1,4 @@
-import { type LivingRegion } from 'common'
+import { type LivingRegion } from '../common'
 import { getBaselineIntensity, getParameter } from '../data/database'
 
 /** 灯油の活動量を計算するための引数 */

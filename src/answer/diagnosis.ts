@@ -1,6 +1,6 @@
-import { type Action, type Footprint, type Item } from 'entity'
 import { type Domain, type Origin, type Type } from '../common'
 import { enumerateBaselines } from '../data'
+import { type Action, type Footprint, type Item } from '../entity'
 import { calculateActions, type ActionAnswer } from './action'
 import {
   type FoodAnswer,

@@ -25,7 +25,7 @@ import {
   type ServiceExpenses,
   type SoftDrinkSnackExpenses,
   type TravelExpenses
-} from 'common'
+} from '../common'
 
 /** 移動に関するカーボンフットプリントを計算するための質問への回答 */
 export interface MobilityAnswer {

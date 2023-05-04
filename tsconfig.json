@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "baseUrl": "./src",
     "declaration": true, // コンパイルしたtsファイルの中でexportしているもの全ての型定義ファイルを出力する
     "sourceMap": true, // ソースマップを出力する
     "outDir": "./dist", // コンパイル結果の出力先を指定
