@@ -67,17 +67,30 @@ diagnosis.answerHousing(housingAnswer) // 居住に関する回答を診断に�
 //  分析には使いにくいためAnalysisでデータを横展開し集計を行う
 const analysis = new Analysis(diagnosis)
 
-// カーボンフットプリント排出量の推定結果の一覧を取得
-const footprintItems = analysis.enumerateFootprintItems()
-// カーボンフットプリント排出量の推定結果をキーを指定して取得
-const footprintItem = analysis.findFootprintItem('housing', 'electricity')
-// カーボンフットプリント排出量のsubdomain別の集計の一覧を取得
-const footprintSummaries = analysis.enumerateFootprintSummaries()
-// カーボンフットプリント排出量のsubdomain別の集計をキーを指定して取得
-const footprintSummary = analysis.findFootprintSummary(
+// ベースラインの一覧を取得
+const baselineItems = analysis.enumerateBaselineItems()
+// ベースラインをキーを指定して取得
+const baselineItem = analysis.findBaselineItem('housing', 'electricity')
+// ベースラインのsubdomain別の集計の一覧を取得
+const baselineSummaries = analysis.enumerateBaselineSummaries()
+// ベースラインのsubdomain別の集計をキーを指定して取得
+const baselineSummary = analysis.findBaselineSummary(
   'housing',
   'construction-maintenance'
 )
+
+// カーボンフットプリント排出量の推定結果の一覧を取得
+const estimationItems = analysis.enumerateEstimationItems()
+// カーボンフットプリント排出量の推定結果をキーを指定して取得
+const estimationItem = analysis.findEstimationItem('housing', 'electricity')
+// カーボンフットプリント排出量のsubdomain別の集計の一覧を取得
+const estimationSummaries = analysis.enumerateEstimationSummaries()
+// カーボンフットプリント排出量のsubdomain別の集計をキーを指定して取得
+const estimationSummary = analysis.findEstimationSummary(
+  'housing',
+  'construction-maintenance'
+)
+
 // 改善アクション後の排出量の一覧を取得
 const actionItems = analysis.enumerateActionItems()
 // 改善アクション後の排出量をキーを指定して取得

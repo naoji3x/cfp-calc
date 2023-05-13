@@ -1,6 +1,6 @@
 import { type Option } from '../entity/option'
-export const options: Record<string, Option> = {
-  telework_mobility_train_amount: {
+export const options: Option[] = [
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'train',
@@ -10,7 +10,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  telework_mobility_bus_amount: {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'bus',
@@ -20,7 +20,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  telework_mobility_taxi_amount: {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'taxi',
@@ -30,7 +30,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'telework_mobility_private-car-driving_amount': {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -40,7 +40,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'telework_mobility_motorbike-driving_amount': {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'motorbike-driving',
@@ -50,7 +50,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'telework_mobility_bicycle-driving_amount': {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'bicycle-driving',
@@ -60,7 +60,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'telework_mobility_private-car-purchase_amount': {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -70,7 +70,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'telework_mobility_motorbike-purchase_amount': {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'motorbike-purchase',
@@ -80,7 +80,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'telework_mobility_private-car-maintenance_amount': {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'private-car-maintenance',
@@ -90,7 +90,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'telework_mobility_motorbike-maintenance_amount': {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'motorbike-maintenance',
@@ -100,7 +100,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'telework_mobility_bicycle-maintenance_amount': {
+  {
     option: 'telework',
     domain: 'mobility',
     item: 'bicycle-maintenance',
@@ -110,7 +110,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  closework_mobility_train_amount: {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'train',
@@ -120,7 +120,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  closework_mobility_bus_amount: {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'bus',
@@ -130,7 +130,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  closework_mobility_taxi_amount: {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'taxi',
@@ -140,7 +140,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closework_mobility_private-car-driving_amount': {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -150,7 +150,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closework_mobility_motorbike-driving_amount': {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'motorbike-driving',
@@ -160,7 +160,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closework_mobility_bicycle-driving_amount': {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'bicycle-driving',
@@ -170,7 +170,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closework_mobility_private-car-purchase_amount': {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -180,7 +180,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closework_mobility_motorbike-purchase_amount': {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'motorbike-purchase',
@@ -190,7 +190,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closework_mobility_private-car-maintenance_amount': {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'private-car-maintenance',
@@ -200,7 +200,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closework_mobility_motorbike-maintenance_amount': {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'motorbike-maintenance',
@@ -210,7 +210,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closework_mobility_bicycle-maintenance_amount': {
+  {
     option: 'closework',
     domain: 'mobility',
     item: 'bicycle-maintenance',
@@ -220,7 +220,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  mictourism_mobility_airplane_amount: {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'airplane',
@@ -230,7 +230,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  mictourism_mobility_train_amount: {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'train',
@@ -240,7 +240,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  mictourism_mobility_bus_amount: {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'bus',
@@ -250,7 +250,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  mictourism_mobility_ferry_amount: {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'ferry',
@@ -260,7 +260,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  mictourism_mobility_taxi_amount: {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'taxi',
@@ -270,7 +270,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_private-car-driving_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -280,7 +280,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_car-sharing-driving_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'car-sharing-driving',
@@ -290,7 +290,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_motorbike-driving_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'motorbike-driving',
@@ -300,7 +300,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_bicycle-driving_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'bicycle-driving',
@@ -310,7 +310,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_private-car-purchase_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -320,7 +320,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_motorbike-purchase_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'motorbike-purchase',
@@ -330,7 +330,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_car-sharing-rental_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'car-sharing-rental',
@@ -340,7 +340,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_private-car-maintenance_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'private-car-maintenance',
@@ -350,7 +350,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_motorbike-maintenance_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'motorbike-maintenance',
@@ -360,7 +360,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'mictourism_mobility_bicycle-maintenance_amount': {
+  {
     option: 'mictourism',
     domain: 'mobility',
     item: 'bicycle-maintenance',
@@ -370,7 +370,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  closeservice_mobility_train_amount: {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'train',
@@ -380,7 +380,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  closeservice_mobility_bus_amount: {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'bus',
@@ -390,7 +390,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  closeservice_mobility_taxi_amount: {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'taxi',
@@ -400,7 +400,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closeservice_mobility_private-car-driving_amount': {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -410,7 +410,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closeservice_mobility_motorbike-driving_amount': {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'motorbike-driving',
@@ -420,7 +420,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closeservice_mobility_bicycle-driving_amount': {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'bicycle-driving',
@@ -430,7 +430,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closeservice_mobility_private-car-purchase_amount': {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -440,7 +440,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closeservice_mobility_motorbike-purchase_amount': {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'motorbike-purchase',
@@ -450,7 +450,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closeservice_mobility_private-car-maintenance_amount': {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'private-car-maintenance',
@@ -460,7 +460,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closeservice_mobility_motorbike-maintenance_amount': {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'motorbike-maintenance',
@@ -470,7 +470,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'closeservice_mobility_bicycle-maintenance_amount': {
+  {
     option: 'closeservice',
     domain: 'mobility',
     item: 'bicycle-maintenance',
@@ -480,7 +480,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  dailyshift_mobility_train_amount: {
+  {
     option: 'dailyshift',
     domain: 'mobility',
     item: 'train',
@@ -490,7 +490,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  dailyshift_mobility_bus_amount: {
+  {
     option: 'dailyshift',
     domain: 'mobility',
     item: 'bus',
@@ -500,7 +500,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  dailyshift_mobility_taxi_amount: {
+  {
     option: 'dailyshift',
     domain: 'mobility',
     item: 'taxi',
@@ -510,7 +510,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'dailyshift_mobility_private-car-driving_amount': {
+  {
     option: 'dailyshift',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -520,7 +520,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'dailyshift_mobility_bicycle-driving_amount': {
+  {
     option: 'dailyshift',
     domain: 'mobility',
     item: 'bicycle-driving',
@@ -530,7 +530,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'dailyshift_mobility_private-car-purchase_amount': {
+  {
     option: 'dailyshift',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -540,7 +540,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'dailyshift_mobility_car-sharing-rental_amount': {
+  {
     option: 'dailyshift',
     domain: 'mobility',
     item: 'car-sharing-rental',
@@ -550,7 +550,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'dailyshift_mobility_private-car-maintenance_amount': {
+  {
     option: 'dailyshift',
     domain: 'mobility',
     item: 'private-car-maintenance',
@@ -560,7 +560,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'dailyshift_mobility_bicycle-maintenance_amount': {
+  {
     option: 'dailyshift',
     domain: 'mobility',
     item: 'bicycle-maintenance',
@@ -570,7 +570,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  longshift_mobility_airplane_amount: {
+  {
     option: 'longshift',
     domain: 'mobility',
     item: 'airplane',
@@ -580,7 +580,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  longshift_mobility_train_amount: {
+  {
     option: 'longshift',
     domain: 'mobility',
     item: 'train',
@@ -595,7 +595,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  longshift_mobility_bus_amount: {
+  {
     option: 'longshift',
     domain: 'mobility',
     item: 'bus',
@@ -610,7 +610,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  longshift_mobility_ferry_amount: {
+  {
     option: 'longshift',
     domain: 'mobility',
     item: 'ferry',
@@ -620,7 +620,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'longshift_mobility_private-car-driving_amount': {
+  {
     option: 'longshift',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -630,7 +630,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'longshift_mobility_car-sharing-driving_amount': {
+  {
     option: 'longshift',
     domain: 'mobility',
     item: 'car-sharing-driving',
@@ -640,7 +640,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'longshift_mobility_private-car-purchase_amount': {
+  {
     option: 'longshift',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -650,7 +650,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'longshift_mobility_car-sharing-rental_amount': {
+  {
     option: 'longshift',
     domain: 'mobility',
     item: 'car-sharing-rental',
@@ -660,7 +660,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'longshift_mobility_private-car-maintenance_amount': {
+  {
     option: 'longshift',
     domain: 'mobility',
     item: 'private-car-maintenance',
@@ -670,7 +670,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  rideshare_mobility_taxi_intensity: {
+  {
     option: 'rideshare',
     domain: 'mobility',
     item: 'taxi',
@@ -680,7 +680,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target-inverse',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'rideshare_mobility_private-car-driving_intensity': {
+  {
     option: 'rideshare',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -690,7 +690,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target-inverse',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'rideshare_mobility_car-sharing-driving_intensity': {
+  {
     option: 'rideshare',
     domain: 'mobility',
     item: 'car-sharing-driving',
@@ -700,7 +700,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target-inverse',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'carshare_mobility_private-car-driving_amount': {
+  {
     option: 'carshare',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -710,7 +710,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'carshare_mobility_car-sharing-driving_amount': {
+  {
     option: 'carshare',
     domain: 'mobility',
     item: 'car-sharing-driving',
@@ -720,7 +720,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'carshare_mobility_private-car-purchase_amount': {
+  {
     option: 'carshare',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -730,7 +730,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'carshare_mobility_car-sharing-rental_amount': {
+  {
     option: 'carshare',
     domain: 'mobility',
     item: 'car-sharing-rental',
@@ -740,7 +740,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'carshare_mobility_private-car-maintenance_amount': {
+  {
     option: 'carshare',
     domain: 'mobility',
     item: 'private-car-maintenance',
@@ -750,7 +750,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'car-ev-phv_mobility_private-car-driving_intensity': {
+  {
     option: 'car-ev-phv',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -760,7 +760,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'car-ev-phv_mobility_car-sharing-driving_intensity': {
+  {
     option: 'car-ev-phv',
     domain: 'mobility',
     item: 'car-sharing-driving',
@@ -770,7 +770,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'car-ev-phv_mobility_private-car-purchase_intensity': {
+  {
     option: 'car-ev-phv',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -780,7 +780,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'car-ev-phv_mobility_car-sharing-rental_intensity': {
+  {
     option: 'car-ev-phv',
     domain: 'mobility',
     item: 'car-sharing-rental',
@@ -790,7 +790,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'car-ev-phv-re_mobility_private-car-driving_intensity': {
+  {
     option: 'car-ev-phv-re',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -800,7 +800,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'car-ev-phv-re_mobility_car-sharing-driving_intensity': {
+  {
     option: 'car-ev-phv-re',
     domain: 'mobility',
     item: 'car-sharing-driving',
@@ -810,7 +810,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'car-ev-phv-re_mobility_private-car-purchase_intensity': {
+  {
     option: 'car-ev-phv-re',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -820,7 +820,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'car-ev-phv-re_mobility_car-sharing-rental_intensity': {
+  {
     option: 'car-ev-phv-re',
     domain: 'mobility',
     item: 'car-sharing-rental',
@@ -830,7 +830,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_rice_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'rice',
@@ -840,7 +840,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegan_food_bread-flour_amount': {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'bread-flour',
@@ -850,7 +850,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_noodle_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'noodle',
@@ -860,7 +860,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_potatoes_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'potatoes',
@@ -870,7 +870,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_vegetables_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'vegetables',
@@ -880,7 +880,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegan_food_processed-vegetables_amount': {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'processed-vegetables',
@@ -890,7 +890,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_beans_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'beans',
@@ -911,7 +911,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_milk_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'milk',
@@ -921,7 +921,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegan_food_other-dairy_amount': {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'other-dairy',
@@ -931,7 +931,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_eggs_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'eggs',
@@ -941,7 +941,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_beef_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'beef',
@@ -951,7 +951,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_pork_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'pork',
@@ -961,7 +961,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_chicken_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'chicken',
@@ -971,7 +971,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegan_food_other-meat_amount': {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'other-meat',
@@ -981,7 +981,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegan_food_processed-meat_amount': {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'processed-meat',
@@ -991,7 +991,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_fish_amount: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'fish',
@@ -1001,7 +1001,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegan_food_processed-fish_amount': {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'processed-fish',
@@ -1011,7 +1011,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegan_food_ready-meal_intensity': {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'ready-meal',
@@ -1042,7 +1042,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegan_food_restaurant_intensity: {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'restaurant',
@@ -1073,7 +1073,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegan_food_bar-cafe_intensity': {
+  {
     option: 'vegan',
     domain: 'food',
     item: 'bar-cafe',
@@ -1104,7 +1104,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_rice_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'rice',
@@ -1114,7 +1114,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegetarian_food_bread-flour_amount': {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'bread-flour',
@@ -1124,7 +1124,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_noodle_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'noodle',
@@ -1134,7 +1134,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_potatoes_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'potatoes',
@@ -1144,7 +1144,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_vegetables_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'vegetables',
@@ -1154,7 +1154,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegetarian_food_processed-vegetables_amount': {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'processed-vegetables',
@@ -1164,7 +1164,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_beans_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'beans',
@@ -1182,7 +1182,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_milk_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'milk',
@@ -1200,7 +1200,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegetarian_food_other-dairy_amount': {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'other-dairy',
@@ -1218,7 +1218,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_eggs_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'eggs',
@@ -1236,7 +1236,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_beef_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'beef',
@@ -1246,7 +1246,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_pork_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'pork',
@@ -1256,7 +1256,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_chicken_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'chicken',
@@ -1266,7 +1266,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegetarian_food_other-meat_amount': {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'other-meat',
@@ -1276,7 +1276,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegetarian_food_processed-meat_amount': {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'processed-meat',
@@ -1286,7 +1286,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_fish_amount: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'fish',
@@ -1296,7 +1296,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegetarian_food_processed-fish_amount': {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'processed-fish',
@@ -1306,7 +1306,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegetarian_food_ready-meal_intensity': {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'ready-meal',
@@ -1337,7 +1337,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  vegetarian_food_restaurant_intensity: {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'restaurant',
@@ -1368,7 +1368,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'vegetarian_food_bar-cafe_intensity': {
+  {
     option: 'vegetarian',
     domain: 'food',
     item: 'bar-cafe',
@@ -1399,7 +1399,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_beef_amount': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'beef',
@@ -1409,7 +1409,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_pork_amount': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'pork',
@@ -1419,7 +1419,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_chicken_amount': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'chicken',
@@ -1434,7 +1434,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_other-meat_amount': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'other-meat',
@@ -1444,7 +1444,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_processed-meat_amount': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'processed-meat',
@@ -1454,7 +1454,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_fish_amount': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'fish',
@@ -1469,7 +1469,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_processed-fish_amount': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'processed-fish',
@@ -1484,7 +1484,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_ready-meal_intensity': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'ready-meal',
@@ -1515,7 +1515,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_restaurant_intensity': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'restaurant',
@@ -1546,7 +1546,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'white-meat-fish_food_bar-cafe_intensity': {
+  {
     option: 'white-meat-fish',
     domain: 'food',
     item: 'bar-cafe',
@@ -1577,7 +1577,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_rice_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'rice',
@@ -1587,7 +1587,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_bread-flour_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'bread-flour',
@@ -1597,7 +1597,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_noodle_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'noodle',
@@ -1607,7 +1607,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_potatoes_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'potatoes',
@@ -1617,7 +1617,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_vegetables_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'vegetables',
@@ -1627,7 +1627,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_processed-vegetables_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'processed-vegetables',
@@ -1637,7 +1637,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_beans_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'beans',
@@ -1647,7 +1647,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_milk_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'milk',
@@ -1657,7 +1657,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_other-dairy_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'other-dairy',
@@ -1667,7 +1667,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_eggs_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'eggs',
@@ -1677,7 +1677,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_beef_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'beef',
@@ -1687,7 +1687,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_pork_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'pork',
@@ -1697,7 +1697,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_chicken_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'chicken',
@@ -1707,7 +1707,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_other-meat_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'other-meat',
@@ -1717,7 +1717,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_processed-meat_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'processed-meat',
@@ -1727,7 +1727,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_fish_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'fish',
@@ -1737,7 +1737,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_processed-fish_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'processed-fish',
@@ -1747,7 +1747,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_fruits_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'fruits',
@@ -1757,7 +1757,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_oil_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'oil',
@@ -1767,7 +1767,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_seasoning_amount': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'seasoning',
@@ -1777,7 +1777,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_ready-meal_intensity': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'ready-meal',
@@ -1808,7 +1808,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_restaurant_intensity': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'restaurant',
@@ -1839,7 +1839,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-meal_food_bar-cafe_intensity': {
+  {
     option: 'guide-meal',
     domain: 'food',
     item: 'bar-cafe',
@@ -1870,7 +1870,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-snack-drink_food_sweets-snack_amount': {
+  {
     option: 'guide-snack-drink',
     domain: 'food',
     item: 'sweets-snack',
@@ -1880,7 +1880,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-snack-drink_food_alcohol_amount': {
+  {
     option: 'guide-snack-drink',
     domain: 'food',
     item: 'alcohol',
@@ -1890,7 +1890,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'guide-snack-drink_food_cold-drink_amount': {
+  {
     option: 'guide-snack-drink',
     domain: 'food',
     item: 'cold-drink',
@@ -1900,7 +1900,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_rice_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'rice',
@@ -1910,7 +1910,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_bread-flour_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'bread-flour',
@@ -1920,7 +1920,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_noodle_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'noodle',
@@ -1930,7 +1930,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_potatoes_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'potatoes',
@@ -1940,7 +1940,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_vegetables_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'vegetables',
@@ -1950,7 +1950,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_processed-vegetables_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'processed-vegetables',
@@ -1960,7 +1960,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_beans_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'beans',
@@ -1970,7 +1970,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_milk_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'milk',
@@ -1980,7 +1980,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_other-dairy_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'other-dairy',
@@ -1990,7 +1990,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_eggs_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'eggs',
@@ -2000,7 +2000,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_beef_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'beef',
@@ -2010,7 +2010,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_pork_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'pork',
@@ -2020,7 +2020,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_chicken_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'chicken',
@@ -2030,7 +2030,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_other-meat_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'other-meat',
@@ -2040,7 +2040,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_processed-meat_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'processed-meat',
@@ -2050,7 +2050,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_fish_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'fish',
@@ -2060,7 +2060,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_processed-fish_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'processed-fish',
@@ -2070,7 +2070,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_fruits_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'fruits',
@@ -2080,7 +2080,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_oil_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'oil',
@@ -2090,7 +2090,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_seasoning_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'seasoning',
@@ -2100,7 +2100,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_sweets-snack_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'sweets-snack',
@@ -2110,7 +2110,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_ready-meal_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'ready-meal',
@@ -2120,7 +2120,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_alcohol_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'alcohol',
@@ -2130,7 +2130,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_coffee-tea_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'coffee-tea',
@@ -2140,7 +2140,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_cold-drink_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'cold-drink',
@@ -2150,7 +2150,7 @@ export const options: Record<string, Option> = {
     operation: 'question-answer-to-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  loss_food_restaurant_amount: {
+  {
     option: 'loss',
     domain: 'food',
     item: 'restaurant',
@@ -2160,7 +2160,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'loss_food_bar-cafe_amount': {
+  {
     option: 'loss',
     domain: 'food',
     item: 'bar-cafe',
@@ -2170,7 +2170,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  seasonal_food_vegetables_intensity: {
+  {
     option: 'seasonal',
     domain: 'food',
     item: 'vegetables',
@@ -2180,7 +2180,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  seasonal_food_fruits_intensity: {
+  {
     option: 'seasonal',
     domain: 'food',
     item: 'fruits',
@@ -2190,7 +2190,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  local_food_potatoes_intensity: {
+  {
     option: 'local',
     domain: 'food',
     item: 'potatoes',
@@ -2200,7 +2200,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  local_food_vegetables_intensity: {
+  {
     option: 'local',
     domain: 'food',
     item: 'vegetables',
@@ -2210,7 +2210,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'clothes-accessory_other_clothes-goods_amount': {
+  {
     option: 'clothes-accessory',
     domain: 'other',
     item: 'clothes-goods',
@@ -2220,7 +2220,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'clothes-accessory_other_bags-jewelries-goods_amount': {
+  {
     option: 'clothes-accessory',
     domain: 'other',
     item: 'bags-jewelries-goods',
@@ -2230,7 +2230,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'electronics-furniture_other_electronics_amount': {
+  {
     option: 'electronics-furniture',
     domain: 'other',
     item: 'electronics',
@@ -2240,7 +2240,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'electronics-furniture_other_furniture_amount': {
+  {
     option: 'electronics-furniture',
     domain: 'other',
     item: 'furniture',
@@ -2250,7 +2250,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'electronics-furniture_other_covering_amount': {
+  {
     option: 'electronics-furniture',
     domain: 'other',
     item: 'covering',
@@ -2260,7 +2260,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'hobby_other_culture-goods_amount': {
+  {
     option: 'hobby',
     domain: 'other',
     item: 'culture-goods',
@@ -2270,7 +2270,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'hobby_other_entertainment-goods_amount': {
+  {
     option: 'hobby',
     domain: 'other',
     item: 'entertainment-goods',
@@ -2280,7 +2280,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'hobby_other_sports-goods_amount': {
+  {
     option: 'hobby',
     domain: 'other',
     item: 'sports-goods',
@@ -2290,7 +2290,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'hobby_other_gardening-flower_amount': {
+  {
     option: 'hobby',
     domain: 'other',
     item: 'gardening-flower',
@@ -2300,7 +2300,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  hobby_other_pet_amount: {
+  {
     option: 'hobby',
     domain: 'other',
     item: 'pet',
@@ -2310,7 +2310,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  hobby_other_tobacco_amount: {
+  {
     option: 'hobby',
     domain: 'other',
     item: 'tobacco',
@@ -2320,7 +2320,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  consumables_other_cosmetics_amount: {
+  {
     option: 'consumables',
     domain: 'other',
     item: 'cosmetics',
@@ -2330,7 +2330,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  consumables_other_sanitation_amount: {
+  {
     option: 'consumables',
     domain: 'other',
     item: 'sanitation',
@@ -2340,7 +2340,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'consumables_other_kitchen-goods_amount': {
+  {
     option: 'consumables',
     domain: 'other',
     item: 'kitchen-goods',
@@ -2350,7 +2350,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'consumables_other_paper-stationery_amount': {
+  {
     option: 'consumables',
     domain: 'other',
     item: 'paper-stationery',
@@ -2360,7 +2360,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'books_other_books-magazines_intensity': {
+  {
     option: 'books',
     domain: 'other',
     item: 'books-magazines',
@@ -2370,7 +2370,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'eco-tourism_other_hotel_amount': {
+  {
     option: 'eco-tourism',
     domain: 'other',
     item: 'hotel',
@@ -2380,7 +2380,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'eco-tourism_other_travel_amount': {
+  {
     option: 'eco-tourism',
     domain: 'other',
     item: 'travel',
@@ -2390,7 +2390,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'eco-tourism_other_culture-leisure_amount': {
+  {
     option: 'eco-tourism',
     domain: 'other',
     item: 'culture-leisure',
@@ -2400,7 +2400,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'eco-tourism_other_entertainment-leisure_amount': {
+  {
     option: 'eco-tourism',
     domain: 'other',
     item: 'entertainment-leisure',
@@ -2410,7 +2410,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'eco-tourism_other_sports-leisure_amount': {
+  {
     option: 'eco-tourism',
     domain: 'other',
     item: 'sports-leisure',
@@ -2420,7 +2420,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'eco-tourism_other_bath-spa_amount': {
+  {
     option: 'eco-tourism',
     domain: 'other',
     item: 'bath-spa',
@@ -2430,7 +2430,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'zeh_housing_housing-maintenance_amount': {
+  {
     option: 'zeh',
     domain: 'housing',
     item: 'housing-maintenance',
@@ -2440,7 +2440,7 @@ export const options: Record<string, Option> = {
     operation: 'increase-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  zeh_housing_electricity_amount: {
+  {
     option: 'zeh',
     domain: 'housing',
     item: 'electricity',
@@ -2455,7 +2455,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items-then-reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'zeh_housing_urban-gas_amount': {
+  {
     option: 'zeh',
     domain: 'housing',
     item: 'urban-gas',
@@ -2465,7 +2465,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  zeh_housing_lpg_amount: {
+  {
     option: 'zeh',
     domain: 'housing',
     item: 'lpg',
@@ -2475,7 +2475,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  zeh_housing_kerosene_amount: {
+  {
     option: 'zeh',
     domain: 'housing',
     item: 'kerosene',
@@ -2485,7 +2485,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'zeh_housing_other-energy_amount': {
+  {
     option: 'zeh',
     domain: 'housing',
     item: 'other-energy',
@@ -2495,7 +2495,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  zeh_housing_electricity_intensity: {
+  {
     option: 'zeh',
     domain: 'housing',
     item: 'electricity',
@@ -2505,7 +2505,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'self-re_housing_electricity_intensity': {
+  {
     option: 'self-re',
     domain: 'housing',
     item: 'electricity',
@@ -2515,7 +2515,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'grid-re_housing_electricity_intensity': {
+  {
     option: 'grid-re',
     domain: 'housing',
     item: 'electricity',
@@ -2525,7 +2525,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'com-house_housing_imputed-rent_amount': {
+  {
     option: 'com-house',
     domain: 'housing',
     item: 'imputed-rent',
@@ -2535,7 +2535,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'com-house_housing_rent_amount': {
+  {
     option: 'com-house',
     domain: 'housing',
     item: 'rent',
@@ -2545,7 +2545,7 @@ export const options: Record<string, Option> = {
     operation: 'absolute-target',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'com-house_housing_land-rent_amount': {
+  {
     option: 'com-house',
     domain: 'housing',
     item: 'land-rent',
@@ -2555,7 +2555,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'com-house_housing_housing-maintenance_amount': {
+  {
     option: 'com-house',
     domain: 'housing',
     item: 'housing-maintenance',
@@ -2565,7 +2565,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'com-house_housing_electricity_amount': {
+  {
     option: 'com-house',
     domain: 'housing',
     item: 'electricity',
@@ -2575,7 +2575,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'com-house_housing_urban-gas_amount': {
+  {
     option: 'com-house',
     domain: 'housing',
     item: 'urban-gas',
@@ -2585,7 +2585,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'com-house_housing_lpg_amount': {
+  {
     option: 'com-house',
     domain: 'housing',
     item: 'lpg',
@@ -2595,7 +2595,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'com-house_housing_kerosene_amount': {
+  {
     option: 'com-house',
     domain: 'housing',
     item: 'kerosene',
@@ -2605,7 +2605,7 @@ export const options: Record<string, Option> = {
     operation: 'proportional-to-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'insrenov_housing_housing-maintenance_amount': {
+  {
     option: 'insrenov',
     domain: 'housing',
     item: 'housing-maintenance',
@@ -2620,7 +2620,7 @@ export const options: Record<string, Option> = {
     operation: 'rebound-from-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  insrenov_housing_electricity_amount: {
+  {
     option: 'insrenov',
     domain: 'housing',
     item: 'electricity',
@@ -2630,7 +2630,7 @@ export const options: Record<string, Option> = {
     operation: 'question-reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'insrenov_housing_urban-gas_amount': {
+  {
     option: 'insrenov',
     domain: 'housing',
     item: 'urban-gas',
@@ -2640,7 +2640,7 @@ export const options: Record<string, Option> = {
     operation: 'question-reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  insrenov_housing_lpg_amount: {
+  {
     option: 'insrenov',
     domain: 'housing',
     item: 'lpg',
@@ -2650,7 +2650,7 @@ export const options: Record<string, Option> = {
     operation: 'question-reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  insrenov_housing_kerosene_amount: {
+  {
     option: 'insrenov',
     domain: 'housing',
     item: 'kerosene',
@@ -2660,7 +2660,7 @@ export const options: Record<string, Option> = {
     operation: 'question-reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'clothes-home_housing_electricity_amount': {
+  {
     option: 'clothes-home',
     domain: 'housing',
     item: 'electricity',
@@ -2670,7 +2670,7 @@ export const options: Record<string, Option> = {
     operation: 'question-reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'clothes-home_housing_urban-gas_amount': {
+  {
     option: 'clothes-home',
     domain: 'housing',
     item: 'urban-gas',
@@ -2680,7 +2680,7 @@ export const options: Record<string, Option> = {
     operation: 'question-reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'clothes-home_housing_lpg_amount': {
+  {
     option: 'clothes-home',
     domain: 'housing',
     item: 'lpg',
@@ -2690,7 +2690,7 @@ export const options: Record<string, Option> = {
     operation: 'question-reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'clothes-home_housing_kerosene_amount': {
+  {
     option: 'clothes-home',
     domain: 'housing',
     item: 'kerosene',
@@ -2700,7 +2700,7 @@ export const options: Record<string, Option> = {
     operation: 'question-reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'ec_housing_housing-maintenance_amount': {
+  {
     option: 'ec',
     domain: 'housing',
     item: 'housing-maintenance',
@@ -2716,7 +2716,7 @@ export const options: Record<string, Option> = {
     operation: 'rebound-from-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  ec_housing_electricity_amount: {
+  {
     option: 'ec',
     domain: 'housing',
     item: 'electricity',
@@ -2731,7 +2731,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'ec_housing_urban-gas_amount': {
+  {
     option: 'ec',
     domain: 'housing',
     item: 'urban-gas',
@@ -2741,7 +2741,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  ec_housing_lpg_amount: {
+  {
     option: 'ec',
     domain: 'housing',
     item: 'lpg',
@@ -2751,7 +2751,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  ec_housing_kerosene_amount: {
+  {
     option: 'ec',
     domain: 'housing',
     item: 'kerosene',
@@ -2761,7 +2761,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'ec_housing_other-energy_amount': {
+  {
     option: 'ec',
     domain: 'housing',
     item: 'other-energy',
@@ -2771,7 +2771,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'ac_housing_housing-maintenance_amount': {
+  {
     option: 'ac',
     domain: 'housing',
     item: 'housing-maintenance',
@@ -2786,7 +2786,7 @@ export const options: Record<string, Option> = {
     operation: 'rebound-from-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  ac_housing_electricity_amount: {
+  {
     option: 'ac',
     domain: 'housing',
     item: 'electricity',
@@ -2800,7 +2800,7 @@ export const options: Record<string, Option> = {
     operation: 'shift-from-other-items',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'ac_housing_urban-gas_amount': {
+  {
     option: 'ac',
     domain: 'housing',
     item: 'urban-gas',
@@ -2810,7 +2810,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  ac_housing_lpg_amount: {
+  {
     option: 'ac',
     domain: 'housing',
     item: 'lpg',
@@ -2820,7 +2820,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  ac_housing_kerosene_amount: {
+  {
     option: 'ac',
     domain: 'housing',
     item: 'kerosene',
@@ -2830,7 +2830,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  led_housing_electricity_amount: {
+  {
     option: 'led',
     domain: 'housing',
     item: 'electricity',
@@ -2840,7 +2840,7 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'led_housing_housing-maintenance_amount': {
+  {
     option: 'led',
     domain: 'housing',
     item: 'housing-maintenance',
@@ -2850,7 +2850,7 @@ export const options: Record<string, Option> = {
     operation: 'further-reduction-from-other-footprints',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  enenudge_housing_electricity_amount: {
+  {
     option: 'enenudge',
     domain: 'housing',
     item: 'electricity',
@@ -2860,4 +2860,4 @@ export const options: Record<string, Option> = {
     operation: 'reduction-rate',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   }
-}
+]

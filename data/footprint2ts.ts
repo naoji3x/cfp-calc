@@ -23,24 +23,20 @@ const toFootprint = (
 const data = fs.readFileSync('data/footprint.csv')
 const records = parse(data, { columns: true })
 
-const footprints: Record<string, Footprint> = {}
+const footprints: Footprint[] = []
 
 for (const record of records) {
   const dirDomain = String(record.dir_domain)
   const itemType = String(record.item_type)
   const [directory, domain] = dirDomain.split('_')
   const [item, type] = itemType.split('_')
-  footprints[dirDomain + '_' + itemType] = toFootprint(
-    directory,
-    domain as Domain,
-    item,
-    type as Type,
-    record
+  footprints.push(
+    toFootprint(directory, domain as Domain, item, type as Type, record)
   )
 }
 
 const header = `import { type Footprint } from '../entity/footprint'
-export const footprints: Record<string, Footprint> = `
+export const footprints: Footprint[] = `
 const ts = header + JSON.stringify(footprints, null, 2)
 
 try {

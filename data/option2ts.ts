@@ -33,23 +33,17 @@ const toOption = (
 const data = fs.readFileSync('data/option.csv')
 const records = parse(data, { columns: true })
 
-const options: Record<string, Option> = {}
+const options: Option[] = []
 
 for (const record of records) {
   const option = String(record.option)
   const domainItemType = String(record.domain_item_type)
   const [domain, item, type] = domainItemType.split('_')
-  options[option + '_' + domainItemType] = toOption(
-    option,
-    domain as Domain,
-    item,
-    type as Type,
-    record
-  )
+  options.push(toOption(option, domain as Domain, item, type as Type, record))
 }
 
 const header = `import { type Option } from '../entity/option'
-export const options: Record<string, Option> = `
+export const options: Option[] = `
 const ts = header + JSON.stringify(options, null, 2)
 
 try {

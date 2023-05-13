@@ -1,6 +1,6 @@
 import { type Footprint } from '../entity/footprint'
-export const footprints: Record<string, Footprint> = {
-  'baseline_housing_imputed-rent_amount': {
+export const footprints: Footprint[] = [
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'imputed-rent',
@@ -10,7 +10,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'm2',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_rent_amount: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'rent',
@@ -20,7 +20,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'm2',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_housing_land-rent_amount': {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'land-rent',
@@ -30,7 +30,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_housing_housing-maintenance_amount': {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'housing-maintenance',
@@ -40,7 +40,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_electricity_amount: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'electricity',
@@ -50,7 +50,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_housing_urban-gas_amount': {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'urban-gas',
@@ -60,7 +60,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_lpg_amount: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'lpg',
@@ -70,7 +70,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_kerosene_amount: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'kerosene',
@@ -80,7 +80,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_housing_other-energy_amount': {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'other-energy',
@@ -90,7 +90,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_water_amount: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'water',
@@ -100,7 +100,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'm3',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_airplane_amount: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'airplane',
@@ -110,7 +110,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_train_amount: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'train',
@@ -120,7 +120,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_bus_amount: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'bus',
@@ -130,7 +130,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_ferry_amount: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'ferry',
@@ -140,7 +140,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_taxi_amount: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'taxi',
@@ -150,7 +150,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_private-car-driving_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -160,7 +160,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_car-sharing-driving_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'car-sharing-driving',
@@ -170,7 +170,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_motorbike-driving_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'motorbike-driving',
@@ -180,7 +180,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_bicycle-driving_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'bicycle-driving',
@@ -190,7 +190,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_walking_amount: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'walking',
@@ -200,7 +200,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_private-car-purchase_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -210,7 +210,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'vehicle',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_motorbike-purchase_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'motorbike-purchase',
@@ -220,7 +220,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'vehicle',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_car-sharing-rental_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'car-sharing-rental',
@@ -230,7 +230,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'use',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_private-car-maintenance_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'private-car-maintenance',
@@ -240,7 +240,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_motorbike-maintenance_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'motorbike-maintenance',
@@ -250,7 +250,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_bicycle-maintenance_amount': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'bicycle-maintenance',
@@ -260,7 +260,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_rice_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'rice',
@@ -270,7 +270,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_bread-flour_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'bread-flour',
@@ -280,7 +280,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_noodle_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'noodle',
@@ -290,7 +290,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_potatoes_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'potatoes',
@@ -300,7 +300,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_vegetables_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'vegetables',
@@ -310,7 +310,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_processed-vegetables_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'processed-vegetables',
@@ -320,7 +320,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_beans_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'beans',
@@ -330,7 +330,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_milk_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'milk',
@@ -340,7 +340,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_other-dairy_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'other-dairy',
@@ -350,7 +350,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_eggs_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'eggs',
@@ -360,7 +360,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_beef_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'beef',
@@ -370,7 +370,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_pork_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'pork',
@@ -380,7 +380,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_chicken_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'chicken',
@@ -390,7 +390,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_other-meat_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'other-meat',
@@ -400,7 +400,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_processed-meat_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'processed-meat',
@@ -410,7 +410,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_fish_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'fish',
@@ -420,7 +420,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_processed-fish_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'processed-fish',
@@ -430,7 +430,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_fruits_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'fruits',
@@ -440,7 +440,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_oil_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'oil',
@@ -450,7 +450,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_seasoning_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'seasoning',
@@ -460,7 +460,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_sweets-snack_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'sweets-snack',
@@ -470,7 +470,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_ready-meal_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'ready-meal',
@@ -480,7 +480,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_alcohol_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'alcohol',
@@ -490,7 +490,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_coffee-tea_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'coffee-tea',
@@ -500,7 +500,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_cold-drink_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'cold-drink',
@@ -510,7 +510,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_cooking-appliances_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'cooking-appliances',
@@ -520,7 +520,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_heating-cooling-appliances_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'heating-cooling-appliances',
@@ -530,7 +530,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_other-appliances_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'other-appliances',
@@ -540,7 +540,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_electronics_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'electronics',
@@ -550,7 +550,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_clothes-goods_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'clothes-goods',
@@ -560,7 +560,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_bags-jewelries-goods_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'bags-jewelries-goods',
@@ -570,7 +570,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_culture-goods_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'culture-goods',
@@ -580,7 +580,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_entertainment-goods_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'entertainment-goods',
@@ -590,7 +590,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_sports-goods_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sports-goods',
@@ -600,7 +600,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_gardening-flower_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'gardening-flower',
@@ -610,7 +610,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_pet_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'pet',
@@ -620,7 +620,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_tobacco_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'tobacco',
@@ -630,7 +630,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_furniture_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'furniture',
@@ -640,7 +640,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_covering_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'covering',
@@ -650,7 +650,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_cosmetics_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'cosmetics',
@@ -660,7 +660,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_sanitation_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sanitation',
@@ -670,7 +670,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_medicine_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'medicine',
@@ -680,7 +680,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_kitchen-goods_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'kitchen-goods',
@@ -690,7 +690,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_paper-stationery_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'paper-stationery',
@@ -700,7 +700,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_books-magazines_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'books-magazines',
@@ -710,7 +710,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_waste_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'waste',
@@ -720,7 +720,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_restaurant_amount: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'restaurant',
@@ -730,7 +730,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_bar-cafe_amount': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'bar-cafe',
@@ -740,7 +740,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_hotel_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'hotel',
@@ -750,7 +750,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_travel_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'travel',
@@ -760,7 +760,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_culture-leisure_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'culture-leisure',
@@ -770,7 +770,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_entertainment-leisure_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'entertainment-leisure',
@@ -780,7 +780,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_sports-leisure_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sports-leisure',
@@ -790,7 +790,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_furniture-daily-goods-repair-rental_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'furniture-daily-goods-repair-rental',
@@ -800,7 +800,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_clothes-repair-rental_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'clothes-repair-rental',
@@ -810,7 +810,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_bags-jewelries-repair-rental_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'bags-jewelries-repair-rental',
@@ -820,7 +820,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_electrical-appliances-repair-rental_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'electrical-appliances-repair-rental',
@@ -830,7 +830,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_sports-culture-repair-rental_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sports-culture-repair-rental',
@@ -840,7 +840,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_sports-entertainment-repair-rental_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sports-entertainment-repair-rental',
@@ -850,7 +850,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_housework_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'housework',
@@ -860,7 +860,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_washing_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'washing',
@@ -870,7 +870,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_haircare_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'haircare',
@@ -880,7 +880,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_bath-spa_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'bath-spa',
@@ -890,7 +890,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_postal-delivery_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'postal-delivery',
@@ -900,7 +900,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_communication_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'communication',
@@ -910,7 +910,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_broadcasting_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'broadcasting',
@@ -920,7 +920,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_ceremony_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'ceremony',
@@ -930,7 +930,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_medical-care_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'medical-care',
@@ -940,7 +940,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_nursing_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'nursing',
@@ -950,7 +950,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_caring_amount: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'caring',
@@ -960,7 +960,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_formal-education_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'formal-education',
@@ -970,7 +970,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_informal-education_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'informal-education',
@@ -980,7 +980,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_finance-insurance_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'finance-insurance',
@@ -990,7 +990,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_other-services_amount': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'other-services',
@@ -1000,7 +1000,7 @@ export const footprints: Record<string, Footprint> = {
     unit: '000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_housing_imputed-rent_intensity': {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'imputed-rent',
@@ -1010,7 +1010,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/m2',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_rent_intensity: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'rent',
@@ -1020,7 +1020,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/m2',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_housing_land-rent_intensity': {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'land-rent',
@@ -1030,7 +1030,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_housing_housing-maintenance_intensity': {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'housing-maintenance',
@@ -1040,7 +1040,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_electricity_intensity: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'electricity',
@@ -1050,7 +1050,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_housing_urban-gas_intensity': {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'urban-gas',
@@ -1060,7 +1060,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_lpg_intensity: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'lpg',
@@ -1070,7 +1070,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_kerosene_intensity: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'kerosene',
@@ -1080,7 +1080,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_housing_other-energy_intensity': {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'other-energy',
@@ -1090,7 +1090,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kWh',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_housing_water_intensity: {
+  {
     directory: 'baseline',
     domain: 'housing',
     item: 'water',
@@ -1100,7 +1100,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/m3',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_airplane_intensity: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'airplane',
@@ -1110,7 +1110,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_train_intensity: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'train',
@@ -1120,7 +1120,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_bus_intensity: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'bus',
@@ -1130,7 +1130,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_ferry_intensity: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'ferry',
@@ -1140,7 +1140,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_taxi_intensity: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'taxi',
@@ -1150,7 +1150,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_private-car-driving_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'private-car-driving',
@@ -1160,7 +1160,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_car-sharing-driving_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'car-sharing-driving',
@@ -1170,7 +1170,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_motorbike-driving_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'motorbike-driving',
@@ -1180,7 +1180,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_bicycle-driving_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'bicycle-driving',
@@ -1190,7 +1190,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_mobility_walking_intensity: {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'walking',
@@ -1200,7 +1200,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/km-passenger',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_private-car-purchase_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'private-car-purchase',
@@ -1210,7 +1210,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/vehicle',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_motorbike-purchase_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'motorbike-purchase',
@@ -1220,7 +1220,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/vehicle',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_car-sharing-rental_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'car-sharing-rental',
@@ -1230,7 +1230,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/use',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_private-car-maintenance_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'private-car-maintenance',
@@ -1240,7 +1240,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_motorbike-maintenance_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'motorbike-maintenance',
@@ -1250,7 +1250,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_mobility_bicycle-maintenance_intensity': {
+  {
     directory: 'baseline',
     domain: 'mobility',
     item: 'bicycle-maintenance',
@@ -1260,7 +1260,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_rice_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'rice',
@@ -1270,7 +1270,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_bread-flour_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'bread-flour',
@@ -1280,7 +1280,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_noodle_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'noodle',
@@ -1290,7 +1290,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_potatoes_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'potatoes',
@@ -1300,7 +1300,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_vegetables_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'vegetables',
@@ -1310,7 +1310,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_processed-vegetables_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'processed-vegetables',
@@ -1320,7 +1320,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_beans_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'beans',
@@ -1330,7 +1330,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_milk_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'milk',
@@ -1340,7 +1340,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_other-dairy_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'other-dairy',
@@ -1350,7 +1350,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_eggs_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'eggs',
@@ -1360,7 +1360,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_beef_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'beef',
@@ -1370,7 +1370,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_pork_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'pork',
@@ -1380,7 +1380,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_chicken_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'chicken',
@@ -1390,7 +1390,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_other-meat_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'other-meat',
@@ -1400,7 +1400,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_processed-meat_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'processed-meat',
@@ -1410,7 +1410,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_fish_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'fish',
@@ -1420,7 +1420,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_processed-fish_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'processed-fish',
@@ -1430,7 +1430,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_fruits_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'fruits',
@@ -1440,7 +1440,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_oil_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'oil',
@@ -1450,7 +1450,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_seasoning_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'seasoning',
@@ -1460,7 +1460,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_sweets-snack_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'sweets-snack',
@@ -1470,7 +1470,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_ready-meal_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'ready-meal',
@@ -1480,7 +1480,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_alcohol_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'alcohol',
@@ -1490,7 +1490,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_coffee-tea_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'coffee-tea',
@@ -1500,7 +1500,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_cold-drink_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'cold-drink',
@@ -1510,7 +1510,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/kg',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_cooking-appliances_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'cooking-appliances',
@@ -1520,7 +1520,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_heating-cooling-appliances_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'heating-cooling-appliances',
@@ -1530,7 +1530,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_other-appliances_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'other-appliances',
@@ -1540,7 +1540,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_electronics_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'electronics',
@@ -1550,7 +1550,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_clothes-goods_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'clothes-goods',
@@ -1560,7 +1560,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_bags-jewelries-goods_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'bags-jewelries-goods',
@@ -1570,7 +1570,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_culture-goods_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'culture-goods',
@@ -1580,7 +1580,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_entertainment-goods_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'entertainment-goods',
@@ -1590,7 +1590,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_sports-goods_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sports-goods',
@@ -1600,7 +1600,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_gardening-flower_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'gardening-flower',
@@ -1610,7 +1610,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_pet_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'pet',
@@ -1620,7 +1620,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_tobacco_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'tobacco',
@@ -1630,7 +1630,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_furniture_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'furniture',
@@ -1640,7 +1640,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_covering_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'covering',
@@ -1650,7 +1650,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_cosmetics_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'cosmetics',
@@ -1660,7 +1660,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_sanitation_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sanitation',
@@ -1670,7 +1670,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_medicine_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'medicine',
@@ -1680,7 +1680,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_kitchen-goods_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'kitchen-goods',
@@ -1690,7 +1690,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_paper-stationery_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'paper-stationery',
@@ -1700,7 +1700,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_books-magazines_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'books-magazines',
@@ -1710,7 +1710,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_waste_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'waste',
@@ -1720,7 +1720,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_food_restaurant_intensity: {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'restaurant',
@@ -1730,7 +1730,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_food_bar-cafe_intensity': {
+  {
     directory: 'baseline',
     domain: 'food',
     item: 'bar-cafe',
@@ -1740,7 +1740,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_hotel_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'hotel',
@@ -1750,7 +1750,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_travel_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'travel',
@@ -1760,7 +1760,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_culture-leisure_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'culture-leisure',
@@ -1770,7 +1770,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_entertainment-leisure_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'entertainment-leisure',
@@ -1780,7 +1780,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_sports-leisure_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sports-leisure',
@@ -1790,7 +1790,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_furniture-daily-goods-repair-rental_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'furniture-daily-goods-repair-rental',
@@ -1800,7 +1800,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_clothes-repair-rental_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'clothes-repair-rental',
@@ -1810,7 +1810,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_bags-jewelries-repair-rental_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'bags-jewelries-repair-rental',
@@ -1820,7 +1820,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_electrical-appliances-repair-rental_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'electrical-appliances-repair-rental',
@@ -1830,7 +1830,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_sports-culture-repair-rental_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sports-culture-repair-rental',
@@ -1840,7 +1840,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_sports-entertainment-repair-rental_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'sports-entertainment-repair-rental',
@@ -1850,7 +1850,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_housework_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'housework',
@@ -1860,7 +1860,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_washing_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'washing',
@@ -1870,7 +1870,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_haircare_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'haircare',
@@ -1880,7 +1880,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_bath-spa_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'bath-spa',
@@ -1890,7 +1890,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_postal-delivery_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'postal-delivery',
@@ -1900,7 +1900,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_communication_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'communication',
@@ -1910,7 +1910,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_broadcasting_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'broadcasting',
@@ -1920,7 +1920,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_ceremony_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'ceremony',
@@ -1930,7 +1930,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_medical-care_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'medical-care',
@@ -1940,7 +1940,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_nursing_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'nursing',
@@ -1950,7 +1950,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  baseline_other_caring_intensity: {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'caring',
@@ -1960,7 +1960,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_formal-education_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'formal-education',
@@ -1970,7 +1970,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_informal-education_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'informal-education',
@@ -1980,7 +1980,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_finance-insurance_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'finance-insurance',
@@ -1990,7 +1990,7 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   },
-  'baseline_other_other-services_intensity': {
+  {
     directory: 'baseline',
     domain: 'other',
     item: 'other-services',
@@ -2000,4 +2000,4 @@ export const footprints: Record<string, Footprint> = {
     unit: 'kgCO2e/000JPY',
     citation: 'Koide et al. 2021. Environmental Research Letters 16 084001'
   }
-}
+]

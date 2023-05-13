@@ -1,8 +1,7 @@
-import { type Domain, type Origin } from '../common'
+import { type Domain } from '../common'
 
 /**
- * Diagnosisでは、フットプリントを推定してベースラインから変更のあった
- * 項目（活動量、GHG原単位）のみを縦展開で保持しており、
+ * Diagnosisでは、活動量、GHG原単位が縦展開されており、
  * 分析には使いにくいため、FootprintItemで横展開する。
  */
 export interface FootprintItem {
@@ -16,12 +15,10 @@ export interface FootprintItem {
   readonly intensity: number
   /** GHG原単位の単位 */
   readonly intensityUnit: string
-  /** GHG原単位の取得元 */
-  readonly intensityOrigin: Origin
   /** 活動量 */
   readonly amount: number
   /** 活動量の単位 */
   readonly amountUnit: string
-  /** 活動量の取得元 */
-  readonly amountOrigin: Origin
+  /** カーボンフットプリント[kCO2e] */
+  readonly footprint: number
 }

@@ -13,16 +13,14 @@ const toParameter = (record: any): Parameter => ({
 const data = fs.readFileSync('data/parameter.csv')
 const records = parse(data, { columns: true })
 
-const parameters: Record<string, Parameter> = {}
+const parameters: Parameter[] = []
 
 for (const record of records) {
-  const category = String(record.category)
-  const key = String(record.key)
-  parameters[category + '_' + key] = toParameter(record)
+  parameters.push(toParameter(record))
 }
 
 const header = `import { type Parameter } from '../entity/parameter'
-export const parameters: Record<string, Parameter> = `
+export const parameters: Parameter[] = `
 const ts = header + JSON.stringify(parameters, null, 2)
 
 try {
